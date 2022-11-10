@@ -52,7 +52,30 @@
     </div>
   </div>
   <!-- single file upload ends -->
-
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Vaciar tabla SIMAT</h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Porfavor asegúrese que esta acción es la que necesita, pues eliminara completamente la tabla SIMAT, si necesita ver información deberá volver a importarla en el paso anterior
+            
+          </p>
+          <form action="{{ route('simat-vaciar') }}"   method="get" >
+            @method("GET")
+            @csrf
+            <div class="mb-1">
+          
+             
+              <button type="submit" class="btn btn-danger waves-effect waves-float waves-light">Vaciar tabla</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
 <!-- Dropzone section end -->

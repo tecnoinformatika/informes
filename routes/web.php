@@ -16,6 +16,7 @@ use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\SimatController;
+use App\Http\Controllers\RpsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -255,7 +256,16 @@ Route::group(['prefix' => 'simat'], function () {
     Route::get('index', [SimatController::class, 'index'])->name('simat-index');
     Route::get('tabla', [SimatController::class, 'tablaSimat'])->name('simat-tabla');
     Route::get('datos', [SimatController::class, 'datos'])->name('simat-datos');
+    Route::get('vaciar', [SimatController::class, 'vaciar'])->name('simat-vaciar');
     Route::post('importar', [SimatController::class, 'importar'])->name('simat-importar');
+});
+
+Route::group(['prefix' => 'rps'], function () {
+    Route::get('index', [RpsController::class, 'index'])->name('rps-index');
+    Route::get('tabla', [RpsController::class, 'tablaRps'])->name('rps-tabla');
+    Route::get('datos', [RpsController::class, 'datos'])->name('rps-datos');
+    Route::get('vaciar', [RpsController::class, 'vaciar'])->name('rps-vaciar');
+    Route::post('importar', [RpsController::class, 'importar'])->name('rps-importar');
 });
 
 Route::controller(SimatController::class)->group(function(){

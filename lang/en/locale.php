@@ -2,6 +2,8 @@
 
 return [
     "Data" => "Bases de datos",
+    "RPS" => "RPS",
+    "RI" => "RI",
     "Administrar datos" => "Administrar datos",
     "Simat" => "SIMAT",
     "Datos cargados" => "Datos cargados",

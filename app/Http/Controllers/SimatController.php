@@ -37,7 +37,8 @@ class SimatController extends Controller
         
         if( isset($request["excelsimat"])){
             Excel::import(new SimatImport, request()->file('excelsimat'));
-           dd("exito");
+            $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del simat"], ['name' => "Simat"]];
+            return view('/content/simat/simat', ['breadcrumbs' => $breadcrumbs]);
         }
         
         
@@ -45,6 +46,14 @@ class SimatController extends Controller
         return redirect('/')->with('success', 'All good!');
     }
 
+    public function vaciar()
+    {
+        
+        Simat::query()->truncate();
+
+        $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del simat"], ['name' => "Simat"]];
+        return view('/content/simat/simat', ['breadcrumbs' => $breadcrumbs]);
+    }
     /**
      * Show the form for creating a new resource.
      *

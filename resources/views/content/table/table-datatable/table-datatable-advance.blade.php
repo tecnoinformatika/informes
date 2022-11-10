@@ -18,7 +18,7 @@
 
 @section('content')
 <!-- Ajax Sourced Server-side -->
-<!-- <section id="ajax-datatable">
+<section id="ajax-datatable">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -42,12 +42,12 @@
       </div>
     </div>
   </div>
-</section> -->
+</section> 
 
 <!--/ Ajax Sourced Server-side -->
 
 <!-- Column Search -->
-<!-- <section id="column-search-datatable">
+<section id="column-search-datatable">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -81,7 +81,7 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>
 <!--/ Column Search -->
 
 <!-- Advanced Search -->
@@ -212,7 +212,7 @@
 <!--/ Advanced Search -->
 
 <!-- Responsive Datatable -->
-<!-- <section id="responsive-datatable">
+ <section id="responsive-datatable">
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -254,7 +254,7 @@
       </div>
     </div>
   </div>
-</section> -->
+</section> 
 <!--/ Responsive Datatable -->
 @endsection
 

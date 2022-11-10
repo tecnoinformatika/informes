@@ -57,7 +57,6 @@ class SimatImport implements ToModel
             'srpa' => $row[39],
             'discapacidad' => $row[40],
             'pais_origen' => $row[41],
-            'correo' => $row[42],
         ]);
     }
 

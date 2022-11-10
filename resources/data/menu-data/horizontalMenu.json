@@ -619,6 +619,50 @@
             }
           ]
           
+        },
+        {
+          
+          "name": "RPS",
+          "dropdown": "1",
+          "icon": "file-text",
+          "slug": "",
+          "submenu": [
+            {
+              "url": "rps/index",
+              "name": "Datos cargados",
+              "icon": "users",
+              "slug": "rps-index"
+            },
+            {
+              "url": "rps/datos",
+              "name": "Administrar datos",
+              "icon": "user-plus",
+              "slug": "rps-datos"
+            }
+          ]
+          
+        },
+        {
+          
+          "name": "RI",
+          "dropdown": "1",
+          "icon": "file-text",
+          "slug": "",
+          "submenu": [
+            {
+              "url": "ri/index",
+              "name": "Datos cargados",
+              "icon": "users",
+              "slug": "ri-index"
+            },
+            {
+              "url": "ri/datos",
+              "name": "Administrar datos",
+              "icon": "user-plus",
+              "slug": "ri-datos"
+            }
+          ]
+          
         }
         
       ]

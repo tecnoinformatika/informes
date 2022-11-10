@@ -53,7 +53,6 @@ class Simat extends Model
         'srpa',
         'discapacidad',
         'pais_origen',
-        'correo',  
     ];
 
     
