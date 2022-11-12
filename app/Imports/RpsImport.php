@@ -64,12 +64,13 @@ class RpsImport implements ToModel
             'TOTAL_DIAS_NO_CONSUMO' => $row[47],
             'SEDE' => $row[48],
             'INSTITUCION' => $row[49],
+            'codigo_dane_sede' => $row[50],            
             'SUPERVISOR_OPERDOR' => $row[51],
         ]);
     }
 
     public function chunkSize(): int
     {
-        return 500;
+        return 1000;
     }
 }

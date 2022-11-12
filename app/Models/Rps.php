@@ -59,6 +59,7 @@ class Rps extends Model
         'TOTAL_DIAS_NO_CONSUMO',
         'SEDE',
         'INSTITUCION',
+        'codigo_dane_sede',
         'SUPERVISOR_OPERDOR'
 
     ];

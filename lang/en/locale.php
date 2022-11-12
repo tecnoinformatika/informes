@@ -1,6 +1,8 @@
 <?php
 
 return [
+    "Instituciones" => "Instituciones",
+    "Sedes" => "Sedes",
     "Data" => "Bases de datos",
     "RPS" => "RPS",
     "RI" => "RI",

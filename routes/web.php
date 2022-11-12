@@ -17,6 +17,9 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\SimatController;
 use App\Http\Controllers\RpsController;
+use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\SedesController;
+use App\Http\Controllers\RiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -266,6 +269,30 @@ Route::group(['prefix' => 'rps'], function () {
     Route::get('datos', [RpsController::class, 'datos'])->name('rps-datos');
     Route::get('vaciar', [RpsController::class, 'vaciar'])->name('rps-vaciar');
     Route::post('importar', [RpsController::class, 'importar'])->name('rps-importar');
+});
+
+Route::group(['prefix' => 'ri'], function () {
+    Route::get('index', [RiController::class, 'index'])->name('ri-index');
+    Route::get('tabla', [RiController::class, 'tablaRi'])->name('ri-tabla');
+    Route::get('datos', [RiController::class, 'datos'])->name('ri-datos');
+    Route::get('vaciar', [RiController::class, 'vaciar'])->name('ri-vaciar');
+    Route::post('importar', [RiController::class, 'importar'])->name('ri-importar');
+});
+
+Route::group(['prefix' => 'institucion'], function () {
+    Route::get('index', [InstitucionController::class, 'index'])->name('institucion-index');
+    Route::get('tabla', [InstitucionController::class, 'tablainstitucion'])->name('institucion-tabla');
+    Route::get('datos', [InstitucionController::class, 'datos'])->name('institucion-datos');
+    Route::get('vaciar', [InstitucionController::class, 'vaciar'])->name('institucion-vaciar');
+    Route::post('importar', [InstitucionController::class, 'importar'])->name('institucion-importar');
+});
+
+Route::group(['prefix' => 'sedes'], function () {
+    Route::get('index', [SedesController::class, 'index'])->name('sedes-index');
+    Route::get('tabla', [SedesController::class, 'tablasedes'])->name('sedes-tabla');
+    Route::get('datos', [SedesController::class, 'datos'])->name('sedes-datos');
+    Route::get('vaciar', [SedesController::class, 'vaciar'])->name('sedes-vaciar');
+    Route::post('importar', [SedesController::class, 'importar'])->name('sedes-importar');
 });
 
 Route::controller(SimatController::class)->group(function(){

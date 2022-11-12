@@ -141,14 +141,58 @@ $(function () {
     });
 
     var dt_filter = dt_filter_table.DataTable({
-      ajax: assetPath + 'data/table-datatable.json',
-      columns: [
-        { data: 'full_name' },
-        { data: 'email' },
-        { data: 'post' },
-        { data: 'city' },
-        { data: 'start_date' },
-        { data: 'salary' }
+      ajax: assetPath + 'rps/tabla',
+       columns: [        
+        { data: 'TIPO_DE_DOCUMENTO' },
+        { data: 'NUMERO_DE_DOCUMENTO_DE_IDENTIDAD' },
+        { data: 'PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO' },
+        { data: 'SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO' },
+        { data: 'PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO' },
+        { data: 'SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO' },
+        { data: 'FECHA_DE_NACIMIENTO' },
+        { data: 'GRUPO_ETARIO' },
+        { data: 'PERTENENCIA_ETNICA' },
+        { data: 'Sexo' },
+        { data: 'Grado_Educativo' },
+        { data: 'dia_1' },
+        { data: 'dia_2' },
+        { data: 'dia_3' },
+        { data: 'dia_4' },
+        { data: 'dia_5' },
+        { data: 'dia_6' },
+        { data: 'dia_7' },
+        { data: 'dia_8' },
+        { data: 'dia_9' },
+        { data: 'dia_10' },
+        { data: 'dia_11' },
+        { data: 'dia_12' },
+        { data: 'dia_13' },
+        { data: 'dia_14' },
+        { data: 'dia_15' },
+        { data: 'dia_16' },
+        { data: 'dia_17' },
+        { data: 'dia_18' },
+        { data: 'dia_19' },
+        { data: 'dia_20' },
+        { data: 'dia_21' },
+        { data: 'dia_22' },
+        { data: 'dia_23' },
+        { data: 'dia_24' },
+        { data: 'dia_25' },
+        { data: 'dia_26' },
+        { data: 'dia_27' },
+        { data: 'dia_28' },
+        { data: 'dia_29' },
+        { data: 'dia_30' },
+        { data: 'dia_31' },
+        { data: 'MODALIDAD' },
+        { data: 'NO_CLASES' },
+        { data: 'NOVEDADES' },
+        { data: 'TOTAL_DIAS_NO_CONSUMO' },
+        { data: 'SEDE' },
+        { data: 'INSTITUCION' },
+        { data: 'CODIGO_DANE' }
+
       ],
       dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
       orderCellsTop: true,
@@ -164,168 +208,6 @@ $(function () {
 
   // Advanced Search
   // --------------------------------------------------------------------
-
-  // Advanced Filter table
-  if (dt_adv_filter_table.length) {
-    var dt_adv_filter = dt_adv_filter_table.DataTable({
-      ajax: assetPath + 'data/table-datatable.json',
-      columns: [
-        { data: 'responsive_id' },
-        { data: 'full_name' },
-        { data: 'email' },
-        { data: 'post' },
-        { data: 'city' },
-        { data: 'start_date' },
-        { data: 'salary' }
-      ],
-
-      columnDefs: [
-        {
-          className: 'control',
-          orderable: false,
-          targets: 0
-        }
-      ],
-      dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-      orderCellsTop: true,
-      responsive: {
-        details: {
-          display: $.fn.dataTable.Responsive.display.modal({
-            header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['full_name'];
-            }
-          }),
-          type: 'column',
-          renderer: function (api, rowIdx, columns) {
-            var data = $.map(columns, function (col, i) {
-              return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
-                ? '<tr data-dt-row="' +
-                    col.rowIndex +
-                    '" data-dt-column="' +
-                    col.columnIndex +
-                    '">' +
-                    '<td>' +
-                    col.title +
-                    ':' +
-                    '</td> ' +
-                    '<td>' +
-                    col.data +
-                    '</td>' +
-                    '</tr>'
-                : '';
-            }).join('');
-
-            return data ? $('<table class="table"/><tbody />').append(data) : false;
-          }
-        }
-      },
-      language: {
-        paginate: {
-          // remove previous & next text from pagination
-          previous: '&nbsp;',
-          next: '&nbsp;'
-        }
-      }
-    });
-  }
-
-  // on key up from input field
-  $('input.dt-input').on('keyup', function () {
-    filterColumn($(this).attr('data-column'), $(this).val());
-  });
-
-  // Responsive Table
-  // --------------------------------------------------------------------
-
-  if (dt_responsive_table.length) {
-    var dt_responsive = dt_responsive_table.DataTable({
-      ajax: assetPath + 'data/table-datatable.json',
-      columns: [
-        { data: 'responsive_id' },
-        { data: 'full_name' },
-        { data: 'email' },
-        { data: 'post' },
-        { data: 'city' },
-        { data: 'start_date' },
-        { data: 'salary' },
-        { data: 'age' },
-        { data: 'experience' },
-        { data: 'status' }
-      ],
-      columnDefs: [
-        {
-          className: 'control',
-          orderable: false,
-          targets: 0
-        },
-        {
-          // Label
-          targets: -1,
-          render: function (data, type, full, meta) {
-            var $status_number = full['status'];
-            var $status = {
-              1: { title: 'Current', class: 'badge-light-primary' },
-              2: { title: 'Professional', class: ' badge-light-success' },
-              3: { title: 'Rejected', class: ' badge-light-danger' },
-              4: { title: 'Resigned', class: ' badge-light-warning' },
-              5: { title: 'Applied', class: ' badge-light-info' }
-            };
-            if (typeof $status[$status_number] === 'undefined') {
-              return data;
-            }
-            return (
-              '<span class="badge rounded-pill ' +
-              $status[$status_number].class +
-              '">' +
-              $status[$status_number].title +
-              '</span>'
-            );
-          }
-        }
-      ],
-      dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-      responsive: {
-        details: {
-          display: $.fn.dataTable.Responsive.display.modal({
-            header: function (row) {
-              var data = row.data();
-              return 'Details of ' + data['full_name'];
-            }
-          }),
-          type: 'column',
-          renderer: function (api, rowIdx, columns) {
-            var data = $.map(columns, function (col, i) {
-              return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
-                ? '<tr data-dt-row="' +
-                    col.rowIdx +
-                    '" data-dt-column="' +
-                    col.columnIndex +
-                    '">' +
-                    '<td>' +
-                    col.title +
-                    ':' +
-                    '</td> ' +
-                    '<td>' +
-                    col.data +
-                    '</td>' +
-                    '</tr>'
-                : '';
-            }).join('');
-
-            return data ? $('<table class="table"/>').append('<tbody>' + data + '</tbody>') : false;
-          }
-        }
-      },
-      language: {
-        paginate: {
-          // remove previous & next text from pagination
-          previous: '&nbsp;',
-          next: '&nbsp;'
-        }
-      }
-    });
-  }
 
   // Filter form control to default size for all tables
   $('.dataTables_filter .form-control').removeClass('form-control-sm');

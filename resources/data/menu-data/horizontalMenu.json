@@ -663,6 +663,50 @@
             }
           ]
           
+        },
+        {
+          
+          "name": "Instituciones",
+          "dropdown": "1",
+          "icon": "file-text",
+          "slug": "",
+          "submenu": [
+            {
+              "url": "institucion/index",
+              "name": "Datos cargados",
+              "icon": "folder-minus",
+              "slug": "institucion-index"
+            },
+            {
+              "url": "institucion/datos",
+              "name": "Administrar datos",
+              "icon": "user-plus",
+              "slug": "institucion-datos"
+            }
+          ]
+          
+        },
+        {
+          
+          "name": "Sedes",
+          "dropdown": "1",
+          "icon": "file-text",
+          "slug": "",
+          "submenu": [
+            {
+              "url": "sedes/index",
+              "name": "Datos cargados",
+              "icon": "folder-minus",
+              "slug": "sede-index"
+            },
+            {
+              "url": "sedes/datos",
+              "name": "Administrar datos",
+              "icon": "user-plus",
+              "slug": "sede-datos"
+            }
+          ]
+          
         }
         
       ]

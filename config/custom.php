@@ -2,7 +2,7 @@
 return [
     'custom' => [
         'mainLayoutType' => 'horizontal', // Options[String]: vertical(default), horizontal
-        'theme' => 'dark', // options[String]: 'light'(default), 'dark', 'bordered', 'semi-dark'
+        'theme' => 'bordered', // options[String]: 'light'(default), 'dark', 'bordered', 'semi-dark'
         'sidebarCollapsed' => false, // options[Boolean]: true, false(default) (warning:this option only applies to the vertical theme.)
         'navbarColor' => '', // options[String]: bg-primary, bg-info, bg-warning, bg-success, bg-danger, bg-dark (default: '' for #fff)
         'horizontalMenuType' => 'sticky', // options[String]: floating(default) / static /sticky (Warning:this option only applies to the Horizontal theme.)
