@@ -297,6 +297,7 @@ Route::group(['prefix' => 'sedes'], function () {
 });
 Route::group(['prefix' => 'cruces'], function () {
     Route::get('estado-matricula', [CrucesController::class, 'estadoMatricula'])->name('estado-matricula');
+    Route::get('estado-matriculaJson', [CrucesController::class, 'estadoMatriculaJson'])->name('estado-matriculaJson');
     Route::get('tabla', [CrucesController::class, 'tablasedes'])->name('sedes-tabla');
     Route::get('datos', [CrucesController::class, 'datos'])->name('sedes-datos');
     Route::get('vaciar', [CrucesController::class, 'vaciar'])->name('sedes-vaciar');

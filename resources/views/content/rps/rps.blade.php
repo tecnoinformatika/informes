@@ -24,6 +24,10 @@
         border-width: 1px;
         border-color: #000;
     }
+    .table-hover > tbody > tr:hover > td
+    {
+      color: #000;
+    }
   </style>
 @endsection
 
@@ -39,9 +43,9 @@
         <div class="card-header border-bottom">
           <h4 class="card-title">Registros RPS</h4>
         </div>
-        <div class="card-datatable">
+        <div class="table-responsive">
      
-          <table id="example" class="table-responsive">
+          <table id="example" class="table-responsive table table-sm table-hover">
               <thead>
                 <tr role="row">
                   <th class="control sorting_asc" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label=""></th>
@@ -72,17 +76,17 @@
                   
 
                   }
-                  ?>
-                 
+                  ?>         
                   
                   
                   <th>MODALIDAD</th>
                   <th>NO CLASES</th>
                   <th>NOVEDADES</th>
                   <th>TOTAL DIAS NO CONSUMO</th>
-                  <th >NOMBRE DE LA SEDE EDUCATIVA</th>
-                  <th>INSTITUCION</th>
+                  <th style="min-width: 300px">NOMBRE DE LA SEDE EDUCATIVA</th>
+                  <th style="min-width: 300px">INSTITUCION</th>
                   <th>CODIGO DANE SEDE</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,34 +105,32 @@
                     <td>{{$datos->Sexo}}</td>
                     <td>{{$datos->Grado_Educativo}}</td>
                     <?php 
-                    $dia=0; 
+                      $dia=0; 
                     
-                    while($dia < 31)
-                    {
-                      $dia += 1;
-                      $diaa = "dia_".$dia;
+                      while($dia < 31)
+                      {
+                        $dia += 1;
+                        $diaa = "dia_".$dia;
 
-                      if ($datos->$diaa != "Z"){
-                        ?>
-                        <td 
-                          @if ( $datos->$diaa == "X")
-                          style="background-color: #68ab27;    color: #fff;    font-weight: 700; text-align: center;"
-                          @elseif ( $datos->$diaa == "N")
-                          style="background-color: #f98930;    color: #fff;    font-weight: 700; text-align: center;"
-                          @elseif ( $datos->$diaa == "I")
-                          style="background-color: #418aef;    color: #fff;    font-weight: 700; text-align: center;"
-                          @endif
-                          >{{$datos->$diaa}}
-                      
-                        </td>
-                        <?php
+                        if ($datos->$diaa != "Z"){
+                          ?>
+                          <td 
+                            @if ( $datos->$diaa == "X")
+                            style="background-color: #68ab27;    font-weight: 700; text-align: center;"
+                            @elseif ( $datos->$diaa == "N")
+                            style="background-color: #f98930;    font-weight: 700; text-align: center;"
+                            @elseif ( $datos->$diaa == "I")
+                            style="background-color: #418aef;    font-weight: 700; text-align: center;"
+                            @endif
+                            >{{$datos->$diaa}}
+                        
+                          </td>
+                          <?php
+                        }
+                    
+
                       }
-                  
-
-                    }
                     ?>
-                    
-                    
                     <td>{{$datos->MODALIDAD}}</td>
                     <td>{{$datos->NO_CLASES}}</td>
                     <td>{{$datos->NOVEDADES}}</td>
@@ -136,7 +138,15 @@
                     <td style="width:200px">{{$datos->SEDE}}</td>
                     <td>{{$datos->INSTITUCION}}</td>
                     <td>{{$datos->codigo_dane_sede}}</td>
-
+                    <td>
+                      
+                        
+                          <a class="dropdown-item" href="#">
+                            <i data-feather="edit-2" class="me-50"></i>
+                            <span>Editar</span>
+                          </a>
+                       
+                    </td>
                   </tr>
                 @endforeach
               </tbody>
