@@ -20,6 +20,7 @@ use App\Http\Controllers\RpsController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\SedesController;
 use App\Http\Controllers\RiController;
+use App\Http\Controllers\CrucesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -294,8 +295,15 @@ Route::group(['prefix' => 'sedes'], function () {
     Route::get('vaciar', [SedesController::class, 'vaciar'])->name('sedes-vaciar');
     Route::post('importar', [SedesController::class, 'importar'])->name('sedes-importar');
 });
+Route::group(['prefix' => 'cruces'], function () {
+    Route::get('estado-matricula', [CrucesController::class, 'estadoMatricula'])->name('estado-matricula');
+    Route::get('tabla', [CrucesController::class, 'tablasedes'])->name('sedes-tabla');
+    Route::get('datos', [CrucesController::class, 'datos'])->name('sedes-datos');
+    Route::get('vaciar', [CrucesController::class, 'vaciar'])->name('sedes-vaciar');
+    Route::post('importar', [CrucesController::class, 'importar'])->name('sedes-importar');
+});
 
-Route::controller(SimatController::class)->group(function(){
+Route::controller(CrucesController::class)->group(function(){
     Route::get('items', 'index')->name('simat.index');
     Route::post('items', 'store')->name('simat.store');
     Route::get('items/create', 'create')->name('simat.create');

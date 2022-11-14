@@ -16,7 +16,7 @@ class RiController extends Controller
      */
     public function index()
     {
-        $ri = Ri::get()->select('conse');  
+        $ri = Ri::paginate(1000);
         $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del RI"], ['name' => "RI"]];
         return view('/content/ri/ri', ['breadcrumbs' => $breadcrumbs, 'data' => $ri]);
     
@@ -35,11 +35,11 @@ class RiController extends Controller
     }
     public function importar(Request $request)
     {
-        
+        $ri = Ri::paginate(1000);
         if( isset($request["excelri"])){
             Excel::import(new RiImport, request()->file('excelri'));
             $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del RI"], ['name' => "RI"]];
-            return view('/content/ri/ri', ['breadcrumbs' => $breadcrumbs]);
+            return view('/content/ri/ri', ['breadcrumbs' => $breadcrumbs, 'data' => $ri]);
         }
         
         

@@ -12,6 +12,7 @@ class Rps extends Model
     protected $fillable = [
         'TIPO_DE_DOCUMENTO',
         'NUMERO_DE_DOCUMENTO_DE_IDENTIDAD',
+        'documento',
         'PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO',
         'SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO',
         'PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO',

@@ -100,11 +100,12 @@ class RpsController extends Controller
     }
     public function importar(Request $request)
     {
+        $rps = Rps::paginate(1000);  
         
         if( isset($request["excelrps"])){
             Excel::import(new RpsImport, request()->file('excelrps'));
             $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del Rps"], ['name' => "Rps"]];
-            return view('/content/rps/rps', ['breadcrumbs' => $breadcrumbs]);
+            return view('/content/rps/rps', ['breadcrumbs' => $breadcrumbs, 'data' => $rps]);
         }
         
         
@@ -116,9 +117,9 @@ class RpsController extends Controller
     {
         
         Rps::query()->truncate();
-
+        $rps = Rps::paginate(1000);  
         $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del Rps"], ['name' => "Rps"]];
-        return view('/content/rps/rps', ['breadcrumbs' => $breadcrumbs]);
+        return view('/content/rps/rps', ['breadcrumbs' => $breadcrumbs, 'data' => $rps]);
     }
 
     /**

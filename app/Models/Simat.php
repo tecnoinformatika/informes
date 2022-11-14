@@ -36,23 +36,15 @@ class Simat extends Model
         'per_id',
         'doc',
         'tioodoc',
+        'documento',
         'apellido1',
         'apellido2',
         'nombre1',
         'nombre2',
         'genero',
         'fecha_nacimiento',
-        'barrio',
-        'eps',
-        'tipo_de_sangre',
-        'matriculacontratada',
-        'fuente_recursos',
-        'internado',
-        'num_contratado',
-        'apoyo_academico_especial',
-        'srpa',
-        'discapacidad',
-        'pais_origen',
+        
+        
     ];
 
     

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    "Estado matrícula" => "Estado matrícula",
+    "Cruces" => "Cruces",
     "Instituciones" => "Instituciones",
     "Sedes" => "Sedes",
     "Data" => "Bases de datos",

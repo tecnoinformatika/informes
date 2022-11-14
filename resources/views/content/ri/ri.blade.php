@@ -12,6 +12,19 @@
 @section('page-style')
 {{-- Page Css files --}}
 <link rel="stylesheet" type="text/css" href="{{asset('css/base/plugins/forms/pickers/form-flat-pickr.css')}}">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<style>
+  table.dataTable thead th {
+      padding: 8px 10px;
+      text-transform: uppercase !important;
+  }
+  table.dataTable tbody th, table.dataTable tbody td {
+      padding: 0px 0px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #000;
+  }
+</style>
 @endsection
 
 
@@ -20,319 +33,121 @@
 
 <!-- Advanced Search -->
 <section id="responsive-datatable">
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header border-bottom">
-          <h4 class="card-title">Responsive Datatable</h4>
-        </div>
-        <div class="card-datatable">
-          <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper dt-bootstrap5"><div class="d-flex justify-content-between align-items-center mx-0 row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_3_length"><label>Show <select name="DataTables_Table_3_length" aria-controls="DataTables_Table_3" class="form-select"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="DataTables_Table_3_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_3"></label></div></div></div><table class="dt-responsive table dataTable dtr-column" id="DataTables_Table_3" role="grid" aria-describedby="DataTables_Table_3_info" style="width: 1429px;">
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header border-bottom">
+        <h4 class="card-title">Registros RPS</h4>
+      </div>
+      <div class="card-datatable">
+   
+        <table id="example" class="table-responsive">
             <thead>
-              <tr role="row"><th class="control sorting_disabled sorting_asc" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label=""></th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 110px;" aria-label="Name: activate to sort column ascending">Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 236px;" aria-label="Email: activate to sort column ascending">Email</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 171px;" aria-label="Post: activate to sort column ascending">Post</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 130px;" aria-label="City: activate to sort column ascending">City</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 66px;" aria-label="Date: activate to sort column ascending">Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 62px;" aria-label="Salary: activate to sort column ascending">Salary</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 28px;" aria-label="Age: activate to sort column ascending">Age</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 85px;" aria-label="Experience: activate to sort column ascending">Experience</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" style="width: 82px;" aria-label="Status: activate to sort column ascending">Status</th></tr>
+              <tr role="row">
+                <th class="control sorting_asc" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label=""></th>
+                <th>TIPO DE DOCUMENTO</th>
+                <th>DOCUMENTO_DE IDENTIDAD</th>
+                <th>PRIMER NOMBRE</th>
+                <th>SEGUNDO NOMBRE</th>
+                <th>PRIMER APELLIDO</th>
+                <th>SEGUNDO APELLIDO</th>
+                <th>FECHA DE NACIMIENTO</th>
+                <th>GRUPO ETARIO</th>
+                <th>PERTENENCIA ETNICA</th>
+                <th>SEXO</th>
+                <th>GRADO EDUCATIVO</th>
+                <?php 
+                $dia=0; 
+                
+                while($dia < 31)
+                {
+                  $dia += 1;
+                  $diaa = "dia_".$dia;
+
+                if ($data[0]->$diaa != "Z"){
+                  echo "<th>dia_".$dia."</th>";
+                }
+               
+
+                }
+                ?>
+               
+                
+                
+                <th>MODALIDAD</th>
+                <th>NO CLASES</th>
+                <th>NOVEDADES</th>
+                <th>TOTAL DIAS NO CONSUMO</th>
+                <th >NOMBRE DE LA SEDE EDUCATIVA</th>
+                <th>INSTITUCION</th>
+                <th>CODIGO DANE SEDE</th>
+              </tr>
             </thead>
-            <tfoot>
-              <tr><th class="control" rowspan="1" colspan="1" style="display: none;"></th><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Email</th><th rowspan="1" colspan="1">Post</th><th rowspan="1" colspan="1">City</th><th rowspan="1" colspan="1" style="">Date</th><th rowspan="1" colspan="1" style="">Salary</th><th rowspan="1" colspan="1" style="">Age</th><th rowspan="1" colspan="1" style="">Experience</th><th rowspan="1" colspan="1" style="">Status</th></tr>
-            </tfoot>
-          <tbody>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            <tr class="odd"><td class="control sorting_1" tabindex="0" style="display: none;"></td>
-              <td>Korrie O'Crevy</td><td>kocrevy0@thetimes.co.uk</td>
-              <td>Nuclear Power Engineer</td>
-              <td>Krasnosilka</td>
-              <td style="">09/23/2016</td>
-              <td style="">$23896.35</td>
-              <td style="">61</td>
-              <td style="">1 Year</td>
-              <td style=""><span class="badge rounded-pill  badge-light-success">Professional</span></td>
-            </tr>
-            
+            <tbody>
+              @foreach($data as $datos)
+                <tr>
+                  <td style="width: 0px; display: none;">{{$datos->id}}</td>
+                  <td>{{$datos->TIPO_DE_DOCUMENTO}}</td>
+                  <td>{{$datos->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD}}</td>
+                  <td>{{$datos->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO}}</td>
+                  <td>{{$datos->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO}}</td>
+                  <td>{{$datos->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO}}</td>
+                  <td>{{$datos->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO}}</td>
+                  <td>{{$datos->FECHA_DE_NACIMIENTO}}</td>
+                  <td>{{$datos->GRUPO_ETARIO}}</td>
+                  <td>{{$datos->PERTENENCIA_ETNICA}}</td>
+                  <td>{{$datos->Sexo}}</td>
+                  <td>{{$datos->Grado_Educativo}}</td>
+                  <?php 
+                  $dia=0; 
+                  
+                  while($dia < 31)
+                  {
+                    $dia += 1;
+                    $diaa = "dia_".$dia;
+
+                    if ($datos->$diaa != "Z"){
+                      ?>
+                      <td 
+                        @if ( $datos->$diaa == "X")
+                        style="background-color: #68ab27;    color: #fff;    font-weight: 700; text-align: center;"
+                        @elseif ( $datos->$diaa == "N")
+                        style="background-color: #f98930;    color: #fff;    font-weight: 700; text-align: center;"
+                        @elseif ( $datos->$diaa == "I")
+                        style="background-color: #418aef;    color: #fff;    font-weight: 700; text-align: center;"
+                        @endif
+                        >{{$datos->$diaa}}
+                    
+                      </td>
+                      <?php
+                    }
+                
+
+                  }
+                  ?>
+                  
+                  
+                  <td>{{$datos->MODALIDAD}}</td>
+                  <td>{{$datos->NO_CLASES}}</td>
+                  <td>{{$datos->NOVEDADES}}</td>
+                  <td>{{$datos->TOTAL_DIAS_NO_CONSUMO}}</td>
+                  <td style="width:200px">{{$datos->SEDE}}</td>
+                  <td>{{$datos->INSTITUCION}}</td>
+                  <td>{{$datos->codigo_dane_sede}}</td>
+
+                </tr>
+              @endforeach
             </tbody>
-          </table>
+            
+            
           
-        </div>
+        
+        </table>
+        
       </div>
     </div>
   </div>
+</div>
 </section>
 <!--/ Advanced Search -->
 
@@ -341,14 +156,39 @@
 
 @section('vendor-script')
 {{-- vendor files --}}
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.bootstrap5.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/responsive.bootstrap5.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
-  {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/tables/table-rps.js')) }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+{{-- Page js files --}}
+<script>
+  $(document).ready(function () {
+      // Setup - add a text input to each footer cell
+      $('#example tfoot th').each(function () {
+          var title = $(this).text();
+          $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+      });
+  
+      // DataTable
+      var table = $('#example').DataTable({
+          initComplete: function () {
+              // Apply the search
+              this.api()
+                  .columns()
+                  .every(function () {
+                      var that = this;
+  
+                      $('input', this.footer()).on('keyup change clear', function () {
+                          if (that.search() !== this.value) {
+                              that.search(this.value).draw();
+                          }
+                      });
+                  });
+          },
+      });
+  });
+</script>
+<!--<script src="{{ asset(mix('js/scripts/tables/table-datatables-advanced.js')) }}"></script>-->
 @endsection

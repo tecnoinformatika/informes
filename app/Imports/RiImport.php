@@ -17,6 +17,7 @@ class RiImport implements ToModel
         return new Ri([
             'TIPO_DE_DOCUMENTO' => $row[1],
             'NUMERO_DE_DOCUMENTO_DE_IDENTIDAD' => $row[2],
+            'documento' => $row[1].":".$row[2],
             'PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO' => $row[3],
             'SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO' => $row[4],
             'PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO' => $row[5],
@@ -71,6 +72,6 @@ class RiImport implements ToModel
 
     public function chunkSize(): int
     {
-        return 2000;
+        return 500;
     }
 }
