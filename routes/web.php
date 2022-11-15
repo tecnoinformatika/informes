@@ -297,9 +297,10 @@ Route::group(['prefix' => 'sedes'], function () {
 });
 Route::group(['prefix' => 'cruces'], function () {
     Route::get('estado-matricula', [CrucesController::class, 'estadoMatricula'])->name('estado-matricula');
-    Route::get('estado-matriculaJson/{institucion}/{tipo}', [CrucesController::class, 'estadoMatriculaJson'])->name('estado-matriculaJson');
-    Route::get('tabla', [CrucesController::class, 'tablasedes'])->name('sedes-tabla');
-    Route::get('datos', [CrucesController::class, 'datos'])->name('sedes-datos');
+    Route::get('estado-matriculaJson', [CrucesController::class, 'estadoMatriculaJson'])->name('estado-matriculaJson');
+    Route::get('observacion', [CrucesController::class, 'observacion'])->name('observacion');
+    Route::get('registro/{registro}/{tipo}', [CrucesController::class, 'registro'])->name('registro');
+    Route::get('registrosimat/{registro}/{tipo}', [CrucesController::class, 'registrosimat'])->name('registrosimat');
     Route::get('vaciar', [CrucesController::class, 'vaciar'])->name('sedes-vaciar');
     Route::post('importar', [CrucesController::class, 'importar'])->name('sedes-importar');
 });

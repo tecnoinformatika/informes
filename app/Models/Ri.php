@@ -59,6 +59,7 @@ class Ri extends Model
         'TOTAL_DIAS_NO_CONSUMO',
         'SEDE',
         'INSTITUCION',
+        'observacionesMatricula',
         'codigo_dane_sede',
         'SUPERVISOR_OPERDOR'
     ];

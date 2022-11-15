@@ -7,6 +7,7 @@ use App\Models\Ri;
 use App\Models\Simat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class CrucesController extends Controller
 {
@@ -33,26 +34,9 @@ class CrucesController extends Controller
                              'simats.estado as estado') 
                     ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,tipoComplemento,institucion,sede,estado')                  
                     ->get();
-                    $arrayCli = array();
-                    for ($i = 0; $i < count($data); $i++) {
-                        $resultadodetallado = array();
-                        array_push($resultadodetallado, utf8_encode($data[$i]->N));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->tipodoc));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->numdoc));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->PrimerNombre));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->SegundoNombre));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->PrimerApellido));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->SegundoApellido));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->fechaNacimiento));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->sexo));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->tipoComplemento));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->institucion));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->sede));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->estado));
-                        $arrayCli['data'][] = $resultadodetallado;
-                    }
-   
-            return json_encode($arrayCli);
+                      
+            $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
+            return view('/content/cruces/estadodematricula', ['breadcrumbs' => $breadcrumbs, 'data' => $data]);
 
         }
         if($tipo == 'RI'){
@@ -75,28 +59,75 @@ class CrucesController extends Controller
                              'simats.estado as estado')
                     ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,tipoComplemento,institucion,sede,estado')                  
                     ->get();
-                    $arrayCli = array();
-                    for ($i = 0; $i < count($data); $i++) {
-                        $resultadodetallado = array();
-                        array_push($resultadodetallado, utf8_encode($data[$i]->N));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->tipodoc));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->numdoc));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->PrimerNombre));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->SegundoNombre));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->PrimerApellido));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->SegundoApellido));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->fechaNacimiento));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->sexo));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->tipoComplemento));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->institucion));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->sede));
-                        array_push($resultadodetallado, utf8_encode($data[$i]->estado));
-                        $arrayCli['data'][] = $resultadodetallado;
-                    }
-   
-            return json_encode($arrayCli);
+
+            $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
+            return view('/content/cruces/estadodematricula', ['breadcrumbs' => $breadcrumbs, 'data' => $data]);
         }
         
+    }
+    public function registro($id,$tipo)
+    {
+        
+       
+        if($tipo == 'RPS'){
+            $rps = Rps::find($id);      
+            return Response::json($rps);
+        }
+        if($tipo == 'RI'){
+            $ri = Ri::find($id);
+            return Response::json($ri);
+        }
+            
+    }
+
+    public function registrosimat($id,$tipo)
+    {
+        $vacio = ['vacio' => 1];
+        if($tipo == 'RPS'){
+            $rps = Rps::find($id);      
+
+            $simat = Simat::where('doc', $rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)->first();
+            if (isset($simat)){
+                return Response::json($simat);
+            }else{
+                return Response::json($vacio);
+            }
+        }
+        if($tipo == 'RI'){
+            $ri = Ri::find($id);
+            
+            $simat = DB::table('simats')->where('doc', $ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)->first();
+            if (isset($simat)){
+                return Response::json($simat);
+            }else{
+                return Response::json($vacio);
+            }
+            
+        }
+            
+    }
+
+    public function observacion(Request $request){
+        
+        $tipo = $request->tipo;
+        $id = $request->id;
+        if($tipo == "RPS"){
+            $rps = Rps::find($id);
+            
+            $rps->observacionesMatricula = $request->observacion;
+            $rps->save();
+
+            return Response::json($rps);
+        }
+        if($tipo == "RI"){
+            $ri = Ri::find($id);
+           
+            $ri->observacionesMatricula = $request->observacion;
+            $ri->save();
+            return Response::json($ri);
+        }
+        
+
     }
 
     public function estadoMatricula(){
