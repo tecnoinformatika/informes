@@ -28,11 +28,14 @@ class CrucesController extends Controller
                              'rps.SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO as SegundoApellido',
                              'rps.FECHA_DE_NACIMIENTO as fechaNacimiento',
                              'rps.Sexo as sexo',
+                             'rps.INSTITUCION as insti',
+                             'rps.SEDE as sed',
+                             'rps.Tipo_de_complemento as tipoComplemento',
                              'rps.Tipo_de_complemento as tipoComplemento',
                              'simats.institucion as institucion',
                              'simats.sede as sede',
                              'simats.estado as estado') 
-                    ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,tipoComplemento,institucion,sede,estado')                  
+                    ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                     ->get();
                       
             $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
@@ -53,11 +56,13 @@ class CrucesController extends Controller
                              'ris.SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO as SegundoApellido',
                              'ris.FECHA_DE_NACIMIENTO as fechaNacimiento',
                              'ris.Sexo as sexo',
+                             'ris.INSTITUCION as insti',
+                             'ris.SEDE as sed',
                              'ris.Tipo_de_complemento as tipoComplemento',
                              'simats.institucion as institucion',
                              'simats.sede as sede',
                              'simats.estado as estado')
-                    ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,tipoComplemento,institucion,sede,estado')                  
+                    ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                     ->get();
 
             $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];

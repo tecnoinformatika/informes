@@ -75,7 +75,9 @@
 </form>
 </section>
 <section>
+  @if (isset($_GET['tipo']))
   <input type="hidden" id="tipo1" value="{{$_GET['tipo']}}">
+  @endif
   @if ($message = Session::get('success'))
   <div class="alert alert-success">
   <p id="msg">{{ $message }}</p>
@@ -90,8 +92,10 @@
         </div>
         <div class="card-body">
           <p class="card-text">
-            Add <code class="highlighter-rouge">.table-hover</code> to enable a hover state on table rows within a
-            <code class="highlighter-rouge">&lt;tbody&gt;</code>.
+            @if (isset($data))
+              <h1>TIPO DE COMPLEMENTO <span class="badge rounded-pill badge-light-success me-1">{{$data[0]->tipoComplemento}}</span></h1>
+              <h2>INSTITUCIÓN Y  SEDE ECUACTIVA: {{$data[0]->insti}} ---- {{$data[0]->sed}}         
+            @endif.
           </p>
         </div>
         <div class="table-responsive">
@@ -106,10 +110,7 @@
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
                 <th>Fecha de nacimiento</th>
-                <th>Sexo</th>
-                <th>Tipo de complemento</th>
-                <th>Institución educativa</th>
-                <th>Sede</th>
+                <th>Sexo</th>                
                 <th>Estado</th>
                 <th>Acciones</th>
               </tr>
@@ -144,15 +145,7 @@
                 <td>
                   {{$datos->sexo}}
                 </td>
-                <td>
-                  {{$datos->tipoComplemento}}
-                </td>
-                <td>
-                  {{$datos->institucion}}
-                </td>
-                <td>
-                  {{$datos->sede}}
-                </td>
+                
                   @if($datos->estado == "MATRICULADO")
                     <td><span class="badge rounded-pill badge-light-success me-1">{{$datos->estado}}</span></td>
                     
@@ -220,7 +213,10 @@
                 <h2 class="mb-75">Primer coincidencia en el SIMAT</h2>
                 
                 <p>  
+                  Documento: <b class="card-text" id="tipodocu"></b>
+                  <b class="card-text" id="docu"></b><br>
                   <h5 class="mb-75">Nombre:</h5>
+                  
                   <b class="card-text" id="primerNS"></b>
                   <b class="card-text" id="segundoNS"></b>
                   <b class="card-text" id="primerAS"></b>
@@ -324,6 +320,8 @@
         console.log(data);
       
       if(data.vacio){
+        $('#tipodocu').html('');
+        $('#docu').html('');
         $('#primerNS').html('');
         $('#segundoNS').html('');
         $('#primerAS').html('');
@@ -332,6 +330,8 @@
         $('#sedeS').html('');
         $('#estadoS').html('No encontrado en el SIMAT');
       }else{
+        $('#tipodocu').html(data.tioodoc);
+        $('#docu').html(data.doc);
         $('#primerNS').html(data.nombre1);
         $('#segundoNS').html(data.nombre2);
         $('#primerAS').html(data.apellido1);
