@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "Consolidado" => "Consolidado",
     "Estado matrícula" => "Estado matrícula",
     "Cruces" => "Cruces",
     "Instituciones" => "Instituciones",

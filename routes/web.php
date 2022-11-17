@@ -301,8 +301,9 @@ Route::group(['prefix' => 'cruces'], function () {
     Route::get('observacion', [CrucesController::class, 'observacion'])->name('observacion');
     Route::get('registro/{registro}/{tipo}', [CrucesController::class, 'registro'])->name('registro');
     Route::get('registrosimat/{registro}/{tipo}', [CrucesController::class, 'registrosimat'])->name('registrosimat');
-    Route::get('vaciar', [CrucesController::class, 'vaciar'])->name('sedes-vaciar');
-    Route::post('importar', [CrucesController::class, 'importar'])->name('sedes-importar');
+    Route::post('consolidado', [CrucesController::class, 'consolidado'])->name('consolidado');
+    Route::get('index-consolidado', [CrucesController::class, 'indexConsolidado'])->name('index-consolidado');
+    Route::post('individual', [CrucesController::class, 'updateConsolidado'])->name('individual');
 });
 
 Route::controller(CrucesController::class)->group(function(){

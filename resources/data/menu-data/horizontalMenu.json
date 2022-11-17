@@ -20,10 +20,10 @@
           "slug": "cruce-estado-matricula"
         },
         {
-          "url": "app/calendar",
-          "name": "Calendar",
+          "url": "cruces/index-consolidado",
+          "name": "Consolidado",
           "icon": "calendar",
-          "slug": "app-calendar"
+          "slug": "cruces-consolidado"
         }
       ]
     },
