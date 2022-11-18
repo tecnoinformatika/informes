@@ -505,20 +505,60 @@ class CrucesController extends Controller
                 
                 $dia = $request->dia;
 
+               
                 
                 if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
                 {
-                        Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
-                        ->update([
-                                'user_id' => $id,
-                                'codigo_dane_sede' => $request->sede_id,
-                                'jornada_tipo_racion' => $request->modalidad,
-                                 $dia => $request->value,
-                                'N_dias_atendidos' => $request->diasAtendidos,
-                                'total_raciones' => $request->totalRaciones,
-                                'novedades' => $request->novedades,
-                                'devoluciones' =>$request->devoluciones
-                        ]);
+                        if(isset($request->diasAtendidos)){
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ->update([
+                                        'user_id' => $id,
+                                        'codigo_dane_sede' => $request->sede_id,
+                                        'jornada_tipo_racion' => $request->modalidad,
+                                         $dia => $request->value,
+                                        'N_dias_atendidos' => $request->diasAtendidos
+                                ]);
+                                     
+                        }else if(isset($request->totalRaciones))
+                        {
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ->update([
+                                        'user_id' => $id,
+                                        'codigo_dane_sede' => $request->sede_id,
+                                        'jornada_tipo_racion' => $request->modalidad,
+                                         $dia => $request->value,                                        
+                                        'total_raciones' => $request->totalRaciones
+                                ]);     
+                        }else if (isset($request->novedades))
+                        {
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ->update([
+                                        'user_id' => $id,
+                                        'codigo_dane_sede' => $request->sede_id,
+                                        'jornada_tipo_racion' => $request->modalidad,
+                                         $dia => $request->value,                                        
+                                        'novedades' => $request->novedades
+                                ]);    
+                        }else if (isset($request->devoluciones))
+                        {
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ->update([
+                                        'user_id' => $id,
+                                        'codigo_dane_sede' => $request->sede_id,
+                                        'jornada_tipo_racion' => $request->modalidad,
+                                         $dia => $request->value,                                        
+                                        'devoluciones' =>$request->devoluciones
+                                ]);     
+                        }else{
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ->update([
+                                        'user_id' => $id,
+                                        'codigo_dane_sede' => $request->sede_id,
+                                        'jornada_tipo_racion' => $request->modalidad,
+                                        $dia => $request->value
+                                ]);
+                        }
+                        
                         
                         return response()->json(['success' => true]);
                         
@@ -540,8 +580,7 @@ class CrucesController extends Controller
                                 Consolidado::insert([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
-                                        'jornada_tipo_racion' => $request->modalidad,
-                                        
+                                        'jornada_tipo_racion' => $request->modalidad,                                        
                                         'N_dias_atendidos' => $request->diasAtendidos,
                                         'total_raciones' => $request->totalRaciones,
                                         'novedades' => $request->novedades,

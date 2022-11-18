@@ -256,7 +256,7 @@
                         <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia29" data-modalidad="JM-RI">{{$datos['simat']->dia29->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia29'][0]->dia_29 != 0 ? $datos['simat']['dia29'][0]->dia_29 +  $datos['simat']['dia29'][0]->dia_29observacion : 0 : 0 }}</td>
                         <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia30" data-modalidad="JM-RI">{{$datos['simat']->dia30->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia30'][0]->dia_30 != 0 ? $datos['simat']['dia30'][0]->dia_30 +  $datos['simat']['dia30'][0]->dia_30observacion : 0 : 0 }}</td>
                         <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia31" data-modalidad="JM-RI">{{$datos['simat']->dia31->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia31'][0]->dia_31 != 0 ? $datos['simat']['dia31'][0]->dia_31 +  $datos['simat']['dia31'][0]->dia_31observacion : 0 : 0 }}</td>
-                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" diasAtendidos="diasAtendidos" data-modalidad="JM-RI">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JM-RI">
                           @php
                           $suma = 0; 
                           $suma += $datos['simat']['dia1'][0]->dia_1 != 0 ? 1 : 0;
@@ -294,7 +294,7 @@
                           @endphp
                           {{$suma}}
                         </td>
-                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalRaciones="totalRaciones" data-modalidad="JM-RI">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JM-RI">
                           @php
                           $suma1 = 0; 
                           $suma1 += $datos['simat']['dia1'][0]->dia_1 != 0 ? $datos['simat']['dia1'][0]->dia_1 + $datos['simat']['dia1'][0]->dia_1observacion : 0;
@@ -373,7 +373,7 @@
                           {{$suma2}}
                         </td>
                         <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JM-RI">0</td>
-                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"><button class="dt-button create-new btn btn-primary" tabindex="0"  type="button" ><span>+ Guardar</span></button></td>
                     </tr>
                     <tr>
                         <td class="uneditable tg-0pky">JT-RI</td>
@@ -447,7 +447,7 @@
                           @endphp
                           {{$suma}}
                         </td>
-                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalRaciones="totalRaciones" data-modalidad="JT-RI">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JT-RI">
                           @php
                           $suma1 = 0; 
                           $suma1 += $datos['simat']['dia1'][1]->dia_1 != 0 ? $datos['simat']['dia1'][1]->dia_1 + $datos['simat']['dia1'][1]->dia_1observacion : 0;
@@ -526,7 +526,7 @@
                           {{$suma2}}
                         </td>
                         <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JT-RI">0</td>
-                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"><button class="dt-button create-new btn btn-primary" tabindex="0"  type="button" ><span>+ Guardar</span></button></td>
                         @else
                         <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'>0</td>
                         <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};'>0</td>
@@ -563,7 +563,7 @@
                         <td class="tg-0pky">0</td>
                         <td class="tg-0pky">0</td>
                         <td class="tg-0pky">0</td>
-                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky"><button class="dt-button create-new btn btn-primary" tabindex="0"  type="button" ><span>+ Guardar</span></button></td>
                         @endif
                         
                     </tr>
@@ -619,26 +619,42 @@
     $('#editable td').on('change', function(evt, newValue) {
           var sede_id = $(this).data('id');
           var dia = $(this).data('dia');
-          var modalidad = $(this).data('modalidad');
-          
-          var diasAtendidos = $(this).data('diasAtendidos');
-          if(diasAtendidos = null){
-            console.log('vacia');
-          }else{
-            console.log(diasAtendidos);
-          }
-          var totalRaciones = $(this).data('totalRaciones');
+          var modalidad = $(this).data('modalidad');          
+          var diasAtendidos = $(this).data('dias');
+          var totalRaciones = $(this).data('totalraciones');
           var novedades = $(this).data('novedades');
           var devoluciones = $(this).data('devoluciones');
+
+      
+
+          if(typeof dia != 'undefined'){
+            dia = dia;
+          }
+          
+          if(typeof diasAtendidos != 'undefined'){
+            diasAtendidos = newValue;
+          }
+          if(typeof totalRaciones != 'undefined'){
+            totalRaciones = newValue;
+          }
+          if(typeof novedades != 'undefined'){
+            novedades = newValue;
+          }
+          if(typeof devoluciones != 'undefined'){
+            devoluciones = newValue;
+          }
+          
+          
+          
           $.get( "updateConsolidado", { 
                   value: newValue,
                   sede_id: sede_id,
                   dia: dia,
                   modalidad: modalidad,
-                  diasAtendidos: newValue,
-                  totalRaciones: newValue,
-                  novedades: newValue,
-                  devoluciones: newValue
+                  diasAtendidos: diasAtendidos,
+                  totalRaciones: totalRaciones,
+                  novedades: novedades,
+                  devoluciones: devoluciones
                   })
                   .done(function( data ) {
                           console.log( "Data Loaded: " + data );
