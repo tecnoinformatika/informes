@@ -303,7 +303,7 @@ Route::group(['prefix' => 'cruces'], function () {
     Route::get('registrosimat/{registro}/{tipo}', [CrucesController::class, 'registrosimat'])->name('registrosimat');
     Route::post('consolidado', [CrucesController::class, 'consolidado'])->name('consolidado');
     Route::get('index-consolidado', [CrucesController::class, 'indexConsolidado'])->name('index-consolidado');
-    Route::post('individual', [CrucesController::class, 'updateConsolidado'])->name('individual');
+    Route::get('updateConsolidado', [CrucesController::class, 'updateConsolidado'])->name('updateConsolidado');
 });
 
 Route::controller(CrucesController::class)->group(function(){

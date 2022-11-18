@@ -133,6 +133,7 @@
     "/js/scripts/pages/dashboard-analytics.js": "/js/scripts/pages/dashboard-analytics.js",
     "/js/scripts/pages/dashboard-ecommerce.js": "/js/scripts/pages/dashboard-ecommerce.js",
     "/js/scripts/pages/modal-add-new-address.js": "/js/scripts/pages/modal-add-new-address.js",
+    "/js/scripts/mindmup-editabletable.js": "/js/scripts/mindmup-editabletable.js",
     "/js/scripts/pages/modal-add-new-cc.js": "/js/scripts/pages/modal-add-new-cc.js",
     "/js/scripts/pages/modal-add-permission.js": "/js/scripts/pages/modal-add-permission.js",
     "/js/scripts/pages/modal-add-role.js": "/js/scripts/pages/modal-add-role.js",

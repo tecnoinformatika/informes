@@ -120,7 +120,7 @@
               @foreach($data as $datos)
               <tr>
                 <td>
-                {{$datos->N}}
+                  {{$datos->N}}
                 </td>
                 <td> 
                   {{$datos->tipodoc}}</td>
@@ -179,66 +179,7 @@
     </div>
   </div>
 </section>
-  <!-- Modal to add new record -->
-  <div class="modal modal-slide-in fade" id="modals-slide-in">
-    <div class="modal-dialog sidebar-sm add-new-record modal-content pt-0">
-      
-       
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-        <div class="modal-header mb-1">
-          <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-        </div>
-        <div class="modal-body flex-grow-1">
-          <input type="hidden" id="estudiante-id">
-          <div class="mb-1">
-            <label class="form-label" for="basic-icon-default-fullname">Observaciones al estudiante</label>
-            <textarea
-              type="text"
-              class="form-control dt-full-name"
-              id="observaciones"
-              name="observaciones"
-              placeholder="Observaciones"
-              aria-label="Observaciones"
-            ></textarea>
-          </div>
-          <div class="mb-1">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="mb-75">Datos del estudiante en la base de datos</h2>
-                 <p>             
-                  <h5 class="mb-75">Institución:</h5>
-                  <b class="card-text" id="institucion1"></b> sede <br>
-                  <b class="card-text" id="sede1"></b>
-                 </p>       
-                <h2 class="mb-75">Primer coincidencia en el SIMAT</h2>
-                
-                <p>  
-                  Documento: <b class="card-text" id="tipodocu"></b>
-                  <b class="card-text" id="docu"></b><br>
-                  <h5 class="mb-75">Nombre:</h5>
-                  
-                  <b class="card-text" id="primerNS"></b>
-                  <b class="card-text" id="segundoNS"></b>
-                  <b class="card-text" id="primerAS"></b>
-                  <b class="card-text" id="segundoAS"></b>
-                
-                  <h5 class="mb-75">Institución:</h5>
-                  <b class="card-text" id="institucionS"></b> sede <br>
-                  <b class="card-text" id="sedeS"></b>
-                </p>
-                <p id="estadoS" class="badge rounded-pill badge-light-danger me-1"></p>
-              </div>
-            </div>
-            
-          </div>  
-         
-          <button class="btn btn-primary data-submit me-1" id="btn-save">Submit</button>
-          <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-        </div>
-      
-    </div>
-  </div>
-</section>
+
 <!--/ Basic table -->
 
 

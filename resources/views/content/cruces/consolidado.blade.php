@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/rowGroup.bootstrap5.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
   
 @endsection
  
 @section('content')
 <div class="row">
   <div class="col-12">
-    <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p>
+    
   </div>
 </div>
 <!-- Basic table -->
@@ -168,7 +168,7 @@
          
          
           <div class="card-datatable">
-            <table class="dt-complex-header table table-bordered table-responsive table-sm" id="editable">
+            <table id="editable" class="dt-complex-header table table-bordered table-responsive table-sm table-dark table-striped">
               <thead>
                 <tr>
                   <th rowspan="2">SEDE</th>
@@ -223,40 +223,40 @@
                     @foreach($data as $datos)
                   
                     <tr>                       
-                        <td class="tg-lboi" rowspan="2">{{$datos['simat']->sede}}</td>
-                        <td class="tg-0pky">JM-RI</td>
-                        <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia1->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia1'][0]->dia_1 != 0 ? $datos['simat']['dia1'][0]->dia_1 +  $datos['simat']['dia1'][0]->dia_1observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia2->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia2'][0]->dia_2 != 0 ? $datos['simat']['dia2'][0]->dia_2 +  $datos['simat']['dia2'][0]->dia_2observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia3->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia3'][0]->dia_3 != 0 ? $datos['simat']['dia3'][0]->dia_3 +  $datos['simat']['dia3'][0]->dia_3observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia4->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia4'][0]->dia_4 != 0 ? $datos['simat']['dia4'][0]->dia_4 +  $datos['simat']['dia4'][0]->dia_4observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia5->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia5'][0]->dia_5 != 0 ? $datos['simat']['dia5'][0]->dia_5 +  $datos['simat']['dia5'][0]->dia_5observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia6->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia6'][0]->dia_6 != 0 ? $datos['simat']['dia6'][0]->dia_6 +  $datos['simat']['dia6'][0]->dia_6observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia7->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia7'][0]->dia_7 != 0 ? $datos['simat']['dia7'][0]->dia_7 +  $datos['simat']['dia7'][0]->dia_7observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia8->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia8'][0]->dia_8 != 0 ? $datos['simat']['dia8'][0]->dia_8 +  $datos['simat']['dia8'][0]->dia_8observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia9->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia9'][0]->dia_9 != 0 ? $datos['simat']['dia9'][0]->dia_9 +  $datos['simat']['dia9'][0]->dia_9observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia10->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia10'][0]->dia_10 != 0 ? $datos['simat']['dia10'][0]->dia_10 +  $datos['simat']['dia10'][0]->dia_10observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia11->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia11'][0]->dia_11 != 0 ? $datos['simat']['dia11'][0]->dia_11 +  $datos['simat']['dia11'][0]->dia_11observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia12->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia12'][0]->dia_12 != 0 ? $datos['simat']['dia12'][0]->dia_12 +  $datos['simat']['dia12'][0]->dia_12observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia13->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia13'][0]->dia_13 != 0 ? $datos['simat']['dia13'][0]->dia_13 +  $datos['simat']['dia13'][0]->dia_13observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia14->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia14'][0]->dia_14 != 0 ? $datos['simat']['dia14'][0]->dia_14 +  $datos['simat']['dia14'][0]->dia_14observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia15->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia15'][0]->dia_15 != 0 ? $datos['simat']['dia15'][0]->dia_15 +  $datos['simat']['dia15'][0]->dia_15observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia16->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia16'][0]->dia_16 != 0 ? $datos['simat']['dia16'][0]->dia_16 +  $datos['simat']['dia16'][0]->dia_16observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia17->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia17'][0]->dia_17 != 0 ? $datos['simat']['dia17'][0]->dia_17 +  $datos['simat']['dia17'][0]->dia_17observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia18->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia18'][0]->dia_18 != 0 ? $datos['simat']['dia18'][0]->dia_18 +  $datos['simat']['dia18'][0]->dia_18observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia19->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia19'][0]->dia_19 != 0 ? $datos['simat']['dia19'][0]->dia_19 +  $datos['simat']['dia19'][0]->dia_19observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia20->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia20'][0]->dia_20 != 0 ? $datos['simat']['dia20'][0]->dia_20 +  $datos['simat']['dia20'][0]->dia_20observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia21->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia21'][0]->dia_21 != 0 ? $datos['simat']['dia21'][0]->dia_21 +  $datos['simat']['dia21'][0]->dia_21observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia22->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia22'][0]->dia_22 != 0 ? $datos['simat']['dia22'][0]->dia_22 +  $datos['simat']['dia22'][0]->dia_22observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia23->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia23'][0]->dia_23 != 0 ? $datos['simat']['dia23'][0]->dia_23 +  $datos['simat']['dia23'][0]->dia_23observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia24->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia24'][0]->dia_24 != 0 ? $datos['simat']['dia24'][0]->dia_24 +  $datos['simat']['dia24'][0]->dia_24observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia25->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia25'][0]->dia_25 != 0 ? $datos['simat']['dia25'][0]->dia_25 +  $datos['simat']['dia25'][0]->dia_25observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia26->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia26'][0]->dia_26 != 0 ? $datos['simat']['dia26'][0]->dia_26 +  $datos['simat']['dia26'][0]->dia_26observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia27->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia27'][0]->dia_27 != 0 ? $datos['simat']['dia27'][0]->dia_27 +  $datos['simat']['dia27'][0]->dia_27observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia28->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia28'][0]->dia_28 != 0 ? $datos['simat']['dia28'][0]->dia_28 +  $datos['simat']['dia28'][0]->dia_28observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia29->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia29'][0]->dia_29 != 0 ? $datos['simat']['dia29'][0]->dia_29 +  $datos['simat']['dia29'][0]->dia_29observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia30->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia30'][0]->dia_30 != 0 ? $datos['simat']['dia30'][0]->dia_30 +  $datos['simat']['dia30'][0]->dia_30observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia31->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia31'][0]->dia_31 != 0 ? $datos['simat']['dia31'][0]->dia_31 +  $datos['simat']['dia31'][0]->dia_31observacion : 0 : 0 }}</td>
-                        <td class="tg-0pky">
+                        <td class="uneditable tg-lboi" rowspan="2">{{$datos['simat']->sede}}</td>
+                        <td class="uneditable tg-0pky">JM-RI</td>
+                        <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia1" data-modalidad="JM-RI">{{$datos['simat']->dia1->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia1'][0]->dia_1 != 0 ? $datos['simat']['dia1'][0]->dia_1 +  $datos['simat']['dia1'][0]->dia_1observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia2" data-modalidad="JM-RI">{{$datos['simat']->dia2->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia2'][0]->dia_2 != 0 ? $datos['simat']['dia2'][0]->dia_2 +  $datos['simat']['dia2'][0]->dia_2observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia3" data-modalidad="JM-RI">{{$datos['simat']->dia3->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia3'][0]->dia_3 != 0 ? $datos['simat']['dia3'][0]->dia_3 +  $datos['simat']['dia3'][0]->dia_3observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia4" data-modalidad="JM-RI">{{$datos['simat']->dia4->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia4'][0]->dia_4 != 0 ? $datos['simat']['dia4'][0]->dia_4 +  $datos['simat']['dia4'][0]->dia_4observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia5" data-modalidad="JM-RI">{{$datos['simat']->dia5->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia5'][0]->dia_5 != 0 ? $datos['simat']['dia5'][0]->dia_5 +  $datos['simat']['dia5'][0]->dia_5observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia6" data-modalidad="JM-RI">{{$datos['simat']->dia6->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia6'][0]->dia_6 != 0 ? $datos['simat']['dia6'][0]->dia_6 +  $datos['simat']['dia6'][0]->dia_6observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia7" data-modalidad="JM-RI">{{$datos['simat']->dia7->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia7'][0]->dia_7 != 0 ? $datos['simat']['dia7'][0]->dia_7 +  $datos['simat']['dia7'][0]->dia_7observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia8" data-modalidad="JM-RI">{{$datos['simat']->dia8->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia8'][0]->dia_8 != 0 ? $datos['simat']['dia8'][0]->dia_8 +  $datos['simat']['dia8'][0]->dia_8observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia9" data-modalidad="JM-RI">{{$datos['simat']->dia9->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia9'][0]->dia_9 != 0 ? $datos['simat']['dia9'][0]->dia_9 +  $datos['simat']['dia9'][0]->dia_9observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia10" data-modalidad="JM-RI">{{$datos['simat']->dia10->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia10'][0]->dia_10 != 0 ? $datos['simat']['dia10'][0]->dia_10 +  $datos['simat']['dia10'][0]->dia_10observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia11" data-modalidad="JM-RI">{{$datos['simat']->dia11->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia11'][0]->dia_11 != 0 ? $datos['simat']['dia11'][0]->dia_11 +  $datos['simat']['dia11'][0]->dia_11observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia12" data-modalidad="JM-RI">{{$datos['simat']->dia12->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia12'][0]->dia_12 != 0 ? $datos['simat']['dia12'][0]->dia_12 +  $datos['simat']['dia12'][0]->dia_12observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia13" data-modalidad="JM-RI">{{$datos['simat']->dia13->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia13'][0]->dia_13 != 0 ? $datos['simat']['dia13'][0]->dia_13 +  $datos['simat']['dia13'][0]->dia_13observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia14" data-modalidad="JM-RI">{{$datos['simat']->dia14->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia14'][0]->dia_14 != 0 ? $datos['simat']['dia14'][0]->dia_14 +  $datos['simat']['dia14'][0]->dia_14observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia15" data-modalidad="JM-RI">{{$datos['simat']->dia15->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia15'][0]->dia_15 != 0 ? $datos['simat']['dia15'][0]->dia_15 +  $datos['simat']['dia15'][0]->dia_15observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia16" data-modalidad="JM-RI">{{$datos['simat']->dia16->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia16'][0]->dia_16 != 0 ? $datos['simat']['dia16'][0]->dia_16 +  $datos['simat']['dia16'][0]->dia_16observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia17" data-modalidad="JM-RI">{{$datos['simat']->dia17->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia17'][0]->dia_17 != 0 ? $datos['simat']['dia17'][0]->dia_17 +  $datos['simat']['dia17'][0]->dia_17observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia18" data-modalidad="JM-RI">{{$datos['simat']->dia18->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia18'][0]->dia_18 != 0 ? $datos['simat']['dia18'][0]->dia_18 +  $datos['simat']['dia18'][0]->dia_18observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia19" data-modalidad="JM-RI">{{$datos['simat']->dia19->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia19'][0]->dia_19 != 0 ? $datos['simat']['dia19'][0]->dia_19 +  $datos['simat']['dia19'][0]->dia_19observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia20" data-modalidad="JM-RI">{{$datos['simat']->dia20->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia20'][0]->dia_20 != 0 ? $datos['simat']['dia20'][0]->dia_20 +  $datos['simat']['dia20'][0]->dia_20observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia21" data-modalidad="JM-RI">{{$datos['simat']->dia21->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia21'][0]->dia_21 != 0 ? $datos['simat']['dia21'][0]->dia_21 +  $datos['simat']['dia21'][0]->dia_21observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia22" data-modalidad="JM-RI">{{$datos['simat']->dia22->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia22'][0]->dia_22 != 0 ? $datos['simat']['dia22'][0]->dia_22 +  $datos['simat']['dia22'][0]->dia_22observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia23" data-modalidad="JM-RI">{{$datos['simat']->dia23->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia23'][0]->dia_23 != 0 ? $datos['simat']['dia23'][0]->dia_23 +  $datos['simat']['dia23'][0]->dia_23observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia24" data-modalidad="JM-RI">{{$datos['simat']->dia24->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia24'][0]->dia_24 != 0 ? $datos['simat']['dia24'][0]->dia_24 +  $datos['simat']['dia24'][0]->dia_24observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia25" data-modalidad="JM-RI">{{$datos['simat']->dia25->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia25'][0]->dia_25 != 0 ? $datos['simat']['dia25'][0]->dia_25 +  $datos['simat']['dia25'][0]->dia_25observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia26" data-modalidad="JM-RI">{{$datos['simat']->dia26->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia26'][0]->dia_26 != 0 ? $datos['simat']['dia26'][0]->dia_26 +  $datos['simat']['dia26'][0]->dia_26observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia27" data-modalidad="JM-RI">{{$datos['simat']->dia27->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia27'][0]->dia_27 != 0 ? $datos['simat']['dia27'][0]->dia_27 +  $datos['simat']['dia27'][0]->dia_27observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia28" data-modalidad="JM-RI">{{$datos['simat']->dia28->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia28'][0]->dia_28 != 0 ? $datos['simat']['dia28'][0]->dia_28 +  $datos['simat']['dia28'][0]->dia_28observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia29" data-modalidad="JM-RI">{{$datos['simat']->dia29->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia29'][0]->dia_29 != 0 ? $datos['simat']['dia29'][0]->dia_29 +  $datos['simat']['dia29'][0]->dia_29observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia30" data-modalidad="JM-RI">{{$datos['simat']->dia30->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia30'][0]->dia_30 != 0 ? $datos['simat']['dia30'][0]->dia_30 +  $datos['simat']['dia30'][0]->dia_30observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia31" data-modalidad="JM-RI">{{$datos['simat']->dia31->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia31'][0]->dia_31 != 0 ? $datos['simat']['dia31'][0]->dia_31 +  $datos['simat']['dia31'][0]->dia_31observacion : 0 : 0 }}</td>
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" diasAtendidos="diasAtendidos" data-modalidad="JM-RI">
                           @php
                           $suma = 0; 
                           $suma += $datos['simat']['dia1'][0]->dia_1 != 0 ? 1 : 0;
@@ -294,7 +294,7 @@
                           @endphp
                           {{$suma}}
                         </td>
-                        <td class="tg-0pky">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalRaciones="totalRaciones" data-modalidad="JM-RI">
                           @php
                           $suma1 = 0; 
                           $suma1 += $datos['simat']['dia1'][0]->dia_1 != 0 ? $datos['simat']['dia1'][0]->dia_1 + $datos['simat']['dia1'][0]->dia_1observacion : 0;
@@ -331,7 +331,7 @@
                           @endphp
                           {{$suma1}}
                         </td>
-                        <td class="tg-0pky">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-novedades="novedades" data-modalidad="JM-RI">
                           
                           @php
                           $sede = DB::table('Ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
@@ -372,44 +372,44 @@
                           @endphp
                           {{$suma2}}
                         </td>
-                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JM-RI">0</td>
                         <td class="tg-0pky"></td>
                     </tr>
                     <tr>
-                        <td class="tg-0pky">JT-RI</td>
+                        <td class="uneditable tg-0pky">JT-RI</td>
                         @if(isset($datos['simat']['dia1'][1]))                        
-                        <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia1->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia1'][1]->dia_1 != 0 ? $datos['simat']['dia1'][1]->dia_1 +  $datos['simat']['dia1'][1]->dia_1observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia2->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia2'][1]->dia_2 != 0 ? $datos['simat']['dia2'][1]->dia_2 +  $datos['simat']['dia2'][1]->dia_2observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia3->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia3'][1]->dia_3 != 0 ? $datos['simat']['dia3'][1]->dia_3 +  $datos['simat']['dia3'][1]->dia_3observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia4->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia4'][1]->dia_4 != 0 ? $datos['simat']['dia4'][1]->dia_4 +  $datos['simat']['dia4'][1]->dia_4observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia5->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia5'][1]->dia_5 != 0 ? $datos['simat']['dia5'][1]->dia_5 +  $datos['simat']['dia5'][1]->dia_5observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia6->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia6'][1]->dia_6 != 0 ? $datos['simat']['dia6'][1]->dia_6 +  $datos['simat']['dia6'][1]->dia_6observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia7->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia7'][1]->dia_7 != 0 ? $datos['simat']['dia7'][1]->dia_7 +  $datos['simat']['dia7'][1]->dia_7observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia8->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia8'][1]->dia_8 != 0 ? $datos['simat']['dia8'][1]->dia_8 +  $datos['simat']['dia8'][1]->dia_8observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia9->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia9'][1]->dia_9 != 0 ? $datos['simat']['dia9'][1]->dia_9 +  $datos['simat']['dia9'][1]->dia_9observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia10->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia10'][1]->dia_10 != 0 ? $datos['simat']['dia10'][1]->dia_10 +  $datos['simat']['dia10'][1]->dia_10observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia11->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia11'][1]->dia_11 != 0 ? $datos['simat']['dia11'][1]->dia_11 +  $datos['simat']['dia11'][1]->dia_11observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia12->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia12'][1]->dia_12 != 0 ? $datos['simat']['dia12'][1]->dia_12 +  $datos['simat']['dia12'][1]->dia_12observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia13->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia13'][1]->dia_13 != 0 ? $datos['simat']['dia13'][1]->dia_13 +  $datos['simat']['dia13'][1]->dia_13observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia14->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia14'][1]->dia_14 != 0 ? $datos['simat']['dia14'][1]->dia_14 +  $datos['simat']['dia14'][1]->dia_14observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia15->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia15'][1]->dia_15 != 0 ? $datos['simat']['dia15'][1]->dia_15 +  $datos['simat']['dia15'][1]->dia_15observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia16->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia16'][1]->dia_16 != 0 ? $datos['simat']['dia16'][1]->dia_16 +  $datos['simat']['dia16'][1]->dia_16observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia17->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia17'][1]->dia_17 != 0 ? $datos['simat']['dia17'][1]->dia_17 +  $datos['simat']['dia17'][1]->dia_17observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia18->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia18'][1]->dia_18 != 0 ? $datos['simat']['dia18'][1]->dia_18 +  $datos['simat']['dia18'][1]->dia_18observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia19->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia19'][1]->dia_19 != 0 ? $datos['simat']['dia19'][1]->dia_19 +  $datos['simat']['dia19'][1]->dia_19observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia20->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia20'][1]->dia_20 != 0 ? $datos['simat']['dia20'][1]->dia_20 +  $datos['simat']['dia20'][1]->dia_20observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia21->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia21'][1]->dia_21 != 0 ? $datos['simat']['dia21'][1]->dia_21 +  $datos['simat']['dia21'][1]->dia_21observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia22->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia22'][1]->dia_22 != 0 ? $datos['simat']['dia22'][1]->dia_22 +  $datos['simat']['dia22'][1]->dia_22observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia23->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia23'][1]->dia_23 != 0 ? $datos['simat']['dia23'][1]->dia_23 +  $datos['simat']['dia23'][1]->dia_23observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia24->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia24'][1]->dia_24 != 0 ? $datos['simat']['dia24'][1]->dia_24 +  $datos['simat']['dia24'][1]->dia_24observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia25->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia25'][1]->dia_25 != 0 ? $datos['simat']['dia25'][1]->dia_25 +  $datos['simat']['dia25'][1]->dia_25observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia26->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia26'][1]->dia_26 != 0 ? $datos['simat']['dia26'][1]->dia_26 +  $datos['simat']['dia26'][1]->dia_26observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia27->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia27'][1]->dia_27 != 0 ? $datos['simat']['dia27'][1]->dia_27 +  $datos['simat']['dia27'][1]->dia_27observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia28->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia28'][1]->dia_28 != 0 ? $datos['simat']['dia28'][1]->dia_28 +  $datos['simat']['dia28'][1]->dia_28observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia29->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia29'][1]->dia_29 != 0 ? $datos['simat']['dia29'][1]->dia_29 +  $datos['simat']['dia29'][1]->dia_29observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia30->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia30'][1]->dia_30 != 0 ? $datos['simat']['dia30'][1]->dia_30 +  $datos['simat']['dia30'][1]->dia_30observacion : 0 : 0 }}</td>
-                        <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};'>{{$datos['simat']->dia31->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia31'][1]->dia_31 != 0 ? $datos['simat']['dia31'][1]->dia_31 +  $datos['simat']['dia31'][1]->dia_31observacion : 0 : 0 }}</td>
-                        <td class="tg-0pky">
+                        <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia1" data-modalidad="JT-RI">{{$datos['simat']->dia1->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia1'][1]->dia_1 != 0 ? $datos['simat']['dia1'][1]->dia_1 +  $datos['simat']['dia1'][1]->dia_1observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia2" data-modalidad="JT-RI">{{$datos['simat']->dia2->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia2'][1]->dia_2 != 0 ? $datos['simat']['dia2'][1]->dia_2 +  $datos['simat']['dia2'][1]->dia_2observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia3" data-modalidad="JT-RI">{{$datos['simat']->dia3->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia3'][1]->dia_3 != 0 ? $datos['simat']['dia3'][1]->dia_3 +  $datos['simat']['dia3'][1]->dia_3observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia4" data-modalidad="JT-RI">{{$datos['simat']->dia4->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia4'][1]->dia_4 != 0 ? $datos['simat']['dia4'][1]->dia_4 +  $datos['simat']['dia4'][1]->dia_4observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia5" data-modalidad="JT-RI">{{$datos['simat']->dia5->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia5'][1]->dia_5 != 0 ? $datos['simat']['dia5'][1]->dia_5 +  $datos['simat']['dia5'][1]->dia_5observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia6" data-modalidad="JT-RI">{{$datos['simat']->dia6->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia6'][1]->dia_6 != 0 ? $datos['simat']['dia6'][1]->dia_6 +  $datos['simat']['dia6'][1]->dia_6observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia7" data-modalidad="JT-RI">{{$datos['simat']->dia7->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia7'][1]->dia_7 != 0 ? $datos['simat']['dia7'][1]->dia_7 +  $datos['simat']['dia7'][1]->dia_7observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia8" data-modalidad="JT-RI">{{$datos['simat']->dia8->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia8'][1]->dia_8 != 0 ? $datos['simat']['dia8'][1]->dia_8 +  $datos['simat']['dia8'][1]->dia_8observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia9" data-modalidad="JT-RI">{{$datos['simat']->dia9->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia9'][1]->dia_9 != 0 ? $datos['simat']['dia9'][1]->dia_9 +  $datos['simat']['dia9'][1]->dia_9observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia10" data-modalidad="JT-RI">{{$datos['simat']->dia10->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia10'][1]->dia_10 != 0 ? $datos['simat']['dia10'][1]->dia_10 +  $datos['simat']['dia10'][1]->dia_10observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia11" data-modalidad="JT-RI">{{$datos['simat']->dia11->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia11'][1]->dia_11 != 0 ? $datos['simat']['dia11'][1]->dia_11 +  $datos['simat']['dia11'][1]->dia_11observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia12" data-modalidad="JT-RI">{{$datos['simat']->dia12->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia12'][1]->dia_12 != 0 ? $datos['simat']['dia12'][1]->dia_12 +  $datos['simat']['dia12'][1]->dia_12observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia13" data-modalidad="JT-RI">{{$datos['simat']->dia13->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia13'][1]->dia_13 != 0 ? $datos['simat']['dia13'][1]->dia_13 +  $datos['simat']['dia13'][1]->dia_13observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia14" data-modalidad="JT-RI">{{$datos['simat']->dia14->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia14'][1]->dia_14 != 0 ? $datos['simat']['dia14'][1]->dia_14 +  $datos['simat']['dia14'][1]->dia_14observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia15" data-modalidad="JT-RI">{{$datos['simat']->dia15->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia15'][1]->dia_15 != 0 ? $datos['simat']['dia15'][1]->dia_15 +  $datos['simat']['dia15'][1]->dia_15observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia16" data-modalidad="JT-RI">{{$datos['simat']->dia16->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia16'][1]->dia_16 != 0 ? $datos['simat']['dia16'][1]->dia_16 +  $datos['simat']['dia16'][1]->dia_16observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia17" data-modalidad="JT-RI">{{$datos['simat']->dia17->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia17'][1]->dia_17 != 0 ? $datos['simat']['dia17'][1]->dia_17 +  $datos['simat']['dia17'][1]->dia_17observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia18" data-modalidad="JT-RI">{{$datos['simat']->dia18->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia18'][1]->dia_18 != 0 ? $datos['simat']['dia18'][1]->dia_18 +  $datos['simat']['dia18'][1]->dia_18observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia19" data-modalidad="JT-RI">{{$datos['simat']->dia19->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia19'][1]->dia_19 != 0 ? $datos['simat']['dia19'][1]->dia_19 +  $datos['simat']['dia19'][1]->dia_19observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia20" data-modalidad="JT-RI">{{$datos['simat']->dia20->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia20'][1]->dia_20 != 0 ? $datos['simat']['dia20'][1]->dia_20 +  $datos['simat']['dia20'][1]->dia_20observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia21" data-modalidad="JT-RI">{{$datos['simat']->dia21->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia21'][1]->dia_21 != 0 ? $datos['simat']['dia21'][1]->dia_21 +  $datos['simat']['dia21'][1]->dia_21observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['simat']->consecutivo}}" data-dia="dia22" data-modalidad="JT-RI">{{$datos['simat']->dia22->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia22'][1]->dia_22 != 0 ? $datos['simat']['dia22'][1]->dia_22 +  $datos['simat']['dia22'][1]->dia_22observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['simat']->consecutivo}}" data-dia="dia23" data-modalidad="JT-RI">{{$datos['simat']->dia23->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia23'][1]->dia_23 != 0 ? $datos['simat']['dia23'][1]->dia_23 +  $datos['simat']['dia23'][1]->dia_23observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['simat']->consecutivo}}" data-dia="dia24" data-modalidad="JT-RI">{{$datos['simat']->dia24->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia24'][1]->dia_24 != 0 ? $datos['simat']['dia24'][1]->dia_24 +  $datos['simat']['dia24'][1]->dia_24observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['simat']->consecutivo}}" data-dia="dia25" data-modalidad="JT-RI">{{$datos['simat']->dia25->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia25'][1]->dia_25 != 0 ? $datos['simat']['dia25'][1]->dia_25 +  $datos['simat']['dia25'][1]->dia_25observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['simat']->consecutivo}}" data-dia="dia26" data-modalidad="JT-RI">{{$datos['simat']->dia26->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia26'][1]->dia_26 != 0 ? $datos['simat']['dia26'][1]->dia_26 +  $datos['simat']['dia26'][1]->dia_26observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia27" data-modalidad="JT-RI">{{$datos['simat']->dia27->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia27'][1]->dia_27 != 0 ? $datos['simat']['dia27'][1]->dia_27 +  $datos['simat']['dia27'][1]->dia_27observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia28" data-modalidad="JT-RI">{{$datos['simat']->dia28->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia28'][1]->dia_28 != 0 ? $datos['simat']['dia28'][1]->dia_28 +  $datos['simat']['dia28'][1]->dia_28observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia29" data-modalidad="JT-RI">{{$datos['simat']->dia29->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia29'][1]->dia_29 != 0 ? $datos['simat']['dia29'][1]->dia_29 +  $datos['simat']['dia29'][1]->dia_29observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia30" data-modalidad="JT-RI">{{$datos['simat']->dia30->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia30'][1]->dia_30 != 0 ? $datos['simat']['dia30'][1]->dia_30 +  $datos['simat']['dia30'][1]->dia_30observacion : 0 : 0 }}</td>
+                        <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia31" data-modalidad="JT-RI">{{$datos['simat']->dia31->Tipo_de_complemento = 'CAJTRI' ? $datos['simat']['dia31'][1]->dia_31 != 0 ? $datos['simat']['dia31'][1]->dia_31 +  $datos['simat']['dia31'][1]->dia_31observacion : 0 : 0 }}</td>
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JT-RI">
                           @php
                             $suma = 0;
                             $suma += $datos['simat']['dia1'][1]->dia_1 != 0 ? 1 : 0;
@@ -447,7 +447,7 @@
                           @endphp
                           {{$suma}}
                         </td>
-                        <td class="tg-0pky">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-totalRaciones="totalRaciones" data-modalidad="JT-RI">
                           @php
                           $suma1 = 0; 
                           $suma1 += $datos['simat']['dia1'][1]->dia_1 != 0 ? $datos['simat']['dia1'][1]->dia_1 + $datos['simat']['dia1'][1]->dia_1observacion : 0;
@@ -484,7 +484,7 @@
                           @endphp
                           {{$suma1}}
                         </td>
-                        <td class="tg-0pky">
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-novedades="novedades" data-modalidad="JT-RI">
                           
                           @php
                           $sede = DB::table('Ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
@@ -525,7 +525,7 @@
                           @endphp
                           {{$suma2}}
                         </td>
-                        <td class="tg-0pky"></td>
+                        <td class="tg-0pky" data-id="{{$datos['simat']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JT-RI">0</td>
                         <td class="tg-0pky"></td>
                         @else
                         <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'>0</td>
@@ -563,7 +563,7 @@
                         <td class="tg-0pky">0</td>
                         <td class="tg-0pky">0</td>
                         <td class="tg-0pky">0</td>
-                        <td class="tg-0pky">0</td>
+                        <td class="tg-0pky"></td>
                         @endif
                         
                     </tr>
@@ -576,64 +576,7 @@
     </div>
   </section>
   <!-- Modal to add new record -->
-  <div class="modal modal-slide-in fade" id="modals-slide-in">
-    <div class="modal-dialog sidebar-sm add-new-record modal-content pt-0">
-      
-       
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-        <div class="modal-header mb-1">
-          <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-        </div>
-        <div class="modal-body flex-grow-1">
-          <input type="hidden" id="estudiante-id">
-          <div class="mb-1">
-            <label class="form-label" for="basic-icon-default-fullname">Observaciones al estudiante</label>
-            <textarea
-              type="text"
-              class="form-control dt-full-name"
-              id="observaciones"
-              name="observaciones"
-              placeholder="Observaciones"
-              aria-label="Observaciones"
-            ></textarea>
-          </div>
-          <div class="mb-1">
-            <div class="card">
-              <div class="card-body">
-                <h2 class="mb-75">Datos del estudiante en la base de datos</h2>
-                 <p>             
-                  <h5 class="mb-75">Institución:</h5>
-                  <b class="card-text" id="institucion1"></b> sede <br>
-                  <b class="card-text" id="sede1"></b>
-                 </p>       
-                <h2 class="mb-75">Primer coincidencia en el SIMAT</h2>
-                
-                <p>  
-                  Documento: <b class="card-text" id="tipodocu"></b>
-                  <b class="card-text" id="docu"></b><br>
-                  <h5 class="mb-75">Nombre:</h5>
-                  
-                  <b class="card-text" id="primerNS"></b>
-                  <b class="card-text" id="segundoNS"></b>
-                  <b class="card-text" id="primerAS"></b>
-                  <b class="card-text" id="segundoAS"></b>
-                
-                  <h5 class="mb-75">Institución:</h5>
-                  <b class="card-text" id="institucionS"></b> sede <br>
-                  <b class="card-text" id="sedeS"></b>
-                </p>
-                <p id="estadoS" class="badge rounded-pill badge-light-danger me-1"></p>
-              </div>
-            </div>
-            
-          </div>  
-         
-          <button class="btn btn-primary data-submit me-1" id="btn-save">Submit</button>
-          <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-        </div>
-      
-    </div>
-  </div>
+  
 </section>
 <!--/ Basic table -->
 
@@ -658,18 +601,49 @@
   <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.print.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
+  <script src="{{ asset(mix('js/scripts/mindmup-editabletable.js')) }}"></script>
 @endsection
 @section('page-script')
   {{-- Page js files --}}
   
   <script type="text/javascript">
-    $.fn.editable.defaults.mode = 'inline';
-
+    $('#editable').editableTableWidget();
+    $('#editable td.uneditable').on('change', function(evt, newValue) {
+            return false;
+    });
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
+    });
+    $('#editable td').on('change', function(evt, newValue) {
+          var sede_id = $(this).data('id');
+          var dia = $(this).data('dia');
+          var modalidad = $(this).data('modalidad');
+          
+          var diasAtendidos = $(this).data('diasAtendidos');
+          if(diasAtendidos = null){
+            console.log('vacia');
+          }else{
+            console.log(diasAtendidos);
+          }
+          var totalRaciones = $(this).data('totalRaciones');
+          var novedades = $(this).data('novedades');
+          var devoluciones = $(this).data('devoluciones');
+          $.get( "updateConsolidado", { 
+                  value: newValue,
+                  sede_id: sede_id,
+                  dia: dia,
+                  modalidad: modalidad,
+                  diasAtendidos: newValue,
+                  totalRaciones: newValue,
+                  novedades: newValue,
+                  devoluciones: newValue
+                  })
+                  .done(function( data ) {
+                          console.log( "Data Loaded: " + data );
+                  });     
+          ;
     });
     $(document).ready(function(){
         $.ajax({
