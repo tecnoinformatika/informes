@@ -1329,7 +1329,7 @@
         } ); 
            
 
-        sumar();
+       
     });
     /* GUARDAR TODO DESDE LA TABLA */
     $('.guardarbt1').on('click', function() {
