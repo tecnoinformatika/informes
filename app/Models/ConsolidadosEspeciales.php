@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class consolidado extends Model
+class ConsolidadosEspeciales extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'user_id',
         'codigo_dane_sede',
@@ -50,14 +50,4 @@ class consolidado extends Model
         'devoluciones',
         'consolidado'
     ];
-
-    /**
-     * Get the user that owns the consolidado
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
 }

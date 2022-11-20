@@ -69,22 +69,43 @@
             </div>
           </div>
           <div class="row">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Tipo de complemento</h4>
-              </div>
-              <div class="card-body">
-                <!-- Basic Select -->
-                <div class="mb-1">
-                  <label class="form-label" for="tipo">Tipo de complemento</label>
-                  <select class="form-select" id="tipo" name="tipo" required>
-                    <option value="">- Seleccione -</option>
-                    <option value="RPS">RPS</option>
-                    <option value="RI">RI</option>
-                  </select>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Tipo de complemento</h4>
+                </div>
+                <div class="card-body">
+                  <!-- Basic Select -->
+                  <div class="mb-1">
+                    <label class="form-label" for="tipo">Tipo de complemento</label>
+                    <select class="form-select" id="tipo" name="tipo" required>
+                      <option >- Seleccione -</option>
+                      <option value="RPS">RPS</option>
+                      <option value="RI">RI</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Tipo de conslidado</h4>
+                </div>
+                <div class="card-body">
+                  <!-- Basic Select -->
+                  <div class="mb-1">
+                    <label class="form-label" for="tipoconsolidado">Tipo de complemento</label>
+                    <select class="form-select" id="tipoconsolidado" name="tipoconsolidado" required>
+                      <option >- Seleccione -</option>
+                      <option value="1">Consolidado normal</option>
+                      <option value="2">Consolidado entregas especiales</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             
           </div>
           <button class="btn btn-primary btn-next">
