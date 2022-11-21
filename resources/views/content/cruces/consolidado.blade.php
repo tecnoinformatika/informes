@@ -176,7 +176,7 @@
          
           <div class="card-datatable">
             @if($data[0]['tipoconsolidado'] == 'normal')
-              <table id="editable" class="dt-complex-header table table-bordered table-responsive table-sm table-dark table-striped">
+              <table id="editable" class="dt-complex-header table table-bordered table-responsive table-sm ">
                 <thead>
                   <tr>
                     <th rowspan="2">SEDE</th>
@@ -1149,7 +1149,7 @@
           var totalRaciones = $('#'+sede_id+'-'+modalidad+'-totalRaciones').html();
           var novedades = $('#'+sede_id+'-'+modalidad+'-novedades').html();
           var devoluciones = $('#'+sede_id+'-'+modalidad+'-devoluciones').html();
-      
+          var consolidado = 1;
 
           
           
@@ -1192,7 +1192,8 @@
                   diasAtendidos: diasAtendidos,
                   totalRaciones: totalRaciones,
                   novedades: novedades,
-                  devoluciones: devoluciones
+                  devoluciones: devoluciones,
+                  consolidado: consolidado
                   })
                   .done(function( data ) {
                           console.log( "Data Loaded: " + data );
@@ -1370,7 +1371,7 @@
           var totalRaciones = $('#'+sede_id+'-'+modalidad+'-totalRaciones').html();
           var novedades = $('#'+sede_id+'-'+modalidad+'-novedades').html();
           var devoluciones = $('#'+sede_id+'-'+modalidad+'-devoluciones').html();
-      
+          var consolidado = 1;
 
           
           
@@ -1413,7 +1414,8 @@
                   diasAtendidos: diasAtendidos,
                   totalRaciones: totalRaciones,
                   novedades: novedades,
-                  devoluciones: devoluciones
+                  devoluciones: devoluciones,
+                  consolidado: consolidado
                   })
                   .done(function( data ) {
                           console.log( "Data Loaded: " + data );

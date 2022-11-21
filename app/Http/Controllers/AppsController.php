@@ -3,9 +3,75 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+use Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AppsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $users  = User::get();
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'data' => $users]);
+    }
+
+    public function crearUsuario(Request $request)
+    {
+        
+        $usuario = new User();
+
+        $usuario->name = $request->name;
+        $usuario->documento = $request->documento;
+        $usuario->contrato = $request->contrato;
+        $usuario->cargo = $request->cargo;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request->password);
+        $usuario->save();
+
+
+   
+        
+                
+                $imagen = request()->file('firma')->getClientOriginalName();
+                $formato = request()->file('firma')->getClientOriginalExtension();
+                request()->file('firma')->move(public_path().'/uploads/', request()->file('firma'));
+ 
+                // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
+                DB::table('firmas')->insert(
+				    [
+				    	'nombre' => $imagen, 
+				    	'formato' => $formato,
+				    	'user_id' => $usuario->id,
+				    	'created_at' => date("Y-m-d H:i:s"),
+				    	'updated_at' => date("Y-m-d H:i:s")
+				    ]
+				);
+ 
+    
+
+
+
+
+
+
+
+        $users  = User::get();
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'data' => $users]);
+    }
+
+
+
     // invoice list App
     public function invoice_list()
     {
@@ -47,11 +113,10 @@ class AppsController extends Controller
     }
 
     // User List Page
-    public function user_list()
-    {
-        $pageConfigs = ['pageHeader' => false];
-        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs]);
-    }
+   
+
+
+
 
     // User Account Page
     public function user_view_account()

@@ -90,12 +90,12 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Tipo de conslidado</h4>
+                  <h4 class="card-title">Tipo de consolidado</h4>
                 </div>
                 <div class="card-body">
                   <!-- Basic Select -->
                   <div class="mb-1">
-                    <label class="form-label" for="tipoconsolidado">Tipo de complemento</label>
+                    <label class="form-label" for="tipoconsolidado">Tipo de consolidado</label>
                     <select class="form-select" id="tipoconsolidado" name="tipoconsolidado" required>
                       <option >- Seleccione -</option>
                       <option value="1">Consolidado normal</option>
@@ -164,15 +164,7 @@
           }
         });
        
-        $('#example').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
-        } );     
+           
     });
 
 </script>

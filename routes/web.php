@@ -63,7 +63,6 @@ Route::group(['prefix' => 'app'], function () {
     Route::get('file-manager', [AppsController::class, 'file_manager'])->name('app-file-manager');
     Route::get('access-roles', [AppsController::class, 'access_roles'])->name('app-access-roles');
     Route::get('access-permission', [AppsController::class, 'access_permission'])->name('app-access-permission');
-    Route::get('user/list', [AppsController::class, 'user_list'])->name('app-user-list');
     Route::get('user/view/account', [AppsController::class, 'user_view_account'])->name('app-user-view-account');
     Route::get('user/view/security', [AppsController::class, 'user_view_security'])->name('app-user-view-security');
     Route::get('user/view/billing', [AppsController::class, 'user_view_billing'])->name('app-user-view-billing');
@@ -309,12 +308,10 @@ Route::group(['prefix' => 'cruces'], function () {
     Route::get('updateConsolidadoespecial1', [CrucesController::class, 'updateConsolidadoespecial1'])->name('updateConsolidadoespecial1');
 });
 
-Route::controller(CrucesController::class)->group(function(){
-    Route::get('items', 'index')->name('simat.index');
-    Route::post('items', 'store')->name('simat.store');
-    Route::get('items/create', 'create')->name('simat.create');
-    Route::get('items/{item}', 'show')->name('simat.show');
-    Route::put('items/{item}', 'update')->name('simat.update');
-    Route::delete('items/{item}', 'destroy')->name('simat.destroy');
-    Route::get('items/{item}/edit', 'edit')->name('simat.edit');
+Route::group(['prefix' => 'usuarios'], function () {
+    Route::get('index', [AppsController::class, 'index'])->name('usuarios-index');
+    Route::post('crearUsuario', [AppsController::class, 'crearUsuario'])->name('crearUsuario');
+    Route::get('datos', [AppsController::class, 'datos'])->name('sedes-datos');
+    Route::get('vaciar', [AppsController::class, 'vaciar'])->name('sedes-vaciar');
+    Route::post('importar', [AppsController::class, 'importar'])->name('sedes-importar');
 });

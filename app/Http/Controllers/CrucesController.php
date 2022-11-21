@@ -19,7 +19,8 @@ class CrucesController extends Controller
         {
                 $this->middleware('auth');
         }
-        public function estadoMatriculaJson(Request $request){
+        public function estadoMatriculaJson(Request $request)
+        {
                 $institucion = $request->institucion;
                 $tipo = $request->tipo;
         
@@ -933,7 +934,7 @@ class CrucesController extends Controller
         }
         public function updateConsolidado1(Request $request)
         {
-                
+                //dd($request);
                 $id = Auth::user()->id; 
 
                 if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
@@ -978,7 +979,8 @@ class CrucesController extends Controller
                                  'N_dias_atendidos' => $request->diasAtendidos,
                                  'total_raciones' => $request->totalRaciones,
                                  'novedades' => $request->novedades,
-                                 'devoluciones' =>$request->devoluciones
+                                 'devoluciones' =>$request->devoluciones,
+                                 'consolidado' => $request->consolidado
                         ]);             
                         return response()->json(['success' => true]);
                 }else{
@@ -1021,7 +1023,7 @@ class CrucesController extends Controller
                                 'total_raciones' => $request->totalRaciones,
                                 'novedades' => $request->novedades,
                                 'devoluciones' =>$request->devoluciones,
-                                'consolidado' => 1
+                                'consolidado' => $request->consolidado
                         ]); 
                         return response()->json(['success' => true]);
                 }
@@ -1123,7 +1125,7 @@ class CrucesController extends Controller
         }
         public function updateConsolidadoespecial1(Request $request)
         {
-                
+                dd($request);
                 $id = Auth::user()->id; 
 
                 if(ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
@@ -1168,7 +1170,8 @@ class CrucesController extends Controller
                                  'N_dias_atendidos' => $request->diasAtendidos,
                                  'total_raciones' => $request->totalRaciones,
                                  'novedades' => $request->novedades,
-                                 'devoluciones' =>$request->devoluciones
+                                 'devoluciones' =>$request->devoluciones,
+                                 'consolidado' => $request->consolidado
                         ]);             
                         return response()->json(['success' => true]);
                 }else{
@@ -1210,8 +1213,8 @@ class CrucesController extends Controller
                                 'N_dias_atendidos' => $request->diasAtendidos,
                                 'total_raciones' => $request->totalRaciones,
                                 'novedades' => $request->novedades,
-                                'devoluciones' =>$request->devoluciones,
-                                'consolidado' => 1
+                                'devoluciones' => $request->devoluciones,
+                                'consolidado' => $request->consolidado
                         ]); 
                         return response()->json(['success' => true]);
                 }

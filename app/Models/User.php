@@ -27,6 +27,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'documento',
+        'cargo',
+        'contrato',
+        'firma_id'
     ];
 
     /**
@@ -58,4 +62,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function firma()
+    {
+        return $this->hasOne(Firmas::class);
+    }
 }
