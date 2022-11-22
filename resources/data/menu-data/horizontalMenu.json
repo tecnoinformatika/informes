@@ -24,6 +24,12 @@
           "name": "Consolidado",
           "icon": "calendar",
           "slug": "cruces-consolidado"
+        },
+        {
+          "url": "cruces/index-certificaciones",
+          "name": "Certificaciones",
+          "icon": "file-plus",
+          "slug": "cruces-certificaciones"
         }
       ]
     },
@@ -141,6 +147,24 @@
               "slug": "sede-datos"
             }
           ]
+          
+        }
+        
+      ]
+    },
+    {
+      "name": "Ajustes",
+      "icon": "cpu",
+      "dropdown": "1",
+      "slug": "",
+      "submenu": [
+        {
+          
+          "name": "Usuarios",
+          "dropdown": "1",
+          "icon": "user-check",
+          "slug": "",
+          "url": "usuarios/index"
           
         }
         

@@ -25,6 +25,66 @@ class AppsController extends Controller
         return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'data' => $users]);
     }
 
+    public function usuario($id)
+    {
+   
+        $usuario = User::where('users.id',$id)
+                    ->join('firmas', 'users.id','=','firmas.user_id')
+                    ->select('users.id as id','users.name as name','users.contrato as contrato', 'users.email as email','users.documento as documento','users.cargo as cargo','firmas.nombre')
+                    ->first();
+        return Response::json($usuario);
+    }
+
+    public function editarUsuario(Request $request)
+    {
+
+        $usuario = User::find($request->id1);
+
+        $usuario->name = $request->name1;
+        $usuario->documento = $request->documento1;
+        $usuario->contrato = $request->contrato1;
+        $usuario->cargo = $request->cargo1;
+        $usuario->email = $request->email1;
+        $usuario->password = Hash::make($request->password1);
+        $usuario->save();
+
+
+            $this->validate($request, [
+                'firma' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+
+
+            $image_path = $request->file('firma')->store('firma', 'public');
+
+            $formato = request()->file('firma')->getClientOriginalExtension();
+            if(Firmas::where('user_id', $usuario->id)->first())
+            {
+                $data = Firmas::where('user_id', $usuario->id)->first()
+                ->update([
+                    'nombre' => $image_path, 
+                    'formato' => $formato,
+                    'user_id' => $usuario->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+
+            }else{
+                $data = Firmas::create([
+                    'nombre' => $image_path, 
+                    'formato' => $formato,
+                    'user_id' => $usuario->id,
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+            }
+            
+
+        $users  = User::get();
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'data' => $users]);
+    }
+
     public function crearUsuario(Request $request)
     {
         

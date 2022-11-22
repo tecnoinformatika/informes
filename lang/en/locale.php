@@ -2,6 +2,9 @@
 
 return [
     "Consolidado" => "Consolidado",
+    "Certificaciones" => "Certificaciones",
+    'Ajustes' => 'Ajustes',
+    'Usuarios' => 'Usuarios',
     "Estado matrícula" => "Estado matrícula",
     "Cruces" => "Cruces",
     "Instituciones" => "Instituciones",

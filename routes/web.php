@@ -306,12 +306,16 @@ Route::group(['prefix' => 'cruces'], function () {
     Route::get('updateConsolidado1', [CrucesController::class, 'updateConsolidado1'])->name('updateConsolidado1');
     Route::get('updateConsolidadoespecial', [CrucesController::class, 'updateConsolidadoespecial'])->name('updateConsolidadoespecial');
     Route::get('updateConsolidadoespecial1', [CrucesController::class, 'updateConsolidadoespecial1'])->name('updateConsolidadoespecial1');
+    Route::get('index-certificaciones', [CrucesController::class, 'indexCertificaciones'])->name('index-certificaciones');
+    Route::post('certificacion', [CrucesController::class, 'certificacion'])->name('certificacion');
 });
 
 Route::group(['prefix' => 'usuarios'], function () {
     Route::get('index', [AppsController::class, 'index'])->name('usuarios-index');
     Route::post('crearUsuario', [AppsController::class, 'crearUsuario'])->name('crearUsuario');
-    Route::get('datos', [AppsController::class, 'datos'])->name('sedes-datos');
+    Route::post('editarUsuario', [AppsController::class, 'editarUsuario'])->name('editarUsuario');
+    Route::get('usuario/{registro}', [AppsController::class, 'usuario'])->name('usuario');
     Route::get('vaciar', [AppsController::class, 'vaciar'])->name('sedes-vaciar');
     Route::post('importar', [AppsController::class, 'importar'])->name('sedes-importar');
+    
 });
