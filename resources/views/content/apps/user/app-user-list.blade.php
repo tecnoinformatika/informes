@@ -35,7 +35,7 @@
       <table id="tablausuarios" class="user-list-table table">
         <thead class="table-light">
           <tr>
-            <th></th>
+            <th>Firma</th>
             <th>Nombre</th>
             <th>Documento</th>
             <th>Cargo</th>
@@ -47,7 +47,7 @@
         <tbody>
           @foreach($data as $datos)
             <tr>
-              <td><img src="/uploads/{{$datos->firma->nombre}}" alt=""></td>
+              <td><img src="{{$datos->firma->url_path}}" width="150px" alt=""></td>
               <td>{{$datos->name}}</td>
               <td>{{$datos->documento}}</td>
               <td>{{$datos->cargo}}</td>

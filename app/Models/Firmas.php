@@ -17,4 +17,9 @@ class Firmas extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function getUrlPathAttribute()
+    {
+        return \Storage::url($this->nombre);
+    }
 }

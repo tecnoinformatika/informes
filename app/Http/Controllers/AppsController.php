@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Auth;
 use App\Models\User;
+use App\Models\Firmas;
 use Illuminate\Support\Facades\Hash;
 
 class AppsController extends Controller
@@ -38,31 +39,22 @@ class AppsController extends Controller
         $usuario->save();
 
 
-   
-        
-                
-                $imagen = request()->file('firma')->getClientOriginalName();
-                $formato = request()->file('firma')->getClientOriginalExtension();
-                request()->file('firma')->move(public_path().'/uploads/', request()->file('firma'));
- 
-                // Guardamos el nombre de la imagen en la tabla 'img_bicicletas'
-                DB::table('firmas')->insert(
-				    [
-				    	'nombre' => $imagen, 
-				    	'formato' => $formato,
-				    	'user_id' => $usuario->id,
-				    	'created_at' => date("Y-m-d H:i:s"),
-				    	'updated_at' => date("Y-m-d H:i:s")
-				    ]
-				);
- 
-    
+            $this->validate($request, [
+                'firma' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
 
 
+            $image_path = $request->file('firma')->store('firma', 'public');
 
+            $formato = request()->file('firma')->getClientOriginalExtension();
 
-
-
+            $data = Firmas::create([
+                'nombre' => $image_path, 
+				'formato' => $formato,
+				'user_id' => $usuario->id,
+				'created_at' => date("Y-m-d H:i:s"),
+				'updated_at' => date("Y-m-d H:i:s"),
+            ]);
 
         $users  = User::get();
 
