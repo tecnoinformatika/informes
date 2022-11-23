@@ -17,6 +17,75 @@
   .tg .tg-cly1{text-align:left;vertical-align:middle}
   .tg .tg-0lax{text-align:left;vertical-align:top}
 </style>
+
+<style>
+  .mostrar20{
+    display:none;
+  }
+  .mostrar19{
+    display:none;
+  }
+  .mostrar18{
+    display:none;
+  }
+  .mostrar17{
+    display:none;
+  }
+  .mostrar16{
+    display:none;
+  }
+  .mostrar15{
+    display:none;
+  }
+  .mostrar14{
+    display:none;
+  }
+  .mostrar13{
+    display:none;
+  }
+  .mostrar11{
+    display:none;
+  }
+  .mostrar10{
+    display:none;
+  }
+  .mostrar9{
+    display:none;
+  }
+  .mostrar8{
+    display:none;
+  }
+  .mostrar7{
+    display:none;
+  }
+  .mostrar6{
+    display:none;
+  }
+  .mostrar5{
+    display:none;
+  }
+  .mostrar4{
+    display:none;
+  }
+  .mostrar3{
+    display:none;
+  }
+  .mostrar2{
+    display:none;
+  }
+  .mostrar1{
+    display:table-cell;
+  }
+</style>
+<style>
+  
+  .mostrara2{
+    display:table-cell;
+  }
+  .mostrara1{
+    display:none;
+  }
+</style>
 @endsection
 
 @section('content')
@@ -88,42 +157,31 @@
             </tr>
           </thead>
           <tbody>
+            @php $i=0; @endphp
+            @foreach ($data as $key => $datos)
             <tr>
-              <td class="tg-cly1 " rowspan="4">COLEGIO ANTONIO NARIÑO</td>
-              <td class="tg-0lax">PREESC MIS ALEGRIAS</td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
+              <td class="tg-cly1 mostrar{{$key+1}}" rowspan="{{$i}}">{{$datos['simat']->institucion}}</td>
+              <td class="tg-0lax">{{$datos['simat']->sede}}</td>
+              <td class="tg-0lax">
+                RPS <br>
+                RI </td>
+              <td class="tg-0lax">
+              @php $sum=0; @endphp
+              @foreach ($datos['simat']['consolidado'] as $key => $consolidado)
+                <p class="mostrara{{$key+1}}">{{$sum += $consolidado->total_raciones}}</p>
+              @endforeach  
+              </td>
               <td class="tg-0lax"></td>
               <td class="tg-0lax"></td>
               <td class="tg-0lax"></td>
             </tr>
-            <tr>
-              <td class="tg-0lax">ESC URB DE NIÑAS NO 13 NSTRA SRA DE LOURDES</td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax">COLEGIO ANTONIO NARIÑO</td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
-            <tr>
-              <td class="tg-0lax">CENT DOC MPAL SAN JOSE OBRERO</td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-              <td class="tg-0lax"></td>
-            </tr>
+            @php $i++; @endphp
+           @endforeach
           </tbody>
-          </table>
-     
+        </table>
+        
+
+        
 
         <div class="card-body invoice-padding pb-0">
           <div class="row invoice-sales-total-wrapper">
