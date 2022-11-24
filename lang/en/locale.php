@@ -2,6 +2,7 @@
 
 return [
     "Consolidado" => "Consolidado",
+    "Corte" => "Corte",
     "Certificaciones" => "Certificaciones",
     'Ajustes' => 'Ajustes',
     'Usuarios' => 'Usuarios',

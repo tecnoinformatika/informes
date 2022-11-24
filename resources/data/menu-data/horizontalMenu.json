@@ -158,14 +158,19 @@
       "dropdown": "1",
       "slug": "",
       "submenu": [
-        {
-          
+        {          
           "name": "Usuarios",
           "dropdown": "1",
           "icon": "user-check",
           "slug": "",
-          "url": "usuarios/index"
-          
+          "url": "usuarios/index"          
+        },
+        {          
+          "name": "Corte",
+          "dropdown": "1",
+          "icon": "user-check",
+          "slug": "",
+          "url": "ajustes/ajuste"          
         }
         
       ]

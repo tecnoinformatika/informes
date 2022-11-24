@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Response;
 use Auth;
 use App\Models\User;
 use App\Models\Firmas;
+use App\Models\Ajustes;
 use Illuminate\Support\Facades\Hash;
 
 class AppsController extends Controller
@@ -121,8 +122,51 @@ class AppsController extends Controller
         $pageConfigs = ['pageHeader' => false];
         return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs, 'data' => $users]);
     }
+    public function ajuste()
+    {
+        $pageConfigs = ['pageHeader' => false];
+
+        return view('/content/apps/ajustes/ajuste', ['pageConfigs' => $pageConfigs]);
+    }
+
+    public function guardarajuste(Request $request)
+    {
+
+        $data = Ajustes::find(1);
+        if(isset($data))
+        {
+            $data = Ajustes::where($request->id)->first();
+            $data->totaldiasatencion = $request->totaldiasatencion;
+            $data->incio = $request->incio; 
+            $data->fin = $request->fin;
+            $data->cortesimat = $request->cortesimat; 
+            $data->programa = $request->programa;
+            $data->created_at =  date("Y-m-d H:i:s");
+            $data->save();
+        }else{
+            
+            $data = new Ajustes();
+            $data->totaldiasatencion = $request->totaldiasatencion;
+            $data->incio = $request->incio; 
+            $data->fin = $request->fin;
+            $data->cortesimat = $request->cortesimat; 
+            $data->programa = $request->programa;
+            $data->created_at =  date("Y-m-d H:i:s");
+            $data->save();
+        }
 
 
+
+        $pageConfigs = ['pageHeader' => false];
+
+        return view('/content/apps/ajustes/ajuste', ['pageConfigs' => $pageConfigs]);
+    }
+
+    public function datos(){
+            $data = Ajustes::first();
+
+            return \Response::json($data);
+    }
 
     // invoice list App
     public function invoice_list()

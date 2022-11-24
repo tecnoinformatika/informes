@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Auth;
 use App\Models\consolidado;
+use App\Models\Ajustes;
 use App\Models\ConsolidadosEspeciales;
 
 class CrucesController extends Controller
@@ -945,37 +946,37 @@ class CrucesController extends Controller
                                 'user_id' => $id,
                                 'codigo_dane_sede' => $request->sede_id,
                                 'jornada_tipo_racion' => $request->modalidad,
-                                'dia1' => $request->dia1,
-                                'dia2' => $request->dia2,
-                                'dia3' => $request->dia3,
-                                'dia4' => $request->dia4,
-                                'dia5' => $request->dia5,
-                                'dia6' => $request->dia6,
-                                'dia7' => $request->dia7,
-                                'dia8' => $request->dia8,
-                                'dia9' => $request->dia9,
-                                'dia10' => $request->dia10,
-                                'dia11' => $request->dia11,
-                                'dia12' => $request->dia12,
-                                'dia13' => $request->dia13,
-                                'dia14' => $request->dia14,
-                                'dia15' => $request->dia15,
-                                'dia16' => $request->dia16,
-                                'dia17' => $request->dia17,
-                                'dia18' => $request->dia18,
-                                'dia19' => $request->dia19,
-                                'dia20' => $request->dia20,
-                                'dia21' => $request->dia21,
-                                'dia22' => $request->dia22,
-                                'dia23' => $request->dia23,
-                                'dia24' => $request->dia24,
-                                'dia25' => $request->dia25,
-                                'dia26' => $request->dia26,
-                                'dia27' => $request->dia27,
-                                'dia28' => $request->dia28,
-                                'dia29' => $request->dia29,
-                                'dia30' => $request->dia30,
-                                'dia31' => $request->dia31,
+                                'dia1' => $request->dia1 = 'NaN' ? 0 : $request->dia1,
+                                'dia2' => $request->dia2 = 'NaN' ? 0 : $request->dia2,
+                                'dia3' => $request->dia3 = 'NaN' ? 0 : $request->dia3,
+                                'dia4' => $request->dia4 = 'NaN' ? 0 : $request->dia4,
+                                'dia5' => $request->dia5 = 'NaN' ? 0 : $request->dia5,
+                                'dia6' => $request->dia6 = 'NaN' ? 0 : $request->dia6,
+                                'dia7' => $request->dia7 = 'NaN' ? 0 : $request->dia7,
+                                'dia8' => $request->dia8 = 'NaN' ? 0 : $request->dia8,
+                                'dia9' => $request->dia9 = 'NaN' ? 0 : $request->dia9,
+                                'dia10' => $request->dia10 = 'NaN' ? 0 : $request->dia10,
+                                'dia11' => $request->dia11 = 'NaN' ? 0 : $request->dia11,
+                                'dia12' => $request->dia12 = 'NaN' ? 0 : $request->dia12,
+                                'dia13' => $request->dia13 = 'NaN' ? 0 : $request->dia13,
+                                'dia14' => $request->dia14 = 'NaN' ? 0 : $request->dia14,
+                                'dia15' => $request->dia15 = 'NaN' ? 0 : $request->dia15,
+                                'dia16' => $request->dia16 = 'NaN' ? 0 : $request->dia16,
+                                'dia17' => $request->dia17 = 'NaN' ? 0 : $request->dia17,
+                                'dia18' => $request->dia18 = 'NaN' ? 0 : $request->dia18,
+                                'dia19' => $request->dia19 = 'NaN' ? 0 : $request->dia19,
+                                'dia20' => $request->dia20 = 'NaN' ? 0 : $request->dia20,
+                                'dia21' => $request->dia21 = 'NaN' ? 0 : $request->dia21,
+                                'dia22' => $request->dia22 = 'NaN' ? 0 : $request->dia22,
+                                'dia23' => $request->dia23 = 'NaN' ? 0 : $request->dia23,
+                                'dia24' => $request->dia24 = 'NaN' ? 0 : $request->dia24,
+                                'dia25' => $request->dia25 = 'NaN' ? 0 : $request->dia25,
+                                'dia26' => $request->dia26 = 'NaN' ? 0 : $request->dia26,
+                                'dia27' => $request->dia27 = 'NaN' ? 0 : $request->dia27,
+                                'dia28' => $request->dia28 = 'NaN' ? 0 : $request->dia28,
+                                'dia29' => $request->dia29 = 'NaN' ? 0 : $request->dia29,
+                                'dia30' => $request->dia30 = 'NaN' ? 0 : $request->dia30,
+                                'dia31' => $request->dia31 = 'NaN' ? 0 : $request->dia31,
                                  'N_dias_atendidos' => $request->diasAtendidos,
                                  'total_raciones' => $request->totalRaciones,
                                  'novedades' => $request->novedades,
@@ -988,37 +989,37 @@ class CrucesController extends Controller
                                 'user_id' => $id,
                                 'codigo_dane_sede' => $request->sede_id,
                                 'jornada_tipo_racion' => $request->modalidad,
-                                'dia1' => $request->dia1,
-                                'dia2' => $request->dia2,
-                                'dia3' => $request->dia3,
-                                'dia4' => $request->dia4,
-                                'dia5' => $request->dia5,
-                                'dia6' => $request->dia6,
-                                'dia7' => $request->dia7,
-                                'dia8' => $request->dia8,
-                                'dia9' => $request->dia9,
-                                'dia10' => $request->dia10,
-                                'dia11' => $request->dia11,
-                                'dia12' => $request->dia12,
-                                'dia13' => $request->dia13,
-                                'dia14' => $request->dia14,
-                                'dia15' => $request->dia15,
-                                'dia16' => $request->dia16,
-                                'dia17' => $request->dia17,
-                                'dia18' => $request->dia18,
-                                'dia19' => $request->dia19,
-                                'dia20' => $request->dia20,
-                                'dia21' => $request->dia21,
-                                'dia22' => $request->dia22,
-                                'dia23' => $request->dia23,
-                                'dia24' => $request->dia24,
-                                'dia25' => $request->dia25,
-                                'dia26' => $request->dia26,
-                                'dia27' => $request->dia27,
-                                'dia28' => $request->dia28,
-                                'dia29' => $request->dia29,
-                                'dia30' => $request->dia30,
-                                'dia31' => $request->dia31,                                  
+                                'dia1' => $request->dia1 = 'NaN' ? 0 : $request->dia1,
+                                'dia2' => $request->dia2 = 'NaN' ? 0 : $request->dia2,
+                                'dia3' => $request->dia3 = 'NaN' ? 0 : $request->dia3,
+                                'dia4' => $request->dia4 = 'NaN' ? 0 : $request->dia4,
+                                'dia5' => $request->dia5 = 'NaN' ? 0 : $request->dia5,
+                                'dia6' => $request->dia6 = 'NaN' ? 0 : $request->dia6,
+                                'dia7' => $request->dia7 = 'NaN' ? 0 : $request->dia7,
+                                'dia8' => $request->dia8 = 'NaN' ? 0 : $request->dia8,
+                                'dia9' => $request->dia9 = 'NaN' ? 0 : $request->dia9,
+                                'dia10' => $request->dia10 = 'NaN' ? 0 : $request->dia10,
+                                'dia11' => $request->dia11 = 'NaN' ? 0 : $request->dia11,
+                                'dia12' => $request->dia12 = 'NaN' ? 0 : $request->dia12,
+                                'dia13' => $request->dia13 = 'NaN' ? 0 : $request->dia13,
+                                'dia14' => $request->dia14 = 'NaN' ? 0 : $request->dia14,
+                                'dia15' => $request->dia15 = 'NaN' ? 0 : $request->dia15,
+                                'dia16' => $request->dia16 = 'NaN' ? 0 : $request->dia16,
+                                'dia17' => $request->dia17 = 'NaN' ? 0 : $request->dia17,
+                                'dia18' => $request->dia18 = 'NaN' ? 0 : $request->dia18,
+                                'dia19' => $request->dia19 = 'NaN' ? 0 : $request->dia19,
+                                'dia20' => $request->dia20 = 'NaN' ? 0 : $request->dia20,
+                                'dia21' => $request->dia21 = 'NaN' ? 0 : $request->dia21,
+                                'dia22' => $request->dia22 = 'NaN' ? 0 : $request->dia22,
+                                'dia23' => $request->dia23 = 'NaN' ? 0 : $request->dia23,
+                                'dia24' => $request->dia24 = 'NaN' ? 0 : $request->dia24,
+                                'dia25' => $request->dia25 = 'NaN' ? 0 : $request->dia25,
+                                'dia26' => $request->dia26 = 'NaN' ? 0 : $request->dia26,
+                                'dia27' => $request->dia27 = 'NaN' ? 0 : $request->dia27,
+                                'dia28' => $request->dia28 = 'NaN' ? 0 : $request->dia28,
+                                'dia29' => $request->dia29 = 'NaN' ? 0 : $request->dia29,
+                                'dia30' => $request->dia30 = 'NaN' ? 0 : $request->dia30,
+                                'dia31' => $request->dia31 = 'NaN' ? 0 : $request->dia31,                                 
                                 'N_dias_atendidos' => $request->diasAtendidos,
                                 'total_raciones' => $request->totalRaciones,
                                 'novedades' => $request->novedades,
@@ -1235,22 +1236,33 @@ class CrucesController extends Controller
                 foreach($request->sedes as $sede)
                 {
                         $simat = Simat::where('consecutivo', $sede)->first();
-                        $tipo = $request->tipo;
+                      
                         $tipoconsolidado = $request->tipoconsolidado;
                         //dd($tipoconsolidado);
                         if($tipoconsolidado == '1')
                         {
-                                $consolidado = Consolidado::where('codigo_dane_sede', $sede)->get();
+                                $consolidadoRI = Consolidado::where('consolidados.codigo_dane_sede', $sede)
+                                                ->where('consolidados.jornada_tipo_racion', 'LIKE','%RI%')   
+                                                ->get();
+
+                                $diasRI = Ri::first();                                                                                              
+
+                                $consolidadoRPS = Consolidado::where('consolidados.codigo_dane_sede', $sede)
+                                                ->where('consolidados.jornada_tipo_racion', 'RPS')
+                                                ->get();
+                                
 
                                 $data = [];
                                 $data['simat'] = $simat;
-                                $data['simat']['consolidado'] = $consolidado;
-                                $data['simat']['tipoconsolidado'] = 'especial';
+                                $data['simat']['consolidadoRI'] = $consolidadoRI;
+                                $data['simat']['consolidadoRPS'] = $consolidadoRPS;
+                                $data['simat']['tipoconsolidado'] = 'normal';
+                                $data['simat']['dias'] = $diasRI;
                                 array_push($array, $data);
                         
                         }else if($tipoconsolidado == '2')
                         {
-                                if($tipo == "RI"){
+                                
                                         $dias = Ri::first();
                                         $dia1 = Ri::where('codigo_dane_sede', $sede)
                                                 ->groupByRaw('Tipo_de_complemento')
@@ -1412,178 +1424,15 @@ class CrucesController extends Controller
                                         $data['tipo'] = 'RPI';
                                         $data['tipoconsolidado'] = 'especial';
                                         array_push($array, $data);
-                                }
-                                if($tipo == "RPS"){
-                                        $dias = Rps::first();
-                                        $dia1 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia2 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_2 is null then 1 else 0 end) as dia_2, sum(case when dia_2 is not null then 1 else 0 end) as dia_2observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia3 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_3 is null then 1 else 0 end) as dia_3, sum(case when dia_3 is not null then 1 else 0 end) as dia_3observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia4 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_4 is null then 1 else 0 end) as dia_4, sum(case when dia_4 is not null then 1 else 0 end) as dia_4observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia5 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_5 is null then 1 else 0 end) as dia_5, sum(case when dia_5 is not null then 1 else 0 end) as dia_5observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia6 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_6 is null then 1 else 0 end) as dia_6, sum(case when dia_6 is not null then 1 else 0 end) as dia_6observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia7 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_7 is null then 1 else 0 end) as dia_7, sum(case when dia_7 is not null then 1 else 0 end) as dia_7observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia8 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_8 is null then 1 else 0 end) as dia_8, sum(case when dia_8 is not null then 1 else 0 end) as dia_8observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia9 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia10 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia11 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_11 is null then 1 else 0 end) as dia_11, sum(case when dia_11 is not null then 1 else 0 end) as dia_11observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia12 = Rps::where('codigo_dane_sede', $sede)                       
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_12 is null then 1 else 0 end) as dia_12, sum(case when dia_12 is not null then 1 else 0 end) as dia_12observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia13 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_13 is null then 1 else 0 end) as dia_13, sum(case when dia_13 is not null then 1 else 0 end) as dia_13observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia14 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_14 is null then 1 else 0 end) as dia_14, sum(case when dia_14 is not null then 1 else 0 end) as dia_14observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia15 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia16 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia17 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_17 is null then 1 else 0 end) as dia_17, sum(case when dia_17 is not null then 1 else 0 end) as dia_17observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia18 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia19 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia20 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_20 is null then 1 else 0 end) as dia_20, sum(case when dia_20 is not null then 1 else 0 end) as dia_20observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia21 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_21 is null then 1 else 0 end) as dia_21, sum(case when dia_21 is not null then 1 else 0 end) as dia_21observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia22 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_22 is null then 1 else 0 end) as dia_22, sum(case when dia_22 is not null then 1 else 0 end) as dia_22observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia23 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_23 is null then 1 else 0 end) as dia_23, sum(case when dia_23 is not null then 1 else 0 end) as dia_23observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia24 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_24 is null then 1 else 0 end) as dia_24, sum(case when dia_24 is not null then 1 else 0 end) as dia_24observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia25 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_25 is null then 1 else 0 end) as dia_25, sum(case when dia_25 is not null then 1 else 0 end) as dia_25observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia26 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_26 is null then 1 else 0 end) as dia_26, sum(case when dia_26 is not null then 1 else 0 end) as dia_26observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia27 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_27 is null then 1 else 0 end) as dia_27, sum(case when dia_27 is not null then 1 else 0 end) as dia_27observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia28 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_28 is null then 1 else 0 end) as dia_28, sum(case when dia_28 is not null then 1 else 0 end) as dia_28observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia29 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_29 is null then 1 else 0 end) as dia_29, sum(case when dia_29 is not null then 1 else 0 end) as dia_29observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia30 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_30 is null then 1 else 0 end) as dia_30, sum(case when dia_30 is not null then 1 else 0 end) as dia_30observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $dia31 = Rps::where('codigo_dane_sede', $sede)
-                                                ->groupByRaw('Tipo_de_complemento')
-                                                ->select(DB::raw('sum(case when dia_31 is null then 1 else 0 end) as dia_31, sum(case when dia_31 is not null then 1 else 0 end) as dia_31observacion, Tipo_de_complemento'))
-                                                ->get();
-                                        $data = [];
-                                        $data['simat'] = $simat;
-                                        $data['simat']['dia1'] = $dia1;
-                                        $data['simat']['dia2'] = $dia2;
-                                        $data['simat']['dia3'] = $dia3;
-                                        $data['simat']['dia4'] = $dia4;
-                                        $data['simat']['dia5'] = $dia5;
-                                        $data['simat']['dia6'] = $dia6;
-                                        $data['simat']['dia7'] = $dia7;
-                                        $data['simat']['dia8'] = $dia8;
-                                        $data['simat']['dia9'] = $dia9;
-                                        $data['simat']['dia10'] = $dia10;
-                                        $data['simat']['dia11'] = $dia11;
-                                        $data['simat']['dia12'] = $dia12;
-                                        $data['simat']['dia13'] = $dia13;
-                                        $data['simat']['dia14'] = $dia14;
-                                        $data['simat']['dia15'] = $dia15;
-                                        $data['simat']['dia16'] = $dia16;
-                                        $data['simat']['dia17'] = $dia17;
-                                        $data['simat']['dia18'] = $dia18;
-                                        $data['simat']['dia19'] = $dia19;
-                                        $data['simat']['dia20'] = $dia20;
-                                        $data['simat']['dia21'] = $dia21;
-                                        $data['simat']['dia22'] = $dia22;
-                                        $data['simat']['dia23'] = $dia23;
-                                        $data['simat']['dia24'] = $dia24;
-                                        $data['simat']['dia25'] = $dia25;
-                                        $data['simat']['dia26'] = $dia26;
-                                        $data['simat']['dia27'] = $dia27;
-                                        $data['simat']['dia28'] = $dia28;
-                                        $data['simat']['dia29'] = $dia29;
-                                        $data['simat']['dia30'] = $dia30;
-                                        $data['simat']['dia31'] = $dia31;
-                                        $data['tipo'] = 'RPS';
-                                        $data['tipoconsolidado'] = 'especial';
-                                        array_push($array, $data);
-                                }      
+                                    
                         }
                 
                 }
-
+                $ajustes = Ajustes::first();
                 //dd($array);
                 
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Certificaciones"]];
-                return view('/content/cruces/certificacion', ['breadcrumbs' => $breadcrumbs, 'data' => $array]);
+                return view('/content/cruces/certificacion', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'ajustes' => $ajustes]);
         
         }
 }
