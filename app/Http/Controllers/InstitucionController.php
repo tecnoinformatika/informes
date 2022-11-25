@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Institucion;
+use App\Models\Sedes;
 use App\Models\Simat;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -25,7 +26,8 @@ class InstitucionController extends Controller
 
     public function tablaInstitucion()
     {
-        $rps = Simat::select('institucion', 'sede','consecutivo')
+        $rps = Sedes::join('institucions','sedes.codigo_dane_institucion','=','institucions.codigo_dane')
+                      ->select('institucions.nombre as institucion', 'sedes.nombre as sede','sedes.consecutivo as consecutivo')
                       ->groupByRaw('institucion, sede,consecutivo')
                       ->get(); 
         
