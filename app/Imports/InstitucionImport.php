@@ -16,8 +16,7 @@ class InstitucionImport implements ToModel
     {
         return new Institucion([
             'codigo_dane' => $row[0],
-            'nombre' => $row[1],
-            'sector' => $row[2]
+            'nombre' => $row[1]
         ]);
     }
 }

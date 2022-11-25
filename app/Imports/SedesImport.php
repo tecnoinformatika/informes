@@ -15,12 +15,9 @@ class SedesImport implements ToModel
     public function model(array $row)
     {
         return new Sedes([
-            'consecutivo' => $row[0],
+            'consecutivo' => $row[2],
             'nombre' => $row[1],
-            'calendario' => $row[2],
-            'zona' => $row[3],
-            'modelo' => $row[4],
-            'codigo_dane_institucion' => $row[5],
+            'codigo_dane_institucion' => $row[0]
         ]);
     }
 }
