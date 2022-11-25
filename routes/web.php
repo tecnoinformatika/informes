@@ -315,8 +315,6 @@ Route::group(['prefix' => 'usuarios'], function () {
     Route::post('crearUsuario', [AppsController::class, 'crearUsuario'])->name('crearUsuario');
     Route::post('editarUsuario', [AppsController::class, 'editarUsuario'])->name('editarUsuario');
     Route::get('usuario/{registro}', [AppsController::class, 'usuario'])->name('usuario');
-    Route::get('vaciar', [AppsController::class, 'vaciar'])->name('sedes-vaciar');
-    Route::post('importar', [AppsController::class, 'importar'])->name('sedes-importar');    
 });
 Route::group(['prefix' => 'ajustes'], function () {
     Route::get('ajuste', [AppsController::class, 'ajuste'])->name('ajuste');
