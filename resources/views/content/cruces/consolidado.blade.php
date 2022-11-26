@@ -339,7 +339,7 @@
                               <td id="{{$datos['simat']->consecutivo}}-JM-RI-novedades" class="tg-0pky3" data-id="{{$datos['simat']->consecutivo}}" data-novedades="novedades" data-modalidad="JM-RI">
                                 
                                 @php
-                                $sede = DB::table('Ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                                $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
                               
 
                                 $suma2 = 0;
