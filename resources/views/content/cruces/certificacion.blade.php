@@ -173,128 +173,128 @@
               <td class="tg-0lax">
                 RI: 
                   @php
-                                        $sede = DB::table('Ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
-                                        $dia1 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                                        $dia1 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion'))
                                                 ->first();
-                                        $dia2 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia2 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_2 is null then 1 else 0 end) as dia_2, sum(case when dia_2 is not null then 1 else 0 end) as dia_2observacion'))
                                                 ->first();
-                                        $dia3 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia3 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_3 is null then 1 else 0 end) as dia_3, sum(case when dia_3 is not null then 1 else 0 end) as dia_3observacion'))
                                                 ->first();
-                                        $dia4 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia4 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_4 is null then 1 else 0 end) as dia_4, sum(case when dia_4 is not null then 1 else 0 end) as dia_4observacion'))
                                                 ->first();
-                                        $dia5 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia5 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_5 is null then 1 else 0 end) as dia_5, sum(case when dia_5 is not null then 1 else 0 end) as dia_5observacion'))
                                                 ->first();
-                                        $dia6 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia6 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_6 is null then 1 else 0 end) as dia_6, sum(case when dia_6 is not null then 1 else 0 end) as dia_6observacion'))
                                                 ->first();
-                                        $dia7 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia7 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_7 is null then 1 else 0 end) as dia_7, sum(case when dia_7 is not null then 1 else 0 end) as dia_7observacion'))
                                                 ->first();
-                                        $dia8 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia8 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_8 is null then 1 else 0 end) as dia_8, sum(case when dia_8 is not null then 1 else 0 end) as dia_8observacion'))
                                                 ->first();
-                                        $dia9 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia9 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion'))
                                                 ->first();
-                                        $dia10 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia10 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion'))
                                                 ->first();
-                                        $dia11 = DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia11 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_11 is null then 1 else 0 end) as dia_11, sum(case when dia_11 is not null then 1 else 0 end) as dia_11observacion'))
                                                 ->first();
-                                        $dia12 = DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                       
+                                        $dia12 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                       
                                                 
                                                 ->select(DB::raw('sum(case when dia_12 is null then 1 else 0 end) as dia_12, sum(case when dia_12 is not null then 1 else 0 end) as dia_12observacion'))
                                                 ->first();
-                                        $dia13 = DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia13 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_13 is null then 1 else 0 end) as dia_13, sum(case when dia_13 is not null then 1 else 0 end) as dia_13observacion'))
                                                 ->first();
-                                        $dia14 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia14 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_14 is null then 1 else 0 end) as dia_14, sum(case when dia_14 is not null then 1 else 0 end) as dia_14observacion'))
                                                 ->first();
-                                        $dia15 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia15 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion'))
                                                 ->first();
-                                        $dia16 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia16 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion'))
                                                 ->first();
-                                        $dia17 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia17 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_17 is null then 1 else 0 end) as dia_17, sum(case when dia_17 is not null then 1 else 0 end) as dia_17observacion'))
                                                 ->first();
-                                        $dia18 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia18 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion'))
                                                 ->first();
-                                        $dia19 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia19 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion'))
                                                 ->first();
-                                        $dia20 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia20 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_20 is null then 1 else 0 end) as dia_20, sum(case when dia_20 is not null then 1 else 0 end) as dia_20observacion'))
                                                 ->first();
-                                        $dia21 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia21 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_21 is null then 1 else 0 end) as dia_21, sum(case when dia_21 is not null then 1 else 0 end) as dia_21observacion'))
                                                 ->first();
-                                        $dia22 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia22 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_22 is null then 1 else 0 end) as dia_22, sum(case when dia_22 is not null then 1 else 0 end) as dia_22observacion'))
                                                 ->first();
-                                        $dia23 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia23 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_23 is null then 1 else 0 end) as dia_23, sum(case when dia_23 is not null then 1 else 0 end) as dia_23observacion'))
                                                 ->first();
-                                        $dia24 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia24 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_24 is null then 1 else 0 end) as dia_24, sum(case when dia_24 is not null then 1 else 0 end) as dia_24observacion'))
                                                 ->first();
-                                        $dia25 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia25 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_25 is null then 1 else 0 end) as dia_25, sum(case when dia_25 is not null then 1 else 0 end) as dia_25observacion'))
                                                 ->first();
-                                        $dia26 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia26 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_26 is null then 1 else 0 end) as dia_26, sum(case when dia_26 is not null then 1 else 0 end) as dia_26observacion'))
                                                 ->first();
-                                        $dia27 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia27 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                 
                                                 ->select(DB::raw('sum(case when dia_27 is null then 1 else 0 end) as dia_27, sum(case when dia_27 is not null then 1 else 0 end) as dia_27observacion'))
                                                 ->first();
-                                        $dia28 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia28 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                             
                                                 ->select(DB::raw('sum(case when dia_28 is null then 1 else 0 end) as dia_28, sum(case when dia_28 is not null then 1 else 0 end) as dia_28observacion'))
                                                 ->first();
-                                        $dia29 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia29 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                             
                                                 ->select(DB::raw('sum(case when dia_29 is null then 1 else 0 end) as dia_29, sum(case when dia_29 is not null then 1 else 0 end) as dia_29observacion'))
                                                 ->first();
-                                        $dia30 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                        $dia30 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                
                                                 ->select(DB::raw('sum(case when dia_30 is null then 1 else 0 end) as dia_30, sum(case when dia_30 is not null then 1 else 0 end) as dia_30observacion'))
                                                 ->first();
-                                        $dia31 =  DB::table('Ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                                                
+                                        $dia31 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                                                
                                                 ->select(DB::raw('sum(case when dia_31 is null then 1 else 0 end) as dia_31, sum(case when dia_31 is not null then 1 else 0 end) as dia_31observacion'))
                                                 ->first();
                               $suma2 = 0;
