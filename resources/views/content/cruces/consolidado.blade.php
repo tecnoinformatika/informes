@@ -178,7 +178,7 @@
          
           <div class="card-datatable">
             @if($data[0]['tipoconsolidado'] == 'normal')
-              <table id="editable" class="dt-complex-header table table-bordered table-responsive table-sm ">
+              <table id="editable" class="table-responsive dt-complex-header table table-bordered  table-sm">
                 <thead>
                   <tr>
                     <th rowspan="2">SEDE</th>
@@ -230,6 +230,7 @@
                           <tr>                       
                               <td class="uneditable tg-lboi" rowspan="2">{{$datos['simat']->sede}}</td>
                               <td class="uneditable">JM-RI</td>
+                              @if(isset($datos['simat']['dia1'][0]))
                               <td id="{{$datos['simat']->consecutivo}}-JM-RI-dia1" style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia1" data-modalidad="JM-RI">{{$datos['simat']->dia1->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia1'][0]->dia_1 != 0 ? $datos['simat']['dia1'][0]->dia_1 + $datos['simat']['dia1'][0]->dia_1observacion : 0 : 0 }}</td>
                               <td id="{{$datos['simat']->consecutivo}}-JM-RI-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia2" data-modalidad="JM-RI">{{$datos['simat']->dia2->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia2'][0]->dia_2 != 0 ? $datos['simat']['dia2'][0]->dia_2 + $datos['simat']['dia2'][0]->dia_2observacion : 0 : 0 }}</td>
                               <td id="{{$datos['simat']->consecutivo}}-JM-RI-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['simat']->consecutivo}}" data-dia="dia3" data-modalidad="JM-RI">{{$datos['simat']->dia3->Tipo_de_complemento = 'CAJMRI' ? $datos['simat']['dia3'][0]->dia_3 != 0 ? $datos['simat']['dia3'][0]->dia_3 + $datos['simat']['dia3'][0]->dia_3observacion : 0 : 0 }}</td>
@@ -382,6 +383,7 @@
                               data-id="{{$datos['simat']->consecutivo}}"
                               data-tipo="JM-RI" id="bt-{{$datos['simat']->consecutivo}}-JM-RI"                        
                                 ><span>+ Guardar</span></button></td>
+                                @endif
                           </tr>
                           <tr>
                               <td class="uneditable ">JT-RI</td>
@@ -979,7 +981,7 @@
               </table>
               
             @elseif($data[0]['tipoconsolidado'] == 'especial')
-            <table id="editable1" class="dt-complex-header table table-bordered table-responsive table-sm table-dark table-striped">
+            <table id="editable1" class="table-responsivedt-complex-header table table-bordered  table-sm">
               <thead>
                 <tr>
                   <th rowspan="2">SEDE</th>
