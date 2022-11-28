@@ -917,7 +917,7 @@
                           <td id="{{$datos['simat']->consecutivo}}-RPS-novedades" class="tg-0pky3" data-id="{{$datos['simat']->consecutivo}}" data-novedades="novedades" data-modalidad="RPS">
                             
                             @php
-                            $sede = DB::table('Rps')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                            $sede = DB::table('rps')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
                           
                       
                             $suma2 = 0;
