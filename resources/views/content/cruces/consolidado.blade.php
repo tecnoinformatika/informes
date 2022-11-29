@@ -1343,7 +1343,7 @@
           var sede_id = $(this).data('id');
           var modalidad = $(this).data('tipo'); 
           var dia1 = parseInt($('#'+sede_id+'-'+modalidad+'-dia1').html());
-          alert(dia1);
+       
           var dia2 = parseInt($('#'+sede_id+'-'+modalidad+'-dia2').html());
           var dia3 = parseInt($('#'+sede_id+'-'+modalidad+'-dia3').html());
           var dia4 = parseInt($('#'+sede_id+'-'+modalidad+'-dia4').html());

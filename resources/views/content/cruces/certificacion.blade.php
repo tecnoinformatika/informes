@@ -119,22 +119,25 @@
           <h3>CONSTANCIA DE VERIFICACION PLANILLAS NIÑO A NIÑO Y SOPORTE MAGNETICO PAE 2022</h3>
           <div class="row invoice-spacing">
             <div class="col-xl-12 p-0">
-              
-              <p style="text-align: justify">La Institución Educativa: {{$data[0]['simat']->institucion}} 
-                y su sede:
+              <p style="text-align: justify">
+                La Institución Educativa: {{$data[0]['simat']->institucion}} y sus sedes: 
                 @foreach($data as $datos) 
                 {{$datos['simat']->sede}}, 
-                @endforeach
-                 pertenecientes a la COMUNA 1 realizo la entrega 
-                del complemento alimentario en sus dos modalidades RI y rps que contemplo un periodo de 
-                cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
-                AL {{fechaCastellano($ajustes->fin)}} se 
-                registró una atención total de <b id="sumatoria"></b> (VEINTIDOS MIL CUATROCIENTOS CUARENTA) estudiantes 
-                beneficiarios. </p>
-              <p style="text-align: justify">Realizada la verificación de las planillas de entrega en sus 
-                dos modalidades RI y rps de los niños, niñas y adolescentes focalizados y/o suplentes
-                 (quienes reciben por novedad) atendidos por el {{$ajustes->progama}} conforme la matricula oficial registrada en el SIMAT a corte de 
-                 {{fechaCastellano($ajustes->cortesimat)}} y los soportes allegados por el operador, me permito certificar que: </p>
+                @endforeach pertenecientes a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega del complemento 
+                alimentario jornada mañana ración preparada en sitio-Rps que contempló 
+                un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
+                al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
+              </p>
+
+              <p style="text-align: justify">
+                Realizada la verificación de las planillas de entrega en 
+                su modalidad RPS o RI de los niños, niñas y adolescentes focalizados 
+                y/o suplentes (quienes reciben por novedad) atendidos por el
+                {{$ajustes->programa}} 
+                conforme la matricula oficial registrada en el 
+                SIMAT a corte de {{fechaCastellano($ajustes->cortesimat)}} y los soportes allegados 
+                por el operador, me permito certificar que:
+              </p>              
             </div>
             
           </div>
@@ -144,7 +147,7 @@
         <!-- Invoice Description starts -->
         
         
-        <table class="table table-sm table-bordered tg">
+        <table class="table-responsive table table-bordered  table-sm">
           <thead>
             <tr>
               <th class="tg-cly1">INSTITUCIÓN</th>
@@ -337,10 +340,8 @@
                 
                 
                 Rps:
-                
-                  @php
-                    
-                    
+                  
+                  @php     
                     $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
                             ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, sum(case when dia_1 = "I" then 1 else 0 end) as dia_1intercambio'))
                             ->first();
@@ -350,112 +351,87 @@
                     $dia3 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
                             ->select(DB::raw('sum(case when dia_3 is null then 1 else 0 end) as dia_3, sum(case when dia_3 is not null then 1 else 0 end) as dia_3observacion, sum(case when dia_3 = "I" then 1 else 0 end) as dia_3intercambio'))
                             ->first();
-                    $dia4 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia4 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_4 is null then 1 else 0 end) as dia_4, sum(case when dia_4 is not null then 1 else 0 end) as dia_4observacion, sum(case when dia_4 = "I" then 1 else 0 end) as dia_4intercambio'))
                             ->first();
-                    $dia5 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia5 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_5 is null then 1 else 0 end) as dia_5, sum(case when dia_5 is not null then 1 else 0 end) as dia_5observacion, sum(case when dia_5 = "I" then 1 else 0 end) as dia_5intercambio'))
                             ->first();
-                    $dia6 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia6 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_6 is null then 1 else 0 end) as dia_6, sum(case when dia_6 is not null then 1 else 0 end) as dia_6observacion, sum(case when dia_6 = "I" then 1 else 0 end) as dia_6intercambio'))
                             ->first();
-                    $dia7 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia7 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_7 is null then 1 else 0 end) as dia_7, sum(case when dia_7 is not null then 1 else 0 end) as dia_7observacion, sum(case when dia_7 = "I" then 1 else 0 end) as dia_7intercambio'))
                             ->first();
-                    $dia8 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia8 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_8 is null then 1 else 0 end) as dia_8, sum(case when dia_8 is not null then 1 else 0 end) as dia_8observacion, sum(case when dia_8 = "I" then 1 else 0 end) as dia_8intercambio'))
                             ->first();
-                    $dia9 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia9 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion, sum(case when dia_9 = "I" then 1 else 0 end) as dia_9intercambio'))
                             ->first();
-                    $dia10 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia10 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion, sum(case when dia_10 = "I" then 1 else 0 end) as dia_10intercambio'))
                             ->first();
-                    $dia11 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia11 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_11 is null then 1 else 0 end) as dia_11, sum(case when dia_11 is not null then 1 else 0 end) as dia_11observacion, sum(case when dia_11 = "I" then 1 else 0 end) as dia_11intercambio'))
                             ->first();
-                    $dia12 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                       
-                            
+                    $dia12 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
                             ->select(DB::raw('sum(case when dia_12 is null then 1 else 0 end) as dia_12, sum(case when dia_12 is not null then 1 else 0 end) as dia_12observacion, sum(case when dia_12 = "I" then 1 else 0 end) as dia_12intercambio'))
                             ->first();
-                    $dia13 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia13 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_13 is null then 1 else 0 end) as dia_13, sum(case when dia_13 is not null then 1 else 0 end) as dia_13observacion, sum(case when dia_13 = "I" then 1 else 0 end) as dia_13intercambio'))
                             ->first();
-                    $dia14 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia14 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_14 is null then 1 else 0 end) as dia_14, sum(case when dia_14 is not null then 1 else 0 end) as dia_14observacion, sum(case when dia_14 = "I" then 1 else 0 end) as dia_14intercambio'))
                             ->first();
-                    $dia15 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia15 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion, sum(case when dia_15 = "I" then 1 else 0 end) as dia_15intercambio'))
                             ->first();
-                    $dia16 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia16 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion, sum(case when dia_16 = "I" then 1 else 0 end) as dia_16intercambio'))
                             ->first();
-                    $dia17 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia17 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_17 is null then 1 else 0 end) as dia_17, sum(case when dia_17 is not null then 1 else 0 end) as dia_17observacion, sum(case when dia_17 = "I" then 1 else 0 end) as dia_17intercambio'))
                             ->first();
                     $dia18 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
                             
                             ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion, sum(case when dia_18 = "I" then 1 else 0 end) as dia_18intercambio'))
                             ->first();
-                    $dia19 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia19 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion, sum(case when dia_19 = "I" then 1 else 0 end) as dia_19intercambio'))
                             ->first();
-                    $dia20 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia20 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_20 is null then 1 else 0 end) as dia_20, sum(case when dia_20 is not null then 1 else 0 end) as dia_20observacion, sum(case when dia_20 = "I" then 1 else 0 end) as dia_20intercambio'))
                             ->first();
-                    $dia21 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia21 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_21 is null then 1 else 0 end) as dia_21, sum(case when dia_21 is not null then 1 else 0 end) as dia_21observacion, sum(case when dia_21 = "I" then 1 else 0 end) as dia_21intercambio'))
                             ->first();
-                    $dia22 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia22 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_22 is null then 1 else 0 end) as dia_22, sum(case when dia_22 is not null then 1 else 0 end) as dia_22observacion, sum(case when dia_22 = "I" then 1 else 0 end) as dia_22intercambio'))
                             ->first();
-                    $dia23 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia23 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_23 is null then 1 else 0 end) as dia_23, sum(case when dia_23 is not null then 1 else 0 end) as dia_23observacion, sum(case when dia_23 = "I" then 1 else 0 end) as dia_23intercambio'))
                             ->first();
-                    $dia24 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia24 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_24 is null then 1 else 0 end) as dia_24, sum(case when dia_24 is not null then 1 else 0 end) as dia_24observacion, sum(case when dia_24 = "I" then 1 else 0 end) as dia_24intercambio'))
                             ->first();
-                    $dia25 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia25 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_25 is null then 1 else 0 end) as dia_25, sum(case when dia_25 is not null then 1 else 0 end) as dia_25observacion, sum(case when dia_25 = "I" then 1 else 0 end) as dia_25intercambio'))
                             ->first();
                     $dia26 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
                             
                             ->select(DB::raw('sum(case when dia_26 is null then 1 else 0 end) as dia_26, sum(case when dia_26 is not null then 1 else 0 end) as dia_26observacion, sum(case when dia_26 = "I" then 1 else 0 end) as dia_26intercambio'))
                             ->first();
-                    $dia27 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                            
+                    $dia27 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
                             ->select(DB::raw('sum(case when dia_27 is null then 1 else 0 end) as dia_27, sum(case when dia_27 is not null then 1 else 0 end) as dia_27observacion, sum(case when dia_27 = "I" then 1 else 0 end) as dia_27intercambio'))
                             ->first();
-                    $dia28 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                        
+                    $dia28 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                        
                             ->select(DB::raw('sum(case when dia_28 is null then 1 else 0 end) as dia_28, sum(case when dia_28 is not null then 1 else 0 end) as dia_28observacion, sum(case when dia_28 = "I" then 1 else 0 end) as dia_28intercambio'))
                             ->first();
-                    $dia29 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                        
+                    $dia29 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                        
                             ->select(DB::raw('sum(case when dia_29 is null then 1 else 0 end) as dia_29, sum(case when dia_29 is not null then 1 else 0 end) as dia_29observacion, sum(case when dia_29 = "I" then 1 else 0 end) as dia_29intercambio'))
                             ->first();
-                    $dia30 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
-                          
+                    $dia30 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                          
                             ->select(DB::raw('sum(case when dia_30 is null then 1 else 0 end) as dia_30, sum(case when dia_30 is not null then 1 else 0 end) as dia_30observacion, sum(case when dia_30 = "I" then 1 else 0 end) as dia_30intercambio'))
                             ->first();
                     $dia31 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                                                
@@ -759,17 +735,43 @@
 @section('vendor-script')
 <script src="{{asset('vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
 <script src="{{asset('vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+
 @endsection
 
 @section('page-script')
 <script src="{{asset('js/scripts/pages/app-invoice.js')}}"></script>
+<script src="{{asset('js/scripts/NumeroALetras.js')}}"></script>
 <script>
    $(document).ready(function(){
       var totalri = parseInt($('#totalracionesentregadasri').html());
       var totalrps = parseInt($('#totalracionesentregadasrps').html());
+      console.log(totalri);
+      console.log(totalrps);
+      if(totalri > 0 && totalrps > 0){
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de' + totalrps +'('+ NumeroALetras(totalrps) +')'+
+        'estudiantes beneficiarios para RPS'+
+        'y se registró una atención total de '+totalri+' ('+NumeroALetras(totalri)+') '+
+        'estudiantes beneficiarios para RI.');
+      }else if(totalri != 0)
+      {
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de '+totalri+' ('+NumeroALetras(totalri)+') '+
+        'estudiantes beneficiarios para RI.');
+      }else if (totalrps != 0)
+      {
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de' + totalrps +'('+ NumeroALetras(totalrps) +')'+
+        'estudiantes beneficiarios para RPS.');
+      }
+      
 
+      
       $('#sumatoria').html(totalri + totalrps);
-
+      $('#sumatoriaL').html(NumeroALetras(totalri + totalrps));
   });
 </script>
 @endsection
