@@ -1,6 +1,6 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Certificación | ' . {{$data[0]['simat']->institucion}} )
+@section('title', 'Certificación | ' {{$data[0]['simat']->institucion}} )
 
 @section('page-style')
 <link rel="stylesheet" href="{{asset(mix('css/base/pages/app-invoice-print.css'))}}">
