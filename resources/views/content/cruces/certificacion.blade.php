@@ -338,10 +338,11 @@
                   @php  $totalraciones += $suma2 @endphp
                 <br>
                 
-                
+              
                 Rps:
+                  @php              
                   
-                  @php     
+                      
                     $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
                             ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, sum(case when dia_1 = "I" then 1 else 0 end) as dia_1intercambio'))
                             ->first();
@@ -472,6 +473,7 @@
                     $suma2 += $sede->dia_31 != 'Z' ? $dia31->dia_31intercambio ==  $dia31->dia_31observacion ? 0 : $dia31->dia_31 + $dia31->dia_31observacion : 0;
 
 
+              
                   @endphp
                 {{$suma2}} 
                 @php  $totalraciones += $suma2 @endphp
@@ -484,11 +486,6 @@
 
                 
               </td>
-              {{-- @php $sum=0; @endphp
-              @foreach ($datos['simat']['consolidado'] as $key => $consolidado)
-                <p class="mostrara{{$key+1}}">{{$sum += $consolidado->total_raciones}}</p>
-              @endforeach   --}}
-              
               <td class="tg-0lax">
                 @if($datos['simat']['consolidadoRPS'])
                 @foreach ($datos['simat']['consolidadoRPS'] as $dato4)
@@ -509,6 +506,7 @@
                 @php $totaldevoluciones += $dato3->devoluciones; @endphp
                 @endforeach
                 @endif
+              </td>
               <td class="tg-0lax">
                 @foreach ($datos['simat']['consolidadoRI'] as $dato1)
                 {{$dato1->jornada_tipo_racion}}: {{$dato1->novedades}}<br>
@@ -517,10 +515,11 @@
                 @if($datos['simat']['consolidadoRPS'])
                 @foreach ($datos['simat']['consolidadoRPS'] as $dato2)
                 {{$dato2->jornada_tipo_racion}}: {{$dato2->novedades}}<br>
-                @php $totalnovedades += $dato1->novedades; @endphp
+                @php $totalnovedades += $dato2->novedades; @endphp
                 @endforeach
                 @endif
-                </td>
+              </td>
+              
             </tr>
             @php $i++; @endphp
            @endforeach
@@ -544,10 +543,20 @@
           <div class="row invoice-sales-total-wrapper">
             <div class="col-md-12">
               <p class="card-text mb-0">
-                <span class="fw-bold">NOTAS:</span> <span class="ms-75">Alfie Solomons</span>
+                <span class="fw-bold"></span> <span class="ms-75">
+                  <textarea
+                    type="text"
+                    class="form-control" style="border-color: #40465600;"
+                    id="observaciones"
+                    name="observaciones"
+                    placeholder="Observaciones"
+                    aria-label="Observaciones"
+                  ></textarea>
+                </span>
+                
               </p>
             </div>
-            <br><br><br>
+            <br><br><br><br><br><br><br>
             <div class="col-md-6 justify-content">
               <img src="{{Auth::user()->firma->url_path}}" width="200px" alt=""><br>
                   <hr class="my-50" />
@@ -586,131 +595,7 @@
   </div>
 </section>
 
-<!-- Send Invoice Sidebar -->
-<div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
-  <div class="modal-dialog sidebar-lg">
-    <div class="modal-content p-0">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-      <div class="modal-header mb-1">
-        <h5 class="modal-title">
-          <span class="align-middle">Send Invoice</span>
-        </h5>
-      </div>
-      <div class="modal-body flex-grow-1">
-        <form>
-          <div class="mb-1">
-            <label for="invoice-from" class="form-label">From</label>
-            <input
-              type="text"
-              class="form-control"
-              id="invoice-from"
-              value="shelbyComapny@email.com"
-              placeholder="company@email.com"
-            />
-          </div>
-          <div class="mb-1">
-            <label for="invoice-to" class="form-label">To</label>
-            <input
-              type="text"
-              class="form-control"
-              id="invoice-to"
-              value="qConsolidated@email.com"
-              placeholder="company@email.com"
-            />
-          </div>
-          <div class="mb-1">
-            <label for="invoice-subject" class="form-label">Subject</label>
-            <input
-              type="text"
-              class="form-control"
-              id="invoice-subject"
-              value="Invoice of purchased Admin Templates"
-              placeholder="Invoice regarding goods"
-            />
-          </div>
-          <div class="mb-1">
-            <label for="invoice-message" class="form-label">Message</label>
-            <textarea
-              class="form-control"
-              name="invoice-message"
-              id="invoice-message"
-              cols="3"
-              rows="11"
-              placeholder="Message..."
-            >
-      Dear Queen Consolidated,
 
-      Thank you for your business, always a pleasure to work with you!
-
-      We have generated a new invoice in the amount of $95.59
-
-      We would appreciate payment of this invoice by 05/11/2019</textarea
-            >
-          </div>
-          <div class="mb-1">
-            <span class="badge badge-light-primary">
-              <i data-feather="link" class="me-25"></i>
-              <span class="align-middle">Invoice Attached</span>
-            </span>
-          </div>
-          <div class="mb-1 d-flex flex-wrap mt-2">
-            <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Send</button>
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- /Send Invoice Sidebar -->
-
-<!-- Add Payment Sidebar -->
-<div class="modal modal-slide-in fade" id="add-payment-sidebar" aria-hidden="true">
-  <div class="modal-dialog sidebar-lg">
-    <div class="modal-content p-0">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-      <div class="modal-header mb-1">
-        <h5 class="modal-title">
-          <span class="align-middle">Add Payment</span>
-        </h5>
-      </div>
-      <div class="modal-body flex-grow-1">
-        <form>
-          <div class="mb-1">
-            <input id="balance" class="form-control" type="text" value="Invoice Balance: 5000.00" disabled />
-          </div>
-          <div class="mb-1">
-            <label class="form-label" for="amount">Payment Amount</label>
-            <input id="amount" class="form-control" type="number" placeholder="$1000" />
-          </div>
-          <div class="mb-1">
-            <label class="form-label" for="payment-date">Payment Date</label>
-            <input id="payment-date" class="form-control date-picker" type="text" />
-          </div>
-          <div class="mb-1">
-            <label class="form-label" for="payment-method">Payment Method</label>
-            <select class="form-select" id="payment-method">
-              <option value="" selected disabled>Select payment method</option>
-              <option value="Cash">Cash</option>
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="Debit">Debit</option>
-              <option value="Credit">Credit</option>
-              <option value="Paypal">Paypal</option>
-            </select>
-          </div>
-          <div class="mb-1">
-            <label class="form-label" for="payment-note">Internal Payment Note</label>
-            <textarea class="form-control" id="payment-note" rows="5" placeholder="Internal Payment Note"></textarea>
-          </div>
-          <div class="d-flex flex-wrap mb-0">
-            <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Send</button>
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 @php
   function fechaCastellano ($fecha) {
@@ -750,7 +635,7 @@
       if(totalri > 0 && totalrps > 0){
         
         $('#datossumatorias').html('Se registró una atención total '+
-        'de' + totalrps +'('+ NumeroALetras(totalrps) +')'+
+        'de ' + totalrps +' ('+ NumeroALetras(totalrps) +') '+
         'estudiantes beneficiarios para RPS'+
         'y se registró una atención total de '+totalri+' ('+NumeroALetras(totalri)+') '+
         'estudiantes beneficiarios para RI.');
@@ -764,7 +649,7 @@
       {
         
         $('#datossumatorias').html('Se registró una atención total '+
-        'de' + totalrps +'('+ NumeroALetras(totalrps) +')'+
+        'de ' + totalrps +' ('+ NumeroALetras(totalrps) +') '+
         'estudiantes beneficiarios para RPS.');
       }
       

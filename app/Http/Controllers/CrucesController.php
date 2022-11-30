@@ -1431,7 +1431,7 @@ class CrucesController extends Controller
                 //dd($array);
                 
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Certificaciones"]];
-                return view('/content/cruces/certificacion', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'ajustes' => $ajustes]);
+                return view('/content/apps/invoice/app-invoice-print', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'ajustes' => $ajustes]);
         
         }
 }

@@ -1,219 +1,648 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Invoice Print')
+@section('title', 'Certificación')
 
 @section('page-style')
 <link rel="stylesheet" href="{{asset(mix('css/base/pages/app-invoice-print.css'))}}">
 @endsection
 
-@section('content')
-<div class="invoice-print p-3">
-  <div class="invoice-header d-flex justify-content-between flex-md-row flex-column pb-2">
-    <div>
-      <div class="d-flex mb-1">
-        <svg
-          viewBox="0 0 139 95"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          height="24"
-        >
-          <defs>
-            <linearGradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
-              <stop stop-color="#000000" offset="0%"></stop>
-              <stop stop-color="#FFFFFF" offset="100%"></stop>
-            </linearGradient>
-            <linearGradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
-              <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
-              <stop stop-color="#FFFFFF" offset="100%"></stop>
-            </linearGradient>
-          </defs>
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Artboard" transform="translate(-400.000000, -178.000000)">
-              <g id="Group" transform="translate(400.000000, 178.000000)">
-                <path
-                  class="text-primary"
-                  id="Path"
-                  d="M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z"
-                  style="fill: currentColor"
-                ></path>
-                <path
-                  id="Path1"
-                  d="M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z"
-                  fill="url(#linearGradient-1)"
-                  opacity="0.2"
-                ></path>
-                <polygon
-                  id="Path-2"
-                  fill="#000000"
-                  opacity="0.049999997"
-                  points="69.3922914 32.4202615 32.8435758 70.5039241 54.0490008 16.1851325"
-                ></polygon>
-                <polygon
-                  id="Path-21"
-                  fill="#000000"
-                  opacity="0.099999994"
-                  points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338"
-                ></polygon>
-                <polygon
-                  id="Path-3"
-                  fill="url(#linearGradient-2)"
-                  opacity="0.099999994"
-                  points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288"
-                ></polygon>
-              </g>
-            </g>
-          </g>
-        </svg>
-        <h3 class="text-primary font-weight-bold ml-1">Vuexy</h3>
+
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-cly1{text-align:left;vertical-align:middle}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    .mostrar20{
+      display:none;
+    }
+    .mostrar19{
+      display:none;
+    }
+    .mostrar18{
+      display:none;
+    }
+    .mostrar17{
+      display:none;
+    }
+    .mostrar16{
+      display:none;
+    }
+    .mostrar15{
+      display:none;
+    }
+    .mostrar14{
+      display:none;
+    }
+    .mostrar13{
+      display:none;
+    }
+    .mostrar11{
+      display:none;
+    }
+    .mostrar10{
+      display:none;
+    }
+    .mostrar9{
+      display:none;
+    }
+    .mostrar8{
+      display:none;
+    }
+    .mostrar7{
+      display:none;
+    }
+    .mostrar6{
+      display:none;
+    }
+    .mostrar5{
+      display:none;
+    }
+    .mostrar4{
+      display:none;
+    }
+    .mostrar3{
+      display:none;
+    }
+    .mostrar2{
+      display:none;
+    }
+    .mostrar1{
+      display:table-cell;
+    }  
+    .mostrara2{
+      display:table-cell;
+    }
+    .mostrara1{
+      display:none;
+    }
+  
+    .table td, .dark-layout .table th {
+        font-size: 10px !important;
+        color: #000000 !important;
+        border-color: #080808 !important;
+    }
+    .table .thead tr:not([class*=table-]) th, .table .thead tr:not([class*=table-]) td, .table tbody tr:not([class*=table-]) th,  .table tbody tr:not([class*=table-]) td {
+        font-size: 11px;
+        border-color: #000000 !important;
+        color: #000000 !important;
+    }
+    .table > :not(:first-child) {
+        border-top: 2px solid #000000 !important;
+    }
+  
+  </style>
+
+    <div class="row ">
+      <!-- Invoice -->
+     
+      <div class="col-md-12">
+   
+          <div class="card-body invoice-padding pb-0">
+            <!-- Header starts -->
+            <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
+              
+              <div class="mt-md-0 mt-2">
+                
+              </div>
+              
+                <div class="logo-wrapper">
+                  <img src="/storage/sec.jpg" alt="" style="width: 300px; float: right;">
+                  
+                </div>
+              <div style="height: 20px">
+              </div>
+            </div>
+            <!-- Header ends -->
+          </div>
+
+          <hr class="invoice-spacing" />
+
+          <!-- Address and Contact starts -->
+          <div class="card-body invoice-padding pt-0">
+            <h3 style="text-align: center">CONSTANCIA DE VERIFICACION PLANILLAS NIÑO A NIÑO Y SOPORTE MAGNETICO PAE 2022</h3>
+            <div class="row invoice-spacing">
+              <div class="col-xl-12 p-0">
+                <p style="text-align: justify">
+                  La Institución Educativa: {{$data[0]['simat']->institucion}} y sus sedes: 
+                  @foreach($data as $datos) 
+                  {{$datos['simat']->sede}}, 
+                  @endforeach pertenecientes a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega del complemento 
+                  alimentario jornada mañana ración preparada en sitio-Rps que contempló 
+                  un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
+                  al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
+                </p>
+
+                <p style="text-align: justify">
+                  Realizada la verificación de las planillas de entrega en 
+                  su modalidad RPS o RI de los niños, niñas y adolescentes focalizados 
+                  y/o suplentes (quienes reciben por novedad) atendidos por el
+                  {{$ajustes->programa}} 
+                  conforme la matricula oficial registrada en el 
+                  SIMAT a corte de {{fechaCastellano($ajustes->cortesimat)}} y los soportes allegados 
+                  por el operador, me permito certificar que:
+                </p>              
+              </div>
+              
+            </div>
+          </div>
+          <!-- Address and Contact ends -->
+
+          <!-- Invoice Description starts -->
+          
+          
+          <table class="table table-responsive table-bordered table-sm">
+            <thead>
+              <tr style="border-width: 1px 0; border-color: black !important;">
+                <th class="tg-cly1">INSTITUCIÓN</th>
+                <th class="tg-cly1">SEDE</th>
+                <th class="tg-cly1">RACIONES ADJUDICADAS</th>
+                <th class="tg-cly1">RACIONES ENTEGADAS <br>MODALIDAD RI<br>(RACIÓN INDUSTRIALIZADA)</th>
+                <th class="tg-cly1">RACIONES ENTREGADAS<br> MODALIDAD rps<br>( RACIÓN PREPARADA EN SITIO)</th>
+                <th class="tg-cly1">DEVOLUCIONES</th>
+                <th class="tg-cly1">NOVEDADES</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              @php 
+              $i=0; 
+              $totalraciones = 0;
+              $totalracionesentregadasri = 0;
+              $totalracionesentregadasrps = 0;
+              $totaldevoluciones = 0;
+              $totalnovedades = 0;
+              @endphp
+              @foreach ($data as $key => $datos)
+              <tr>
+                <td class="tg-cly1 mostrar{{$key+1}}" rowspan="{{$i}}">{{$datos['simat']->institucion}}</td>
+                <td class="tg-0lax">{{$datos['simat']->sede}}</td>
+                <td class="tg-0lax">
+                  RI: 
+                    @php
+                                          $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                                          $dia1 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion'))
+                                                  ->first();
+                                          $dia2 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_2 is null then 1 else 0 end) as dia_2, sum(case when dia_2 is not null then 1 else 0 end) as dia_2observacion'))
+                                                  ->first();
+                                          $dia3 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_3 is null then 1 else 0 end) as dia_3, sum(case when dia_3 is not null then 1 else 0 end) as dia_3observacion'))
+                                                  ->first();
+                                          $dia4 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_4 is null then 1 else 0 end) as dia_4, sum(case when dia_4 is not null then 1 else 0 end) as dia_4observacion'))
+                                                  ->first();
+                                          $dia5 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_5 is null then 1 else 0 end) as dia_5, sum(case when dia_5 is not null then 1 else 0 end) as dia_5observacion'))
+                                                  ->first();
+                                          $dia6 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_6 is null then 1 else 0 end) as dia_6, sum(case when dia_6 is not null then 1 else 0 end) as dia_6observacion'))
+                                                  ->first();
+                                          $dia7 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_7 is null then 1 else 0 end) as dia_7, sum(case when dia_7 is not null then 1 else 0 end) as dia_7observacion'))
+                                                  ->first();
+                                          $dia8 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_8 is null then 1 else 0 end) as dia_8, sum(case when dia_8 is not null then 1 else 0 end) as dia_8observacion'))
+                                                  ->first();
+                                          $dia9 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion'))
+                                                  ->first();
+                                          $dia10 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion'))
+                                                  ->first();
+                                          $dia11 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_11 is null then 1 else 0 end) as dia_11, sum(case when dia_11 is not null then 1 else 0 end) as dia_11observacion'))
+                                                  ->first();
+                                          $dia12 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                       
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_12 is null then 1 else 0 end) as dia_12, sum(case when dia_12 is not null then 1 else 0 end) as dia_12observacion'))
+                                                  ->first();
+                                          $dia13 = DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_13 is null then 1 else 0 end) as dia_13, sum(case when dia_13 is not null then 1 else 0 end) as dia_13observacion'))
+                                                  ->first();
+                                          $dia14 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_14 is null then 1 else 0 end) as dia_14, sum(case when dia_14 is not null then 1 else 0 end) as dia_14observacion'))
+                                                  ->first();
+                                          $dia15 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion'))
+                                                  ->first();
+                                          $dia16 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion'))
+                                                  ->first();
+                                          $dia17 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_17 is null then 1 else 0 end) as dia_17, sum(case when dia_17 is not null then 1 else 0 end) as dia_17observacion'))
+                                                  ->first();
+                                          $dia18 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion'))
+                                                  ->first();
+                                          $dia19 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion'))
+                                                  ->first();
+                                          $dia20 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_20 is null then 1 else 0 end) as dia_20, sum(case when dia_20 is not null then 1 else 0 end) as dia_20observacion'))
+                                                  ->first();
+                                          $dia21 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_21 is null then 1 else 0 end) as dia_21, sum(case when dia_21 is not null then 1 else 0 end) as dia_21observacion'))
+                                                  ->first();
+                                          $dia22 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_22 is null then 1 else 0 end) as dia_22, sum(case when dia_22 is not null then 1 else 0 end) as dia_22observacion'))
+                                                  ->first();
+                                          $dia23 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_23 is null then 1 else 0 end) as dia_23, sum(case when dia_23 is not null then 1 else 0 end) as dia_23observacion'))
+                                                  ->first();
+                                          $dia24 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_24 is null then 1 else 0 end) as dia_24, sum(case when dia_24 is not null then 1 else 0 end) as dia_24observacion'))
+                                                  ->first();
+                                          $dia25 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_25 is null then 1 else 0 end) as dia_25, sum(case when dia_25 is not null then 1 else 0 end) as dia_25observacion'))
+                                                  ->first();
+                                          $dia26 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_26 is null then 1 else 0 end) as dia_26, sum(case when dia_26 is not null then 1 else 0 end) as dia_26observacion'))
+                                                  ->first();
+                                          $dia27 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                  
+                                                  ->select(DB::raw('sum(case when dia_27 is null then 1 else 0 end) as dia_27, sum(case when dia_27 is not null then 1 else 0 end) as dia_27observacion'))
+                                                  ->first();
+                                          $dia28 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                              
+                                                  ->select(DB::raw('sum(case when dia_28 is null then 1 else 0 end) as dia_28, sum(case when dia_28 is not null then 1 else 0 end) as dia_28observacion'))
+                                                  ->first();
+                                          $dia29 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                              
+                                                  ->select(DB::raw('sum(case when dia_29 is null then 1 else 0 end) as dia_29, sum(case when dia_29 is not null then 1 else 0 end) as dia_29observacion'))
+                                                  ->first();
+                                          $dia30 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
+                                                
+                                                  ->select(DB::raw('sum(case when dia_30 is null then 1 else 0 end) as dia_30, sum(case when dia_30 is not null then 1 else 0 end) as dia_30observacion'))
+                                                  ->first();
+                                          $dia31 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)                                                
+                                                  ->select(DB::raw('sum(case when dia_31 is null then 1 else 0 end) as dia_31, sum(case when dia_31 is not null then 1 else 0 end) as dia_31observacion'))
+                                                  ->first();
+                                $suma2 = 0;
+                                $suma2 += $sede->dia_1 != 'Z' ? $dia1->dia_1 + $dia1->dia_1observacion : 0;
+                                $suma2 += $sede->dia_2 != 'Z' ? $dia2->dia_2 + $dia2->dia_2observacion : 0;
+                                $suma2 += $sede->dia_3 != 'Z' ? $dia3->dia_3 + $dia3->dia_3observacion : 0;
+                                $suma2 += $sede->dia_4 != 'Z' ? $dia4->dia_4 + $dia4->dia_4observacion : 0;
+                                $suma2 += $sede->dia_5 != 'Z' ? $dia5->dia_5 + $dia5->dia_5observacion : 0;
+                                $suma2 += $sede->dia_6 != 'Z' ? $dia6->dia_6 + $dia6->dia_6observacion : 0;
+                                $suma2 += $sede->dia_7 != 'Z' ? $dia7->dia_7 + $dia7->dia_7observacion : 0;
+                                $suma2 += $sede->dia_8 != 'Z' ? $dia8->dia_8 + $dia8->dia_8observacion : 0;
+                                $suma2 += $sede->dia_9 != 'Z' ? $dia9->dia_9 + $dia9->dia_9observacion : 0;
+                                $suma2 += $sede->dia_10 != 'Z' ? $dia10->dia_10 + $dia10->dia_10observacion : 0;
+                                $suma2 += $sede->dia_11 != 'Z' ? $dia11->dia_11 + $dia11->dia_11observacion : 0;
+                                $suma2 += $sede->dia_12 != 'Z' ? $dia12->dia_12 + $dia12->dia_12observacion : 0;
+                                $suma2 += $sede->dia_13 != 'Z' ? $dia13->dia_13 + $dia13->dia_13observacion : 0;
+                                $suma2 += $sede->dia_14 != 'Z' ? $dia14->dia_14 + $dia14->dia_14observacion : 0;
+                                $suma2 += $sede->dia_15 != 'Z' ? $dia15->dia_15 + $dia15->dia_15observacion : 0;
+                                $suma2 += $sede->dia_16 != 'Z' ? $dia16->dia_16 + $dia16->dia_16observacion : 0;
+                                $suma2 += $sede->dia_17 != 'Z' ? $dia17->dia_17 + $dia17->dia_17observacion : 0;
+                                $suma2 += $sede->dia_18 != 'Z' ? $dia18->dia_18 + $dia18->dia_18observacion : 0;
+                                $suma2 += $sede->dia_19 != 'Z' ? $dia19->dia_19 + $dia19->dia_19observacion : 0;
+                                $suma2 += $sede->dia_20 != 'Z' ? $dia20->dia_20 + $dia20->dia_20observacion : 0;
+                                $suma2 += $sede->dia_21 != 'Z' ? $dia21->dia_21 + $dia21->dia_21observacion : 0;
+                                $suma2 += $sede->dia_22 != 'Z' ? $dia22->dia_22 + $dia22->dia_22observacion : 0;
+                                $suma2 += $sede->dia_23 != 'Z' ? $dia23->dia_23 + $dia23->dia_23observacion : 0;
+                                $suma2 += $sede->dia_24 != 'Z' ? $dia24->dia_24 + $dia24->dia_24observacion : 0;
+                                $suma2 += $sede->dia_25 != 'Z' ? $dia25->dia_25 + $dia25->dia_25observacion : 0;
+                                $suma2 += $sede->dia_26 != 'Z' ? $dia26->dia_26 + $dia26->dia_26observacion : 0;
+                                $suma2 += $sede->dia_27 != 'Z' ? $dia27->dia_27 + $dia27->dia_27observacion : 0;
+                                $suma2 += $sede->dia_28 != 'Z' ? $dia28->dia_28 + $dia28->dia_28observacion : 0;
+                                $suma2 += $sede->dia_29 != 'Z' ? $dia29->dia_29 + $dia29->dia_29observacion : 0;
+                                $suma2 += $sede->dia_30 != 'Z' ? $dia30->dia_30 + $dia30->dia_30observacion : 0;
+                                $suma2 += $sede->dia_31 != 'Z' ? $dia31->dia_31 + $dia31->dia_31observacion : 0;
+
+                    @endphp
+                    {{$suma2}}
+                    @php  $totalraciones += $suma2 @endphp
+                  <br>
+                  
+                
+                  Rps:
+                    @php              
+                    
+                        
+                      $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
+                              ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, sum(case when dia_1 = "I" then 1 else 0 end) as dia_1intercambio'))
+                              ->first();
+                      $dia2 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
+                              ->select(DB::raw('sum(case when dia_2 is null then 1 else 0 end) as dia_2, sum(case when dia_2 is not null then 1 else 0 end) as dia_2observacion, sum(case when dia_2 = "I" then 1 else 0 end) as dia_2intercambio'))
+                              ->first();
+                      $dia3 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
+                              ->select(DB::raw('sum(case when dia_3 is null then 1 else 0 end) as dia_3, sum(case when dia_3 is not null then 1 else 0 end) as dia_3observacion, sum(case when dia_3 = "I" then 1 else 0 end) as dia_3intercambio'))
+                              ->first();
+                      $dia4 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_4 is null then 1 else 0 end) as dia_4, sum(case when dia_4 is not null then 1 else 0 end) as dia_4observacion, sum(case when dia_4 = "I" then 1 else 0 end) as dia_4intercambio'))
+                              ->first();
+                      $dia5 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_5 is null then 1 else 0 end) as dia_5, sum(case when dia_5 is not null then 1 else 0 end) as dia_5observacion, sum(case when dia_5 = "I" then 1 else 0 end) as dia_5intercambio'))
+                              ->first();
+                      $dia6 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_6 is null then 1 else 0 end) as dia_6, sum(case when dia_6 is not null then 1 else 0 end) as dia_6observacion, sum(case when dia_6 = "I" then 1 else 0 end) as dia_6intercambio'))
+                              ->first();
+                      $dia7 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_7 is null then 1 else 0 end) as dia_7, sum(case when dia_7 is not null then 1 else 0 end) as dia_7observacion, sum(case when dia_7 = "I" then 1 else 0 end) as dia_7intercambio'))
+                              ->first();
+                      $dia8 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_8 is null then 1 else 0 end) as dia_8, sum(case when dia_8 is not null then 1 else 0 end) as dia_8observacion, sum(case when dia_8 = "I" then 1 else 0 end) as dia_8intercambio'))
+                              ->first();
+                      $dia9 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion, sum(case when dia_9 = "I" then 1 else 0 end) as dia_9intercambio'))
+                              ->first();
+                      $dia10 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion, sum(case when dia_10 = "I" then 1 else 0 end) as dia_10intercambio'))
+                              ->first();
+                      $dia11 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_11 is null then 1 else 0 end) as dia_11, sum(case when dia_11 is not null then 1 else 0 end) as dia_11observacion, sum(case when dia_11 = "I" then 1 else 0 end) as dia_11intercambio'))
+                              ->first();
+                      $dia12 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
+                              ->select(DB::raw('sum(case when dia_12 is null then 1 else 0 end) as dia_12, sum(case when dia_12 is not null then 1 else 0 end) as dia_12observacion, sum(case when dia_12 = "I" then 1 else 0 end) as dia_12intercambio'))
+                              ->first();
+                      $dia13 = DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_13 is null then 1 else 0 end) as dia_13, sum(case when dia_13 is not null then 1 else 0 end) as dia_13observacion, sum(case when dia_13 = "I" then 1 else 0 end) as dia_13intercambio'))
+                              ->first();
+                      $dia14 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_14 is null then 1 else 0 end) as dia_14, sum(case when dia_14 is not null then 1 else 0 end) as dia_14observacion, sum(case when dia_14 = "I" then 1 else 0 end) as dia_14intercambio'))
+                              ->first();
+                      $dia15 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion, sum(case when dia_15 = "I" then 1 else 0 end) as dia_15intercambio'))
+                              ->first();
+                      $dia16 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion, sum(case when dia_16 = "I" then 1 else 0 end) as dia_16intercambio'))
+                              ->first();
+                      $dia17 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_17 is null then 1 else 0 end) as dia_17, sum(case when dia_17 is not null then 1 else 0 end) as dia_17observacion, sum(case when dia_17 = "I" then 1 else 0 end) as dia_17intercambio'))
+                              ->first();
+                      $dia18 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
+                              
+                              ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion, sum(case when dia_18 = "I" then 1 else 0 end) as dia_18intercambio'))
+                              ->first();
+                      $dia19 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion, sum(case when dia_19 = "I" then 1 else 0 end) as dia_19intercambio'))
+                              ->first();
+                      $dia20 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_20 is null then 1 else 0 end) as dia_20, sum(case when dia_20 is not null then 1 else 0 end) as dia_20observacion, sum(case when dia_20 = "I" then 1 else 0 end) as dia_20intercambio'))
+                              ->first();
+                      $dia21 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_21 is null then 1 else 0 end) as dia_21, sum(case when dia_21 is not null then 1 else 0 end) as dia_21observacion, sum(case when dia_21 = "I" then 1 else 0 end) as dia_21intercambio'))
+                              ->first();
+                      $dia22 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_22 is null then 1 else 0 end) as dia_22, sum(case when dia_22 is not null then 1 else 0 end) as dia_22observacion, sum(case when dia_22 = "I" then 1 else 0 end) as dia_22intercambio'))
+                              ->first();
+                      $dia23 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_23 is null then 1 else 0 end) as dia_23, sum(case when dia_23 is not null then 1 else 0 end) as dia_23observacion, sum(case when dia_23 = "I" then 1 else 0 end) as dia_23intercambio'))
+                              ->first();
+                      $dia24 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_24 is null then 1 else 0 end) as dia_24, sum(case when dia_24 is not null then 1 else 0 end) as dia_24observacion, sum(case when dia_24 = "I" then 1 else 0 end) as dia_24intercambio'))
+                              ->first();
+                      $dia25 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_25 is null then 1 else 0 end) as dia_25, sum(case when dia_25 is not null then 1 else 0 end) as dia_25observacion, sum(case when dia_25 = "I" then 1 else 0 end) as dia_25intercambio'))
+                              ->first();
+                      $dia26 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)
+                              
+                              ->select(DB::raw('sum(case when dia_26 is null then 1 else 0 end) as dia_26, sum(case when dia_26 is not null then 1 else 0 end) as dia_26observacion, sum(case when dia_26 = "I" then 1 else 0 end) as dia_26intercambio'))
+                              ->first();
+                      $dia27 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                            
+                              ->select(DB::raw('sum(case when dia_27 is null then 1 else 0 end) as dia_27, sum(case when dia_27 is not null then 1 else 0 end) as dia_27observacion, sum(case when dia_27 = "I" then 1 else 0 end) as dia_27intercambio'))
+                              ->first();
+                      $dia28 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                        
+                              ->select(DB::raw('sum(case when dia_28 is null then 1 else 0 end) as dia_28, sum(case when dia_28 is not null then 1 else 0 end) as dia_28observacion, sum(case when dia_28 = "I" then 1 else 0 end) as dia_28intercambio'))
+                              ->first();
+                      $dia29 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                        
+                              ->select(DB::raw('sum(case when dia_29 is null then 1 else 0 end) as dia_29, sum(case when dia_29 is not null then 1 else 0 end) as dia_29observacion, sum(case when dia_29 = "I" then 1 else 0 end) as dia_29intercambio'))
+                              ->first();
+                      $dia30 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                          
+                              ->select(DB::raw('sum(case when dia_30 is null then 1 else 0 end) as dia_30, sum(case when dia_30 is not null then 1 else 0 end) as dia_30observacion, sum(case when dia_30 = "I" then 1 else 0 end) as dia_30intercambio'))
+                              ->first();
+                      $dia31 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)                                                
+                              ->select(DB::raw('sum(case when dia_31 is null then 1 else 0 end) as dia_31, sum(case when dia_31 is not null then 1 else 0 end) as dia_31observacion, sum(case when dia_31 = "I" then 1 else 0 end) as dia_31intercambio'))
+                              ->first();   
+                                                    
+                      $suma2 = 0;                    
+                      $suma2 += $sede->dia_1 != 'Z' ? $dia1->dia_1intercambio ==  $dia1->dia_1observacion ? 0 : $dia1->dia_1 + $dia1->dia_1observacion : 0;
+                      $suma2 += $sede->dia_2 != 'Z' ? $dia2->dia_2intercambio ==  $dia2->dia_2observacion ? 0 : $dia2->dia_2 + $dia2->dia_2observacion : 0;
+                      $suma2 += $sede->dia_3 != 'Z' ? $dia3->dia_3intercambio ==  $dia3->dia_3observacion ? 0 : $dia3->dia_3 + $dia3->dia_3observacion : 0;
+                      $suma2 += $sede->dia_4 != 'Z' ? $dia4->dia_4intercambio ==  $dia4->dia_4observacion ? 0 : $dia4->dia_4 + $dia4->dia_4observacion : 0;
+                      $suma2 += $sede->dia_5 != 'Z' ? $dia5->dia_5intercambio ==  $dia5->dia_5observacion ? 0 : $dia5->dia_5 + $dia5->dia_5observacion : 0;
+                      $suma2 += $sede->dia_6 != 'Z' ? $dia6->dia_6intercambio ==  $dia6->dia_6observacion ? 0 : $dia6->dia_6 + $dia6->dia_6observacion : 0;
+                      $suma2 += $sede->dia_7 != 'Z' ? $dia7->dia_7intercambio ==  $dia7->dia_7observacion ? 0 : $dia7->dia_7 + $dia7->dia_7observacion : 0;
+                      $suma2 += $sede->dia_8 != 'Z' ? $dia8->dia_8intercambio ==  $dia8->dia_8observacion ? 0 : $dia8->dia_8 + $dia8->dia_8observacion : 0;
+                      $suma2 += $sede->dia_9 != 'Z' ? $dia9->dia_9intercambio ==  $dia9->dia_9observacion ? 0 : $dia9->dia_9 + $dia9->dia_9observacion : 0;
+                      $suma2 += $sede->dia_10 != 'Z' ? $dia10->dia_10intercambio ==  $dia10->dia_10observacion ? 0 : $dia10->dia_10 + $dia10->dia_10observacion : 0;
+                      $suma2 += $sede->dia_11 != 'Z' ? $dia11->dia_11intercambio ==  $dia11->dia_11observacion ? 0 : $dia11->dia_11 + $dia11->dia_11observacion : 0;
+                      $suma2 += $sede->dia_12 != 'Z' ? $dia12->dia_12intercambio ==  $dia12->dia_12observacion ? 0 : $dia12->dia_12 + $dia12->dia_12observacion : 0;
+                      $suma2 += $sede->dia_13 != 'Z' ? $dia13->dia_13intercambio ==  $dia13->dia_13observacion ? 0 : $dia13->dia_13 + $dia13->dia_13observacion : 0;
+                      $suma2 += $sede->dia_14 != 'Z' ? $dia14->dia_14intercambio ==  $dia14->dia_14observacion ? 0 : $dia14->dia_14 + $dia14->dia_14observacion : 0;
+                      $suma2 += $sede->dia_15 != 'Z' ? $dia15->dia_15intercambio ==  $dia15->dia_15observacion ? 0 : $dia15->dia_15 + $dia15->dia_15observacion : 0;
+                      $suma2 += $sede->dia_16 != 'Z' ? $dia16->dia_16intercambio ==  $dia16->dia_16observacion ? 0 : $dia16->dia_16 + $dia16->dia_16observacion : 0;
+                      $suma2 += $sede->dia_17 != 'Z' ? $dia17->dia_17intercambio ==  $dia17->dia_17observacion ? 0 : $dia17->dia_17 + $dia17->dia_17observacion : 0;
+                      $suma2 += $sede->dia_18 != 'Z' ? $dia18->dia_18intercambio ==  $dia18->dia_18observacion ? 0 : $dia18->dia_18 + $dia18->dia_18observacion : 0;
+                      $suma2 += $sede->dia_19 != 'Z' ? $dia19->dia_19intercambio ==  $dia19->dia_19observacion ? 0 : $dia19->dia_19 + $dia19->dia_19observacion : 0;
+                      $suma2 += $sede->dia_20 != 'Z' ? $dia20->dia_20intercambio ==  $dia20->dia_20observacion ? 0 : $dia20->dia_20 + $dia20->dia_20observacion : 0;
+                      $suma2 += $sede->dia_21 != 'Z' ? $dia21->dia_21intercambio ==  $dia21->dia_21observacion ? 0 : $dia21->dia_21 + $dia21->dia_21observacion : 0;
+                      $suma2 += $sede->dia_22 != 'Z' ? $dia22->dia_22intercambio ==  $dia22->dia_22observacion ? 0 : $dia22->dia_22 + $dia22->dia_22observacion : 0;
+                      $suma2 += $sede->dia_23 != 'Z' ? $dia23->dia_23intercambio ==  $dia23->dia_23observacion ? 0 : $dia23->dia_23 + $dia23->dia_23observacion : 0;
+                      $suma2 += $sede->dia_24 != 'Z' ? $dia24->dia_24intercambio ==  $dia24->dia_24observacion ? 0 : $dia24->dia_24 + $dia24->dia_24observacion : 0;
+                      $suma2 += $sede->dia_25 != 'Z' ? $dia25->dia_25intercambio ==  $dia25->dia_25observacion ? 0 : $dia25->dia_25 + $dia25->dia_25observacion : 0;
+                      $suma2 += $sede->dia_26 != 'Z' ? $dia26->dia_26intercambio ==  $dia26->dia_26observacion ? 0 : $dia26->dia_26 + $dia26->dia_26observacion : 0;
+                      $suma2 += $sede->dia_27 != 'Z' ? $dia27->dia_27intercambio ==  $dia27->dia_27observacion ? 0 : $dia27->dia_27 + $dia27->dia_27observacion : 0;
+                      $suma2 += $sede->dia_28 != 'Z' ? $dia28->dia_28intercambio ==  $dia28->dia_28observacion ? 0 : $dia28->dia_28 + $dia28->dia_28observacion : 0;
+                      $suma2 += $sede->dia_29 != 'Z' ? $dia29->dia_29intercambio ==  $dia29->dia_29observacion ? 0 : $dia29->dia_29 + $dia29->dia_29observacion : 0;
+                      $suma2 += $sede->dia_30 != 'Z' ? $dia30->dia_30intercambio ==  $dia30->dia_30observacion ? 0 : $dia30->dia_30 + $dia30->dia_30observacion : 0;
+                      $suma2 += $sede->dia_31 != 'Z' ? $dia31->dia_31intercambio ==  $dia31->dia_31observacion ? 0 : $dia31->dia_31 + $dia31->dia_31observacion : 0;
+
+
+                
+                    @endphp
+                  {{$suma2}} 
+                  @php  $totalraciones += $suma2 @endphp
+                </td>
+                <td class="tg-0lax">
+                  @foreach ($datos['simat']['consolidadoRI'] as $dato5)
+                  {{$dato5->jornada_tipo_racion}}: {{$dato5->total_raciones}}<br>
+                  @php  $totalracionesentregadasri += $dato5->total_raciones @endphp
+                  @endforeach
+
+                  
+                </td>
+                <td class="tg-0lax">
+                  @if($datos['simat']['consolidadoRPS'])
+                  @foreach ($datos['simat']['consolidadoRPS'] as $dato4)
+                  {{$dato4->jornada_tipo_racion}}: {{$dato4->total_raciones}}<br>
+                  @php  $totalracionesentregadasrps += $dato4->total_raciones @endphp
+                  @endforeach
+                  
+                  @endif
+                </td>
+                <td class="tg-0lax">
+                  @foreach ($datos['simat']['consolidadoRI'] as $dato)
+                  {{$dato->jornada_tipo_racion}}: {{$dato->devoluciones}}<br>
+                  @php $totaldevoluciones += $dato->devoluciones; @endphp
+                  @endforeach
+                  @if($datos['simat']['consolidadoRPS'])
+                  @foreach ($datos['simat']['consolidadoRPS'] as $dato3)
+                  {{$dato3->jornada_tipo_racion}}: {{$dato3->devoluciones}}<br>
+                  @php $totaldevoluciones += $dato3->devoluciones; @endphp
+                  @endforeach
+                  @endif
+                </td>
+                <td class="tg-0lax">
+                  @foreach ($datos['simat']['consolidadoRI'] as $dato1)
+                  {{$dato1->jornada_tipo_racion}}: {{$dato1->novedades}}<br>
+                  @php $totalnovedades += $dato1->novedades; @endphp
+                  @endforeach
+                  @if($datos['simat']['consolidadoRPS'])
+                  @foreach ($datos['simat']['consolidadoRPS'] as $dato2)
+                  {{$dato2->jornada_tipo_racion}}: {{$dato2->novedades}}<br>
+                  @php $totalnovedades += $dato2->novedades; @endphp
+                  @endforeach
+                  @endif
+                </td>
+                
+              </tr>
+              @php $i++; @endphp
+            @endforeach
+            
+            
+            </tbody>
+            <tr style="border-width: 1px 0; border-color: black !important;">
+              <td colspan="2">TOTAL</td>
+              <td>{{$totalraciones}}</td>
+              <td><b id="totalracionesentregadasri">{{$totalracionesentregadasri}}</b></td>
+              <td><b id="totalracionesentregadasrps">{{$totalracionesentregadasrps}}</b></td>
+              <td>{{$totaldevoluciones}}</td>
+              <td>{{$totalnovedades}}</td>
+            </tr>
+          </table>
+          
+
+          
+
+          
+            <div class="row invoice-sales-total-wrapper">
+              <div class="col-md-12">
+                <p class="card-text mb-0">
+                  <span class="fw-bold"></span> <span class="ms-75">
+                    <textarea
+                      type="text"
+                      class="form-control" style="border-color: #40465600;"
+                      id="observaciones"
+                      name="observaciones"
+                      placeholder="Observaciones"
+                      aria-label="Observaciones"
+                    ></textarea>
+                  </span>
+                  
+                </p>
+              </div>
+              <br><br>
+              <div class="col-md-6 justify-content">
+                <img src="{{Auth::user()->firma->url_path}}" width="200px" alt=""><br>
+                    <hr class="my-50" />
+                    <p style="text-transform: uppercase; line-height: 2px;">{{Auth::user()->name}}</p>  
+                    <p style="text-transform: uppercase; line-height: 2px;">Cedula de ciudadania: {{Auth::user()->documento}}</p>           
+                    <p style="text-transform: uppercase; line-height: 2px;">Cargo: {{Auth::user()->cargo}}</p>
+                    <p style="text-transform: uppercase; line-height: 2px;">CONTRATO No.: {{Auth::user()->contrato}}</p>
+              </div>
+            </div>
+        
+          <!-- Invoice Description ends -->
+
+          
+    
+        
       </div>
-      <p class="mb-25">Office 149, 450 South Brand Brooklyn</p>
-      <p class="mb-25">San Diego County, CA 91905, USA</p>
-      <p class="mb-0">+1 (123) 456 7891, +44 (876) 543 2198</p>
-    </div>
-    <div class="mt-md-0 mt-2">
-      <h4 class="font-weight-bold text-right mb-1">INVOICE #3492</h4>
-      <div class="invoice-date-wrapper mb-50">
-        <span class="invoice-date-title">Date Issued:</span>
-        <span class="font-weight-bold"> 25/08/2020</span>
-      </div>
-      <div class="invoice-date-wrapper">
-        <span class="invoice-date-title">Due Date:</span>
-        <span class="font-weight-bold">29/08/2020</span>
-      </div>
-    </div>
-  </div>
+     
+      <!-- /Invoice -->
 
-  <hr class="my-2" />
+      <!-- Invoice Actions -->
 
-  <div class="row pb-2">
-    <div class="col-sm-6">
-      <h6 class="mb-1">Invoice To:</h6>
-      <p class="mb-25">Thomas shelby</p>
-      <p class="mb-25">Shelby Company Limited</p>
-      <p class="mb-25">Small Heath, B10 0HF, UK</p>
-      <p class="mb-25">718-986-6062</p>
-      <p class="mb-0">peakyFBlinders@gmail.com</p>
+      <!-- /Invoice Actions -->
     </div>
-    <div class="col-sm-6 mt-sm-0 mt-2">
-      <h6 class="mb-1">Payment Details:</h6>
-      <table>
-        <tbody>
-          <tr>
-            <td class="pr-1">Total Due:</td>
-            <td><strong>$12,110.55</strong></td>
-          </tr>
-          <tr>
-            <td class="pr-1">Bank name:</td>
-            <td>American Bank</td>
-          </tr>
-          <tr>
-            <td class="pr-1">Country:</td>
-            <td>United States</td>
-          </tr>
-          <tr>
-            <td class="pr-1">IBAN:</td>
-            <td>ETD95476213874685</td>
-          </tr>
-          <tr>
-            <td class="pr-1">SWIFT code:</td>
-            <td>BR91905</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
-  <div class="table-responsive mt-2">
-    <table class="table m-0">
-      <thead>
-        <tr>
-          <th class="py-1 pl-4">Task description</th>
-          <th class="py-1">Rate</th>
-          <th class="py-1">Hours</th>
-          <th class="py-1">Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="py-1 pl-4">
-            <p class="font-weight-semibold mb-25">Native App Development</p>
-            <p class="text-muted text-nowrap">
-              Developed a full stack native app using React Native, Bootstrap & Python
-            </p>
-          </td>
-          <td class="py-1">
-            <strong>$60.00</strong>
-          </td>
-          <td class="py-1">
-            <strong>30</strong>
-          </td>
-          <td class="py-1">
-            <strong>$1,800.00</strong>
-          </td>
-        </tr>
-        <tr class="border-bottom">
-          <td class="py-1 pl-4">
-            <p class="font-weight-semibold mb-25">Ui Kit Design</p>
-            <p class="text-muted text-nowrap">Designed a UI kit for native app using Sketch, Figma & Adobe XD</p>
-          </td>
-          <td class="py-1">
-            <strong>$60.00</strong>
-          </td>
-          <td class="py-1">
-            <strong>20</strong>
-          </td>
-          <td class="py-1">
-            <strong>$1200.00</strong>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="row invoice-sales-total-wrapper mt-3">
-    <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
-      <p class="card-text mb-0">
-        <span class="font-weight-bold">Salesperson:</span> <span class="ml-75">Alfie Solomons</span>
-      </p>
-    </div>
-    <div class="col-md-6 d-flex justify-content-end order-md-2 order-1">
-      <div class="invoice-total-wrapper">
-        <div class="invoice-total-item">
-          <p class="invoice-total-title">Subtotal:</p>
-          <p class="invoice-total-amount">$1800</p>
-        </div>
-        <div class="invoice-total-item">
-          <p class="invoice-total-title">Discount:</p>
-          <p class="invoice-total-amount">$28</p>
-        </div>
-        <div class="invoice-total-item">
-          <p class="invoice-total-title">Tax:</p>
-          <p class="invoice-total-amount">21%</p>
-        </div>
-        <hr class="my-50" />
-        <div class="invoice-total-item">
-          <p class="invoice-total-title">Total:</p>
-          <p class="invoice-total-amount">$1690</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <hr class="my-2" />
 
-  <div class="row">
-    <div class="col-12">
-      <span class="font-weight-bold">Note:</span>
-      <span
-        >It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance
-        projects. Thank You!</span
-      >
-    </div>
-  </div>
-</div>
-@endsection
+  @php
+    function fechaCastellano ($fecha) {
+        $fecha = substr($fecha, 0, 10);
+        $numeroDia = date('d', strtotime($fecha));
+        $dia = date('l', strtotime($fecha));
+        $mes = date('F', strtotime($fecha));
+        $anio = date('Y', strtotime($fecha));
+        $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
+        $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+        $nombredia = str_replace($dias_EN, $dias_ES, $dia);
+        $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+        $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
+        return $nombredia." ".$numeroDia." de ".$nombreMes." de ".$anio;
+    }
+
+  @endphp
+
 
 @section('page-script')
 <script src="{{asset('js/scripts/pages/app-invoice-print.js')}}"></script>
+<script src="{{asset('js/scripts/NumeroALetras.js')}}"></script>
+<script>
+   $(document).ready(function(){
+      var totalri = parseInt($('#totalracionesentregadasri').html());
+      var totalrps = parseInt($('#totalracionesentregadasrps').html());
+      console.log(totalri);
+      console.log(totalrps);
+      if(totalri > 0 && totalrps > 0){
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de ' + totalrps +' ('+ NumeroALetras(totalrps) +') '+
+        'estudiantes beneficiarios para RPS'+
+        'y se registró una atención total de '+totalri+' ('+NumeroALetras(totalri)+') '+
+        'estudiantes beneficiarios para RI.');
+      }else if(totalri != 0)
+      {
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de '+totalri+' ('+NumeroALetras(totalri)+') '+
+        'estudiantes beneficiarios para RI.');
+      }else if (totalrps != 0)
+      {
+        
+        $('#datossumatorias').html('Se registró una atención total '+
+        'de ' + totalrps +' ('+ NumeroALetras(totalrps) +') '+
+        'estudiantes beneficiarios para RPS.');
+      }
+      
+
+      
+      $('#sumatoria').html(totalri + totalrps);
+      $('#sumatoriaL').html(NumeroALetras(totalri + totalrps));
+  });
+</script>
 @endsection
