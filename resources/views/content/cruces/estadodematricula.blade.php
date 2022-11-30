@@ -225,6 +225,8 @@
                 <b class="card-text" id="sedeS"></b>
               </p>
               <p id="estadoS" class="badge rounded-pill badge-light-danger me-1"></p>
+              <p id="fechamatricula" ></p>
+              <p id="fecharetiro" ></p>
             </div>
           </div>
           
@@ -323,6 +325,8 @@
         $('#segundoAS').html('');
         $('#institucionS').html('');
         $('#sedeS').html('');
+        $('#fechamatricula').html('');
+        $('#fecharetiro').html('');
         $('#estadoS').html('No encontrado en el SIMAT');
       }else{
         $('#tipodocu').html(data.tioodoc);
@@ -334,6 +338,8 @@
         $('#institucionS').html(data.institucion);
         $('#sedeS').html(data.sede);
         $('#estadoS').html(data.estado);
+        $('#fechamatricula').html(data.fechaini);
+        $('#fecharetiro').html(data.fechafin);
       }
      
       })
