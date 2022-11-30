@@ -568,7 +568,7 @@
                     <hr class="my-50" />
                     <p style="text-transform: uppercase; line-height: 2px;">{{Auth::user()->name}}</p>  
                     <p style="text-transform: uppercase; line-height: 2px;">Cedula de ciudadania: {{Auth::user()->documento}}</p>           
-                    <p style="text-transform: uppercase; line-height: 2px;">Cargo: {{Auth::user()->cargo}}</p>
+                    <p style="text-transform: uppercase; line-height: 2px;">Cargo: Supervisor PAE-SEM</p>
                     <p style="text-transform: uppercase; line-height: 2px;">CONTRATO No.: {{Auth::user()->contrato}}</p>
               </div>
             </div>
