@@ -175,6 +175,7 @@
               $totaldevoluciones = 0;
               $totalnovedades = 0;
               @endphp
+              {{dd($data)}}
               @foreach ($data as $key => $datos)
               <tr>
                 <td class="tg-cly1 mostrar{{$key+1}}" rowspan="{{$i}}">{{$datos['simat']->institucion}}</td>
