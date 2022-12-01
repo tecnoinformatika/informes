@@ -130,8 +130,7 @@
                   @foreach($data as $datos) 
                   {{$datos['simat']->sede}}, 
                   @endforeach pertenecientes a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega del complemento 
-                  alimentario jornada mañana ración preparada en sitio-Rps que contempló 
-                  un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
+                  alimentario que contempló un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
                   al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
                 </p>
 
