@@ -16,7 +16,7 @@
 @section('content')
 <div class="row">
   <div class="col-12">
-    <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p>
+    
   </div>
 </div>
 <!-- Basic table -->
@@ -49,7 +49,7 @@
             <!-- Basic Select -->
             <div class="mb-1">
               <label class="form-label" for="tipo">Tipo de complemento</label>
-              <select class="form-select" id="tipo" name="tipo">
+              <select class="form-select" id="tipo" name="tipo" required>
                 <option value="">- Seleccione -</option>
                 <option value="RPS">RPS</option>
                 <option value="RI">RI</option>
@@ -91,9 +91,10 @@
           <h4 class="card-title">Datos consultados</h4>
         </div>
         <div class="card-body">
+         
           <p class="card-text">
             @if (isset($data))
-              <h2>INSTITUCIÓN Y  SEDE ECUACTIVA: {{$data[0]->insti}}   
+              <h2>INSTITUCIÓN Y  SEDE EDUCATIVA: {{$data[0]->insti}}   
             @endif.
           </p>
         </div>
@@ -243,8 +244,8 @@
           
         </div>  
        
-        <button class="btn btn-primary data-submit me-1" id="btn-save">Submit</button>
-        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary data-submit me-1" id="btn-save">Guardar</button>
+        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
       </div>
     
   </div>
@@ -278,7 +279,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
-          url: '/institucion/tabla',
+          url: '/institucion/tabla2',
           type: 'get',
           dataType: 'json',
           success:function(response){
@@ -288,7 +289,7 @@
           $("#institucion").empty();
           for( var i = 0; i<len; i++){
             var id = response[i]['consecutivo'];
-            var name = response[i]['institucion'];
+            var name = response[i]['institucion'] + " - " + response[i]['sede'];
             
             $("#institucion").append("<option value='"+id+"'>"+name+"</option>");
             
