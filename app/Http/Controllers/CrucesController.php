@@ -28,7 +28,8 @@ class CrucesController extends Controller
                 if($tipo == 'RPS'){
                 $data = DB::table('rps')
                         ->LeftJoin('simats','rps.documento','=','simats.documento')
-                        ->where('rps.codigo_dane_sede','=', $institucion)
+                        ->join('sedes', 'sedes.consecutivo','=','rps.codigo_dane_sede')
+                        ->where('sedes.codigo_dane_institucion','=', $institucion)
                         ->select('rps.id as N',
                                 'rps.TIPO_DE_DOCUMENTO as tipodoc',
                                 'rps.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -41,11 +42,11 @@ class CrucesController extends Controller
                                 'rps.INSTITUCION as insti',
                                 'rps.SEDE as sed',
                                 'rps.Tipo_de_complemento as tipoComplemento',
-                                'rps.Tipo_de_complemento as tipoComplemento',
+                                'rps.observacionesMatricula as observacionesMatricula', 
                                 'simats.institucion as institucion',
                                 'simats.sede as sede',
                                 'simats.estado as estado') 
-                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
+                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
               
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
@@ -56,7 +57,8 @@ class CrucesController extends Controller
                 $data = DB::table('ris')
                         ->leftJoin('rps','ris.documento','=','rps.documento')
                         ->leftjoin('simats','ris.documento','=','simats.documento')
-                        ->where('ris.codigo_dane_sede','=', $institucion)
+                        ->join('sedes', 'sedes.consecutivo','=','ris.codigo_dane_sede')
+                        ->where('sedes.codigo_dane_institucion','=', $institucion)
                         ->select('ris.id as N',
                                 'ris.TIPO_DE_DOCUMENTO as tipodoc',
                                 'ris.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -69,10 +71,11 @@ class CrucesController extends Controller
                                 'ris.INSTITUCION as insti',
                                 'ris.SEDE as sed',
                                 'ris.Tipo_de_complemento as tipoComplemento',
+                                'ris.observacionesMatricula as observacionesMatricula',
                                 'simats.institucion as institucion',
                                 'simats.sede as sede',
                                 'simats.estado as estado')
-                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
+                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
                   
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
@@ -1428,7 +1431,7 @@ class CrucesController extends Controller
                 
                 }
                 $ajustes = Ajustes::first();
-                //dd($array);
+                //return response::json($array);
                 
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Certificaciones"]];
                 return view('/content/apps/invoice/app-invoice-print', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'ajustes' => $ajustes]);

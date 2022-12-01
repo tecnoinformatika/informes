@@ -175,7 +175,7 @@
               $totaldevoluciones = 0;
               $totalnovedades = 0;
               @endphp
-              {{dd($data)}}
+              
               @foreach ($data as $key => $datos)
               <tr>
                 <td class="tg-cly1 mostrar{{$key+1}}" rowspan="{{$i}}">{{$datos['simat']->institucion}}</td>
@@ -183,7 +183,10 @@
                 <td class="tg-0lax">
                   RI: 
                     @php
-                                          $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                    $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                    if(isset($datos['simat']['consolidadoRI']->codigo_dane_sede))
+                    {
+                                          
                                           $dia1 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                   
                                                   ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion'))
@@ -339,17 +342,23 @@
                                 $suma2 += $sede->dia_29 != 'Z' ? $dia29->dia_29 + $dia29->dia_29observacion : 0;
                                 $suma2 += $sede->dia_30 != 'Z' ? $dia30->dia_30 + $dia30->dia_30observacion : 0;
                                 $suma2 += $sede->dia_31 != 'Z' ? $dia31->dia_31 + $dia31->dia_31observacion : 0;
-
-                    @endphp
-                    {{$suma2}}
-                    @php  $totalraciones += $suma2 @endphp
+                        
+                        @endphp
+                       {{$suma2}}
+                        
+                        @php
+                        $totalraciones += $suma2;
+                    
+                        }
+                        @endphp
                   <br>
                   
                 
                   Rps:
                     @php              
                     
-                        
+                    if(isset($datos['simat']['consolidadoRPS']->codigo_dane_sede))
+                    {   
                       $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
                               ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, sum(case when dia_1 = "I" then 1 else 0 end) as dia_1intercambio'))
                               ->first();
@@ -480,10 +489,14 @@
                       $suma2 += $sede->dia_31 != 'Z' ? $dia31->dia_31intercambio ==  $dia31->dia_31observacion ? 0 : $dia31->dia_31 + $dia31->dia_31observacion : 0;
 
 
-                
+                      @endphp
+                    
+                       {{$suma2}}
+                   @php
+                    $totalraciones += $suma2;
+                  
+                    }
                     @endphp
-                  {{$suma2}} 
-                  @php  $totalraciones += $suma2 @endphp
                 </td>
                 <td class="tg-0lax">
                   @foreach ($datos['simat']['consolidadoRI'] as $dato5)

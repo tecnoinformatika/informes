@@ -24,11 +24,18 @@ class InstitucionController extends Controller
     
     }
 
-    public function tablaInstitucion()
+    public function tablaInstitucion2()
     {
         $rps = Sedes::join('institucions','sedes.codigo_dane_institucion','=','institucions.codigo_dane')
                       ->select('institucions.nombre as institucion', 'sedes.nombre as sede','sedes.consecutivo as consecutivo')
                       ->groupByRaw('institucion, sede,consecutivo')
+                      ->get(); 
+        
+        return \Response::json($rps);
+    }
+    public function tablaInstitucion()
+    {
+        $rps = Institucion::select('institucions.nombre as institucion', 'institucions.codigo_dane as consecutivo')
                       ->get(); 
         
         return \Response::json($rps);

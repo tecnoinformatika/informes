@@ -33,7 +33,7 @@
             <!-- Basic Select -->
             <div class="mb-1">
               <label class="form-label" for="institucion">Institución</label>
-              <select class="form-select" id="institucion" name="institucion">
+              <select class="select2 form-select" id="institucion" name="institucion">
                 <option value="">- Seleccione -</option>
               </select>
             </div>
@@ -93,8 +93,7 @@
         <div class="card-body">
           <p class="card-text">
             @if (isset($data))
-              <h1>TIPO DE COMPLEMENTO <span class="badge rounded-pill badge-light-success me-1">{{$data[0]->tipoComplemento}}</span></h1>
-              <h2>INSTITUCIÓN Y  SEDE ECUACTIVA: {{$data[0]->insti}} ---- {{$data[0]->sed}}         
+              <h2>INSTITUCIÓN Y  SEDE ECUACTIVA: {{$data[0]->insti}}   
             @endif.
           </p>
         </div>
@@ -103,6 +102,8 @@
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Sede</th>
+                <th>Complemento</th>
                 <th>Tipo de documento</th>
                 <th>Documento</th>
                 <th>Primer Nombre</th>
@@ -110,7 +111,8 @@
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
                 <th>Fecha de nacimiento</th>
-                <th>Sexo</th>                
+                <th>Sexo</th>
+                <th>Observaciones</th>                
                 <th>Estado</th>
                 <th>Acciones</th>
               </tr>
@@ -121,6 +123,12 @@
               <tr>
                 <td>
                   {{$datos->N}}
+                </td>
+                <td>
+                  {{$datos->sed}}
+                </td>
+                <td>
+                  {{$datos->tipoComplemento}}
                 </td>
                 <td> 
                   {{$datos->tipodoc}}</td>
@@ -144,6 +152,9 @@
                 </td>
                 <td>
                   {{$datos->sexo}}
+                </td>
+                <td>
+                  {{$datos->observacionesMatricula}}
                 </td>
                 
                   @if($datos->estado == "MATRICULADO")
@@ -259,10 +270,11 @@
   <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.print.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
 @endsection
 @section('page-script')
   {{-- Page js files --}}
-  
+  <script src="{{ asset(mix('js/scripts/forms/form-select2.js')) }}"></script>
   <script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
@@ -276,7 +288,7 @@
           $("#institucion").empty();
           for( var i = 0; i<len; i++){
             var id = response[i]['consecutivo'];
-            var name = response[i]['institucion'] + " - " + response[i]['sede'];
+            var name = response[i]['institucion'];
             
             $("#institucion").append("<option value='"+id+"'>"+name+"</option>");
             

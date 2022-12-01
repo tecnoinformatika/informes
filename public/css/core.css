@@ -13706,7 +13706,7 @@ select:-webkit-autofill {
 }
 .card {
   margin-bottom: 2rem;
-  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+  box-shadow: 0 4px 24px 0 rgb(34 41 47 / 33%);
   transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
 }
 .card .card {

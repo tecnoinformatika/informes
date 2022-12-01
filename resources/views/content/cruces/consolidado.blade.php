@@ -1307,7 +1307,7 @@
     $(document).ready(function(){
       
         $.ajax({
-          url: '/institucion/tabla',
+          url: '/institucion/tabla2',
           type: 'get',
           dataType: 'json',
           success:function(response){

@@ -282,6 +282,7 @@ Route::group(['prefix' => 'ri'], function () {
 Route::group(['prefix' => 'institucion'], function () {
     Route::get('index', [InstitucionController::class, 'index'])->name('institucion-index');
     Route::get('tabla', [InstitucionController::class, 'tablainstitucion'])->name('institucion-tabla');
+    Route::get('tabla2', [InstitucionController::class, 'tablainstitucion2'])->name('institucion-tabla2');
     Route::get('datos', [InstitucionController::class, 'datos'])->name('institucion-datos');
     Route::get('vaciar', [InstitucionController::class, 'vaciar'])->name('institucion-vaciar');
     Route::post('importar', [InstitucionController::class, 'importar'])->name('institucion-importar');

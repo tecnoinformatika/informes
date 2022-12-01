@@ -22,8 +22,8 @@
         <button type="button" class="step-trigger">
           <span class="bs-stepper-box">1</span>
           <span class="bs-stepper-label">
-            <span class="bs-stepper-title">Account Details</span>
-            <span class="bs-stepper-subtitle">Setup Account Details</span>
+            <span class="bs-stepper-title">Consolidado</span>
+            <span class="bs-stepper-subtitle">Selección de sedes y modalidad para consolidado</span>
           </span>
         </button>
       </div>
@@ -36,8 +36,7 @@
     <div class="bs-stepper-content">
       <div id="account-details" class="content" role="tabpanel" aria-labelledby="account-details-trigger">
         <div class="content-header">
-          <h5 class="mb-0">Account Details</h5>
-          <small class="text-muted">Enter Your Account Details.</small>
+          
         </div>
         <form action="{{ route("consolidado") }}" method="POST">
           @csrf
@@ -146,7 +145,7 @@
 
    
         $.ajax({
-          url: '/institucion/tabla',
+          url: '/institucion/tabla2',
           type: 'get',
           dataType: 'json',
           success:function(response){

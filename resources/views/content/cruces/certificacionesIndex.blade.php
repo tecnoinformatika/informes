@@ -22,8 +22,8 @@
         <button type="button" class="step-trigger">
           <span class="bs-stepper-box">1</span>
           <span class="bs-stepper-label">
-            <span class="bs-stepper-title">Account Details</span>
-            <span class="bs-stepper-subtitle">Setup Account Details</span>
+            <span class="bs-stepper-title">Certificación</span>
+            <span class="bs-stepper-subtitle">Selección de sedes y modalidad para certificación</span>
           </span>
         </button>
       </div>
@@ -129,7 +129,7 @@
 
    
         $.ajax({
-          url: '/institucion/tabla',
+          url: '/institucion/tabla2',
           type: 'get',
           dataType: 'json',
           success:function(response){
