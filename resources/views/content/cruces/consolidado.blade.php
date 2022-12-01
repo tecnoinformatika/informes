@@ -178,7 +178,7 @@
          
           <div class="card-datatable">
             @if($data[0]['tipoconsolidado'] == 'normal')
-              <table id="editable" class="table-responsive dt-complex-header table table-bordered  table-sm">
+              <table id="editable" class="table table-responsive dt-complex-header  table-bordered  table-sm">
                 <thead>
                   <tr>
                     <th rowspan="2">SEDE</th>
@@ -981,7 +981,7 @@
               </table>
               
             @elseif($data[0]['tipoconsolidado'] == 'especial')
-            <table id="editable1" class="table-responsivedt-complex-header table table-bordered  table-sm">
+            <table id="editable1" class="table table-responsive dt-complex-header table-bordered  table-sm">
               <thead>
                 <tr>
                   <th rowspan="2">SEDE</th>
