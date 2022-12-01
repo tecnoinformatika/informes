@@ -109,7 +109,7 @@
         
         <hr class="my-0" />
         <div class="card-datatable">
-          <table class="dt-advanced-search table" id="example">
+          <table class="dt-advanced-search table table-responsive table-sm" id="example">
             <thead>
               <tr>
                 <th>Primer Nombre</th>
