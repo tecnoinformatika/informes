@@ -236,8 +236,8 @@
                 <b class="card-text" id="sedeS"></b>
               </p>
               <p id="estadoS" class="badge rounded-pill badge-light-danger me-1"></p><br>
-              Fecha de matricula: <b id="fechamatricula" ></b><br>
-              Fecha de retiro: <b id="fecharetiro" ></b>
+              Fecha de inicio: <b id="fechamatricula" ></b><br>
+              Fecha de fin: <b id="fecharetiro" ></b>
             </div>
           </div>
           
