@@ -183,10 +183,8 @@
                 <td class="tg-0lax">
                   RI: 
                     @php
-                    $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
-                    if(isset($datos['simat']['consolidadoRI']->codigo_dane_sede))
-                    {
-                                          
+                
+                                          $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
                                           $dia1 =  DB::table('ris')->where('codigo_dane_sede', $sede->codigo_dane_sede)
                                                   
                                                   ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion'))
@@ -349,7 +347,7 @@
                         @php
                         $totalraciones += $suma2;
                     
-                        }
+                       
                         @endphp
                   <br>
                   
@@ -357,8 +355,7 @@
                   Rps:
                     @php              
                     
-                    if(isset($datos['simat']['consolidadoRPS']->codigo_dane_sede))
-                    {   
+                       
                       $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          
                               ->select(DB::raw('sum(case when dia_1 is null then 1 else 0 end) as dia_1, sum(case when dia_1 is not null then 1 else 0 end) as dia_1observacion, sum(case when dia_1 = "I" then 1 else 0 end) as dia_1intercambio'))
                               ->first();
@@ -495,7 +492,7 @@
                    @php
                     $totalraciones += $suma2;
                   
-                    }
+                    
                     @endphp
                 </td>
                 <td class="tg-0lax">
