@@ -263,8 +263,8 @@
     // On load Toast
     setTimeout(function () {
       toastr['success'](
-        'You have successfully logged in to Vuexy. Now you can start to explore!',
-        '👋 Welcome John Doe!',
+        'Has iniciado sesión correctamente!',
+        '👋 Bienvenid@ {{Auth::user()->name}} !',
         {
           closeButton: true,
           tapToDismiss: false,

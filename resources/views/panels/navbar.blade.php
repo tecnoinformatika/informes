@@ -7,9 +7,7 @@
         <li class="nav-item">
           <a class="navbar-brand" href="{{ url('/') }}">
             
-              <img src="{{asset('images/logo/logo1.png')}}" alt="Alcaldia de Cúcuta" width="110px">
-        
-            <h2 class="brand-text mb-0">PAE</h2>
+            <img src="/storage/sec.jpg" alt="" style="width: 300px;">
           </a>
         </li>
       </ul>
