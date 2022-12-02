@@ -8,6 +8,7 @@ use App\Models\Simat;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\InstitucionImport;
+use Auth;
 
 class InstitucionController extends Controller
 {
@@ -27,7 +28,9 @@ class InstitucionController extends Controller
     public function tablaInstitucion2()
     {
         $rps = Sedes::join('institucions','sedes.codigo_dane_institucion','=','institucions.codigo_dane')
+                      ->where('sedes.user_id', Auth::user()->id)
                       ->select('institucions.nombre as institucion', 'sedes.nombre as sede','sedes.consecutivo as consecutivo')
+                     
                       ->groupByRaw('institucion, sede,consecutivo')
                       ->get(); 
         
