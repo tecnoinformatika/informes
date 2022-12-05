@@ -83,7 +83,12 @@
   <p id="msg">{{ $message }}</p>
   </div>
   @endif
-
+  @php
+    $mescorte = DB::table('ajustes')->first();
+    $mes = date('m', strtotime($mescorte->incio));
+    $mes = intval($mes);
+   
+  @endphp
   <div class="row" id="table-hover-row">
     <div class="col-12">
       <div class="card">
@@ -102,7 +107,6 @@
           <table class="table table-hover table-sm table-responsive" id="example">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Sede</th>
                 <th>Complemento</th>
                 <th>Tipo de documento</th>
@@ -113,75 +117,119 @@
                 <th>Segundo Apellido</th>
                 <th>Fecha de nacimiento</th>
                 <th>Sexo</th>
+                <th>Observación corte pasado</th> 
                 <th>Observaciones</th>                
-                <th>Estado</th>
+                <th>Estado documento</th>
+                <th>Estado Nombre</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
+              
               @if (isset($data))
               @foreach($data as $datos)
-              <tr>
-                <td>
-                  {{$datos->N}}
-                </td>
-                <td>
-                  {{$datos->sed}}
-                </td>
-                <td>
-                  {{$datos->tipoComplemento}}
-                </td>
-                <td> 
-                  {{$datos->tipodoc}}</td>
-                <td>
-                  {{$datos->numdoc}}
-                </td>
-                <td>
-                  {{$datos->PrimerNombre}}
-                </td>
-                <td>
-                  {{$datos->SegundoNombre}}
-                </td>
-                <td>
-                  {{$datos->PrimerApellido}}
-                </td>
-                <td>
-                  {{$datos->SegundoApellido}}
-                </td>
-                <td>
-                  {{$datos->fechaNacimiento}}
-                </td>
-                <td>
-                  {{$datos->sexo}}
-                </td>
-                <td>
-                  {{$datos->observacionesMatricula}}
-                </td>
-                
-                  @if($datos->estado == "MATRICULADO")
-                    <td><span class="badge rounded-pill badge-light-success me-1">{{$datos->estado}}</span></td>
-                    
-                  @elseif($datos->estado == "RETIRADO")
-                  <td><span class="badge rounded-pill badge-light-danger me-1">{{$datos->estado}}</span></td>
-            
-                  @elseif($datos->estado == "GRADUADO")
-                  <td><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
+              @if($datos->estado != "MATRICULADO")
+                <tr>
                   
-                  @elseif ($datos->estado == null)
-                  <td><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
-              
-                  @endif
                   <td>
+                    {{$datos->sed}}
+                  </td>
+                  <td>
+                    {{$datos->tipoComplemento}}
+                  </td>
+                  <td> 
+                    {{$datos->tipodoc}}</td>
+                  <td>
+                    {{$datos->numdoc}}
+                  </td>
+                  <td>
+                    {{$datos->PrimerNombre}}
+                  </td>
+                  <td>
+                    {{$datos->SegundoNombre}}
+                  </td>
+                  <td>
+                    {{$datos->PrimerApellido}}
+                  </td>
+                  <td>
+                    {{$datos->SegundoApellido}}
+                  </td>
+                  <td>
+                    {{$datos->fechaNacimiento}}
+                  </td>
+                  <td>
+                    {{$datos->sexo}}
+                  </td>
+                  @php
+                        $consultacorte = DB::table('cortes')
+                                          ->select('observacion')
+                                          ->where(DB::raw('CONCAT(tipodoc,documento)'),$datos->tipodoc.$datos->numdoc)
+                                          ->where('codigo_dane_sede',$datos->codsede )
+                                          ->where('corte',($mes-1) )
+                                          ->first();
+                        
+                    @endphp 
+                  <td>
+                    @if (isset($consultacorte))
+                    {{$consultacorte->observacion}}
+                    @endif
+                  </td>
+                  <td>
+                    @if (isset($consultacorte))
+                    {{$consultacorte->observacion}}
+                    @else
+                    {{$datos->observacionesMatricula}}
+                    @endif
+                  </td>
                   
-                    <a  class="dropdown-item" id="edit-customer" data-bs-toggle="modal" data-bs-target="#modals-slide-in" data-id="{{ $datos->N }}">
-                      <i data-feather="edit-2" class="me-50"></i>
-                      <span>Editar</span> 
-                    </a>
+                    @if($datos->estado == "MATRICULADO")
+                      <td><span class="badge rounded-pill badge-light-success me-1">{{$datos->estado}}</span></td>
                       
-                      
+                    @elseif($datos->estado == "RETIRADO")
+                    <td><span class="badge rounded-pill badge-light-danger me-1">{{$datos->estado}}</span></td>
+              
+                    @elseif($datos->estado == "GRADUADO")
+                    <td><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
+                    
+                    @elseif ($datos->estado == null)
+                    <td><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
                 
-                </td>
-              </tr>
+                    @endif
+                    @php
+                        $consultanombre = DB::table('simats')
+                                          ->select(DB::raw('CONCAT(nombre1,nombre2,apellido1,apellido2) as name,estado'))
+                                          ->where(DB::raw('CONCAT(nombre1,nombre2,apellido1,apellido2)'), '=', $datos->PrimerNombre.$datos->SegundoNombre.$datos->PrimerApellido.$datos->SegundoApellido)
+                                          ->first();
+                        
+                    @endphp 
+                      @if (isset($consultanombre))
+                        @if($consultanombre->estado == "MATRICULADO")
+                          <td><span class="badge rounded-pill badge-light-success me-1">{{$consultanombre->estado}}</span></td>
+                          
+                        @elseif ($consultanombre->estado == "RETIRADO")
+                          <td><span class="badge rounded-pill badge-light-danger me-1">{{$consultanombre->estado}}</span></td>
+                  
+                        @elseif ($consultanombre->estado == "GRADUADO") 
+                          <td><span class="badge rounded-pill badge-light-warning me-1">{{$consultanombre->estado}}</span></td>
+                        @endif
+                      @else
+                      <td><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
+                      @endif
+                    
+                    
+                   
+                    <td>
+                    
+                      <a  class="dropdown-item" id="edit-customer" data-bs-toggle="modal" data-bs-target="#modals-slide-in" data-id="{{ $datos->N }}">
+                        <i data-feather="edit-2" class="me-50"></i>
+                        <span>Editar</span> 
+                      </a>
+                        
+                        
+                  
+                  </td>
+                </tr>
+              @endif
               @endforeach
             @endif
             </tbody>

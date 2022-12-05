@@ -358,8 +358,8 @@
                 
                   Rps:
                     @php              
-                    
-                        if(!$sede){
+                        $sede1 = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                        if(!$sede1){
                                 $suma2 += 0;
                         }else{
                                 $dia1 =  DB::table('rps')->where('codigo_dane_sede', $datos['simat']->consecutivo)          

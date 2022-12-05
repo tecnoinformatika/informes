@@ -29,7 +29,7 @@ class CrucesController extends Controller
                 $data = DB::table('rps')
                         ->LeftJoin('simats','rps.documento','=','simats.documento')
                         ->join('sedes', 'sedes.consecutivo','=','rps.codigo_dane_sede')
-                        ->where('rps.codigo_dane_sede','=', $institucion)
+                        ->where('rps.codigo_dane_sede','=', $institucion)                        
                         ->select('rps.id as N',
                                 'rps.TIPO_DE_DOCUMENTO as tipodoc',
                                 'rps.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -41,6 +41,7 @@ class CrucesController extends Controller
                                 'rps.Sexo as sexo',
                                 'rps.INSTITUCION as insti',
                                 'rps.SEDE as sed',
+                                'rps.codigo_dane_sede as codsede',
                                 'rps.Tipo_de_complemento as tipoComplemento',
                                 'rps.observacionesMatricula as observacionesMatricula', 
                                 'simats.institucion as institucion',
@@ -71,6 +72,7 @@ class CrucesController extends Controller
                                 'ris.SEDE as sed',
                                 'ris.Tipo_de_complemento as tipoComplemento',
                                 'ris.observacionesMatricula as observacionesMatricula',
+                                'ris.codigo_dane_sede as codsede',
                                 'simats.institucion as institucion',
                                 'simats.sede as sede',
                                 'simats.estado as estado')
