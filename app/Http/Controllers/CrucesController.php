@@ -47,7 +47,7 @@ class CrucesController extends Controller
                                 'simats.institucion as institucion',
                                 'simats.sede as sede',
                                 'simats.estado as estado') 
-                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
+                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,codsede,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
               
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
@@ -76,7 +76,7 @@ class CrucesController extends Controller
                                 'simats.institucion as institucion',
                                 'simats.sede as sede',
                                 'simats.estado as estado')
-                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
+                        ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,codsede,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
                   
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
