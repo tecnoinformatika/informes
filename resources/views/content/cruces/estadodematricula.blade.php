@@ -116,7 +116,7 @@
               
               @if (isset($data))
               @foreach($data as $datos)
-              @if($datos->estado != "MATRICULADO")
+ 
                 <tr>
                   
                   <td class="uneditable">
@@ -241,7 +241,7 @@
                   
                   </td>
                 </tr>
-              @endif
+        
               @endforeach
             @endif
             </tbody>

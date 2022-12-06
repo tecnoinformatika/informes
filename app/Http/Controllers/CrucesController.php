@@ -30,7 +30,8 @@ class CrucesController extends Controller
                 $data = DB::table('rps')
                         ->LeftJoin('simats','rps.documento','=','simats.documento')
                         ->leftJoin('sedes', 'sedes.consecutivo','=','rps.codigo_dane_sede')
-                        ->where('sedes.user_id','=', Auth::user()->id)                        
+                        ->where('sedes.user_id','=', Auth::user()->id) 
+                        ->where('simats.estado','!=','MATRICULADO')                       
                         ->select('rps.id as N',
                                 'rps.TIPO_DE_DOCUMENTO as tipodoc',
                                 'rps.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -60,7 +61,8 @@ class CrucesController extends Controller
                         ->leftJoin('rps','ris.documento','=','rps.documento')
                         ->leftjoin('simats','ris.documento','=','simats.documento')
                         ->join('sedes', 'sedes.consecutivo','=','ris.codigo_dane_sede')
-                        ->where('sedes.user_id','=', Auth::user()->id) 
+                        ->where('sedes.user_id','=', Auth::user()->id)
+                        ->where('simats.estado','!=','MATRICULADO')  
                         ->select('ris.id as N',
                                 'ris.TIPO_DE_DOCUMENTO as tipodoc',
                                 'ris.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
