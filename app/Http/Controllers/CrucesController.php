@@ -29,8 +29,8 @@ class CrucesController extends Controller
                 if($tipo == 'RPS'){
                 $data = DB::table('rps')
                         ->LeftJoin('simats','rps.documento','=','simats.documento')
-                        ->join('sedes', 'sedes.consecutivo','=','rps.codigo_dane_sede')
-                        ->where('rps.codigo_dane_sede','=', $institucion)                        
+                        ->leftJoin('sedes', 'sedes.consecutivo','=','rps.codigo_dane_sede')
+                        ->where('sedes.user_id','=', Auth::user()->id)                        
                         ->select('rps.id as N',
                                 'rps.TIPO_DE_DOCUMENTO as tipodoc',
                                 'rps.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -46,7 +46,7 @@ class CrucesController extends Controller
                                 'rps.Tipo_de_complemento as tipoComplemento',
                                 'rps.observacionesMatricula as observacionesMatricula', 
                                 'simats.institucion as institucion',
-                                'simats.sede as sede',
+                                'sedes.nombre as sede',
                                 'simats.estado as estado') 
                         ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,codsede,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
@@ -59,7 +59,8 @@ class CrucesController extends Controller
                 $data = DB::table('ris')
                         ->leftJoin('rps','ris.documento','=','rps.documento')
                         ->leftjoin('simats','ris.documento','=','simats.documento')
-                        ->where('ris.codigo_dane_sede','=', $institucion)
+                        ->join('sedes', 'sedes.consecutivo','=','ris.codigo_dane_sede')
+                        ->where('sedes.user_id','=', Auth::user()->id) 
                         ->select('ris.id as N',
                                 'ris.TIPO_DE_DOCUMENTO as tipodoc',
                                 'ris.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
@@ -75,11 +76,11 @@ class CrucesController extends Controller
                                 'ris.observacionesMatricula as observacionesMatricula',
                                 'ris.codigo_dane_sede as codsede',
                                 'simats.institucion as institucion',
-                                'simats.sede as sede',
+                                'sedes.nombre as sede',
                                 'simats.estado as estado')
                         ->groupByRaw('N,tipodoc,numdoc,PrimerNombre,codsede,SegundoNombre,observacionesMatricula,PrimerApellido,SegundoApellido,fechaNacimiento,sexo,insti,sed,tipoComplemento,institucion,sede,estado')                  
                         ->get();
-                  
+                       // dd($data);
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Cruces"], ['name' => "Estado de matrícula"]];
                 return view('/content/cruces/estadodematricula', ['breadcrumbs' => $breadcrumbs, 'data' => $data]);
                 }

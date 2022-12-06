@@ -24,22 +24,7 @@
   <form action="/cruces/estado-matriculaJson/" method="GET">
   <div class="row">
     
-      <div class="col-md-6 col-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Institución</h4>
-          </div>
-          <div class="card-body">
-            <!-- Basic Select -->
-            <div class="mb-1">
-              <label class="form-label" for="institucion">Institución</label>
-              <select class="select2 form-select" id="institucion" name="institucion">
-                <option value="">- Seleccione -</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
+   
       <div class="col-md-6 col-12">
         <div class="card">
           <div class="card-header">
@@ -58,7 +43,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12 col-12">
+      <div class="col-md-6 col-12">
         <div class="card">
           <div class="card-header">
           </div>
