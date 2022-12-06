@@ -77,6 +77,9 @@
 <section>
   @if (isset($_GET['tipo']))
   <input type="hidden" id="tipo1" value="{{$_GET['tipo']}}">
+  @php
+    $tipo = $_GET['tipo'];
+  @endphp
   @endif
   @if ($message = Session::get('success'))
   <div class="alert alert-success">
@@ -98,9 +101,9 @@
         <div class="card-body">
          
           <p class="card-text">
-            @if (isset($data))
-              <h2>INSTITUCIÓN Y  SEDE EDUCATIVA: {{$data[0]->insti}}   
-            @endif.
+            @if(isset($data[0]))
+              <h2>INSTITUCIÓN Y  SEDE EDUCATIVA: {{$data[0]->insti}} - {{$data[0]->sed}}  
+            @endif
           </p>
         </div>
         <div class="table-responsive">
@@ -116,11 +119,11 @@
                 <th>Primer Apellido</th>
                 <th>Segundo Apellido</th>
                 <th>Fecha de nacimiento</th>
-                <th>Sexo</th>
-                <th>Observación corte pasado</th> 
-                <th>Observaciones</th>                
+                <th>Sexo</th>                          
                 <th>Estado documento</th>
                 <th>Estado Nombre</th>
+                <th>Observación corte pasado</th> 
+                <th>Observaciones</th>      
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -131,33 +134,33 @@
               @if($datos->estado != "MATRICULADO")
                 <tr>
                   
-                  <td>
+                  <td class="uneditable">
                     {{$datos->sed}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->tipoComplemento}}
                   </td>
-                  <td> 
+                  <td class="uneditable"> 
                     {{$datos->tipodoc}}</td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->numdoc}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->PrimerNombre}}
-                  </td>
-                  <td>
+                  </td class="uneditable">
+                  <td class="uneditable">
                     {{$datos->SegundoNombre}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->PrimerApellido}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->SegundoApellido}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->fechaNacimiento}}
                   </td>
-                  <td>
+                  <td class="uneditable">
                     {{$datos->sexo}}
                   </td>
                   @php
@@ -169,30 +172,19 @@
                                           ->first();
                         
                     @endphp 
-                  <td>
-                    @if (isset($consultacorte))
-                    {{$consultacorte->observacion}}
-                    @endif
-                  </td>
-                  <td>
-                    @if (isset($consultacorte))
-                    {{$consultacorte->observacion}}
-                    @else
-                    {{$datos->observacionesMatricula}}
-                    @endif
-                  </td>
+                  
                   
                     @if($datos->estado == "MATRICULADO")
-                      <td><span class="badge rounded-pill badge-light-success me-1">{{$datos->estado}}</span></td>
+                      <td class="uneditable"><span class="badge rounded-pill badge-light-success me-1">{{$datos->estado}}</span></td>
                       
                     @elseif($datos->estado == "RETIRADO")
-                    <td><span class="badge rounded-pill badge-light-danger me-1">{{$datos->estado}}</span></td>
+                    <td class="uneditable"><span class="badge rounded-pill badge-light-danger me-1">{{$datos->estado}}</span></td>
               
                     @elseif($datos->estado == "GRADUADO")
-                    <td><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
+                    <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
                     
                     @elseif ($datos->estado == null)
-                    <td><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
+                    <td class="uneditable"><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
                 
                     @endif
                     @php
@@ -204,25 +196,60 @@
                     @endphp 
                       @if (isset($consultanombre))
                         @if($consultanombre->estado == "MATRICULADO")
-                          <td><span class="badge rounded-pill badge-light-success me-1">{{$consultanombre->estado}}</span></td>
+                          <td class="uneditable"><span class="badge rounded-pill badge-light-success me-1">{{$consultanombre->estado}}</span></td>
                           
                         @elseif ($consultanombre->estado == "RETIRADO")
-                          <td><span class="badge rounded-pill badge-light-danger me-1">{{$consultanombre->estado}}</span></td>
+                          <td class="uneditable"><span class="badge rounded-pill badge-light-danger me-1">{{$consultanombre->estado}}</span></td>
                   
                         @elseif ($consultanombre->estado == "GRADUADO") 
-                          <td><span class="badge rounded-pill badge-light-warning me-1">{{$consultanombre->estado}}</span></td>
+                          <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$consultanombre->estado}}</span></td>
                         @endif
                       @else
-                      <td><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
+                      <td class="uneditable"><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
                       @endif
                     
+                      <td class="uneditable">
+                        @if (isset($consultacorte))
+                        {{$consultacorte->observacion}}
+                        @endif
+                      </td>
+                      <td data-id="{{$datos->N}}" data-tipo="{{$tipo}}" 
+                        @if($datos->estado == "MATRICULADO")
+                     
+                        data-crucedocumento="MATRICULADO" 
+                        @elseif($datos->estado == "RETIRADO")
+                      
+                        data-crucedocumento="RETIRADO" 
+                        @elseif($datos->estado == "GRADUADO")
+                      
+                        data-crucedocumento="GRADUADO" 
+                        @elseif ($datos->estado == null)
+                        data-crucedocumento="no coincide" 
                     
+                        @endif
+                        
+                        @if (isset($consultanombre))
+                        data-crucenombre="{{$consultanombre->estado}}"
+                        @else
+                        data-crucenombre="no coincide"
+                        @endif
+                        >
+                        @if($datos->observacionesMatricula)
+                        {{$datos->observacionesMatricula}}   
+                        @else
+                          @if (isset($consultacorte))
+                          {{$consultacorte->observacion}}
+                          @else
+                          {{$datos->observacionesMatricula}}
+                          @endif
+                        @endif
+                      </td>
                    
-                    <td>
+                    <td class="uneditable">
                     
                       <a  class="dropdown-item" id="edit-customer" data-bs-toggle="modal" data-bs-target="#modals-slide-in" data-id="{{ $datos->N }}">
                         <i data-feather="edit-2" class="me-50"></i>
-                        <span>Editar</span> 
+                        <span>Detalle</span> 
                       </a>
                         
                         
@@ -246,22 +273,9 @@
     
      
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-      <div class="modal-header mb-1">
-        <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-      </div>
+      
       <div class="modal-body flex-grow-1">
-        <input type="hidden" id="estudiante-id">
-        <div class="mb-1">
-          <label class="form-label" for="basic-icon-default-fullname">Observaciones al estudiante</label>
-          <input
-            type="text"
-            class="form-control dt-full-name"
-            id="observaciones"
-            name="observaciones"
-            placeholder="Observaciones"
-            aria-label="Observaciones"
-          />
-        </div>
+        
         <div class="mb-1">
           <div class="card">
             <div class="card-body">
@@ -320,11 +334,42 @@
   <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/mindmup-editabletable.js')) }}"></script>
 @endsection
 @section('page-script')
   {{-- Page js files --}}
   <script src="{{ asset(mix('js/scripts/forms/form-select2.js')) }}"></script>
   <script type="text/javascript">
+    $('#example').editableTableWidget();
+    $('#example td.uneditable').on('change', function(evt, newValue) {
+            return false;
+    });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    });
+    $('#example td').on('change', function(evt, newValue) {
+          var newValue = newValue;
+          var id = $(this).data('id');
+          var tipo = $(this).data('tipo');
+          var cruceDocumento = $(this).data('crucedocumento');  
+          var cruceNombre = $(this).data('crucenombre');    
+
+          $.get( "observacion", {                   
+                  id: id,
+                  tipo: tipo,
+                  observacion: newValue,
+                  cruceDocumento: cruceDocumento,
+                  cruceNombre: cruceNombre,
+                  })
+                  .done(function( data ) {
+                          console.log( "Data Loaded: " + data );
+                  });     
+          ;
+       
+          
+    });
     $(document).ready(function(){
         $.ajax({
           url: '/institucion/tabla2',

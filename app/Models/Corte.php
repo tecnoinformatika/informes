@@ -27,5 +27,5 @@ class Corte extends Model
             'cruceNombre',
             'observacion',
             'corte',
-    ]
+    ];
 }

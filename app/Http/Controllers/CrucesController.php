@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use Auth;
 use App\Models\consolidado;
 use App\Models\Ajustes;
+use App\Models\Corte;
 use App\Models\ConsolidadosEspeciales;
 
 class CrucesController extends Controller
@@ -128,22 +129,124 @@ class CrucesController extends Controller
 
         public function observacion(Request $request)
         {
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                 
                 $tipo = $request->tipo;
                 $id = $request->id;
                 if($tipo == "RPS"){
-                $rps = Rps::find($id);
-                
-                $rps->observacionesMatricula = $request->observacion;
-                $rps->save();
+                        $rps = Rps::find($id);
+                        
+                        $rps->observacionesMatricula = $request->observacion;
+                        $rps->save();
+
+
+                        if(Corte::where(DB::raw('CONCAT(tipodoc,documento)'),$rps->TIPO_DE_DOCUMENTO.$rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)
+                                          ->where('codigo_dane_sede',$rps->codigo_dane_sede )
+                                          ->where('corte',($mes) )
+                                          ->first())
+                        {
+                                $corte = Corte::where(DB::raw('CONCAT(tipodoc,documento)'),$rps->TIPO_DE_DOCUMENTO.$rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)
+                                ->where('codigo_dane_sede',$rps->codigo_dane_sede )
+                                ->where('corte',($mes) )
+                                ->update([
+                                        'tipodoc' => $rps->TIPO_DE_DOCUMENTO,
+                                        'documento' => $rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD,
+                                        'nombre1' => $rps->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'nombre2' => $rps->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'apellido1' => $rps->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'apellido2' => $rps->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'fechaNacimiento' => $rps->FECHA_DE_NACIMIENTO,
+                                        'grupoEtario' => $rps->GRUPO_ETARIO,
+                                        'pertenenciaEtnica' => $rps->PERTENENCIA_ETNICA,
+                                        'sexo' => $rps->Sexo,
+                                        'gradoEducativa' => $rps->Grado_Educativo,
+                                        'tipoComplemento' => $rps->Tipo_de_complemento,
+                                        'codigo_dane_sede' => $rps->codigo_dane_sede,
+                                        'cruceDocumento' => $request->cruceDocumento,
+                                        'cruceNombre' => $request->cruceNombre,
+                                        'observacion' => $request->observacion,
+                                        'corte' => $mes,
+                                ]);
+                        }else{                       
+                                $corte = Corte::create([
+                                        'tipodoc' => $rps->TIPO_DE_DOCUMENTO,
+                                        'documento' => $rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD,
+                                        'nombre1' => $rps->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'nombre2' => $rps->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'apellido1' => $rps->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'apellido2' => $rps->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'fechaNacimiento' => $rps->FECHA_DE_NACIMIENTO,
+                                        'grupoEtario' => $rps->GRUPO_ETARIO,
+                                        'pertenenciaEtnica' => $rps->PERTENENCIA_ETNICA,
+                                        'sexo' => $rps->Sexo,
+                                        'gradoEducativa' => $rps->Grado_Educativo,
+                                        'tipoComplemento' => $rps->Tipo_de_complemento,
+                                        'codigo_dane_sede' => $rps->codigo_dane_sede,
+                                        'cruceDocumento' => $request->cruceDocumento,
+                                        'cruceNombre' => $request->cruceNombre,
+                                        'observacion' => $request->observacion,
+                                        'corte' => $mes,
+                                ]);
+                        }
 
                 return Response::json($rps);
                 }
                 if($tipo == "RI"){
-                $ri = Ri::find($id);
-                
-                $ri->observacionesMatricula = $request->observacion;
-                $ri->save();
+                        $ri = Ri::find($id);
+                        
+                        $ri->observacionesMatricula = $request->observacion;
+                        $ri->save();
+                        if(Corte::where(DB::raw('CONCAT(tipodoc,documento)'),$ri->TIPO_DE_DOCUMENTO.$ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)
+                                                ->where('codigo_dane_sede',$ri->codigo_dane_sede )
+                                                ->where('corte',($mes) )
+                                                ->first())
+                        {
+                                $corte = Corte::where(DB::raw('CONCAT(tipodoc,documento)'),$ri->TIPO_DE_DOCUMENTO.$ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)
+                                ->where('codigo_dane_sede',$ri->codigo_dane_sede )
+                                ->where('corte',($mes) )
+                                ->update([
+                                        'tipodoc' => $ri->TIPO_DE_DOCUMENTO,
+                                        'documento' => $ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD,
+                                        'nombre1' => $ri->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'nombre2' => $ri->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'apellido1' => $ri->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'apellido2' => $ri->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'fechaNacimiento' => $ri->FECHA_DE_NACIMIENTO,
+                                        'grupoEtario' => $ri->GRUPO_ETARIO,
+                                        'pertenenciaEtnica' => $ri->PERTENENCIA_ETNICA,
+                                        'sexo' => $ri->Sexo,
+                                        'gradoEducativa' => $ri->Grado_Educativo,
+                                        'tipoComplemento' => $ri->Tipo_de_complemento,
+                                        'codigo_dane_sede' => $ri->codigo_dane_sede,
+                                        'cruceDocumento' => $request->cruceDocumento,
+                                        'cruceNombre' => $request->cruceNombre,
+                                        'observacion' => $request->observacion,
+                                        'corte' => $mes,
+                                ]);
+                        }else{                       
+                                $corte = Corte::create([
+                                        'tipodoc' => $ri->TIPO_DE_DOCUMENTO,
+                                        'documento' => $ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD,
+                                        'nombre1' => $ri->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'nombre2' => $ri->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO,
+                                        'apellido1' => $ri->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'apellido2' => $ri->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO,
+                                        'fechaNacimiento' => $ri->FECHA_DE_NACIMIENTO,
+                                        'grupoEtario' => $ri->GRUPO_ETARIO,
+                                        'pertenenciaEtnica' => $ri->PERTENENCIA_ETNICA,
+                                        'sexo' => $ri->Sexo,
+                                        'gradoEducativa' => $ri->Grado_Educativo,
+                                        'tipoComplemento' => $ri->Tipo_de_complemento,
+                                        'codigo_dane_sede' => $ri->codigo_dane_sede,
+                                        'cruceDocumento' => $request->cruceDocumento,
+                                        'cruceNombre' => $request->cruceNombre,
+                                        'observacion' => $request->observacion,
+                                        'corte' => $mes,
+                                ]);
+                        }
+
                 return Response::json($ri);
                 }
                 
