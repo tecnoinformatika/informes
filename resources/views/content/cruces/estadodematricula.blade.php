@@ -291,8 +291,8 @@
           
         </div>  
        
-        <button class="btn btn-primary data-submit me-1" id="btn-save">Guardar</button>
-        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+        
+        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     
   </div>

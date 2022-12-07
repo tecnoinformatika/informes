@@ -102,14 +102,14 @@ class CrucesController extends Controller
                 }
                 
         }
-
         public function registrosimat($id,$tipo)
         {
                 $vacio = ['vacio' => 1];
                 if($tipo == 'RPS'){
                 $rps = Rps::find($id);      
-
-                $simat = Simat::where('doc', $rps->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)->first();
+                      
+                $simat = Simat::where(DB::raw('CONCAT(nombre1,nombre2,apellido1,apellido2)'), '=', $rps->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO.$rps->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO.$rps->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO.$rps->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO)
+                ->first();
                 if (isset($simat)){
                         return Response::json($simat);
                 }else{
@@ -119,7 +119,8 @@ class CrucesController extends Controller
                 if($tipo == 'RI'){
                 $ri = Ri::find($id);
                 
-                $simat = DB::table('simats')->where('doc', $ri->NUMERO_DE_DOCUMENTO_DE_IDENTIDAD)->first();
+                $simat = Simat::where(DB::raw('CONCAT(nombre1,nombre2,apellido1,apellido2)'), '=', $ri->PRIMER_NOMBRE_DEL_TITULAR_DE_DERECHO.$ri->SEGUNDO_NOMBRE_DEL_TITULAR_DE_DERECHO.$ri->PRIMER_APELLIDO_DEL_TITULAR_DE_DERECHO.$ri->SEGUNDO_APELLIDO_DEL_TITULAR_DE_DERECHO)
+                ->first();
                 if (isset($simat)){
                         return Response::json($simat);
                 }else{
@@ -129,7 +130,6 @@ class CrucesController extends Controller
                 }
                 
         }
-
         public function observacion(Request $request)
         {
                 $mescorte = DB::table('ajustes')->first();
@@ -255,13 +255,11 @@ class CrucesController extends Controller
                 
 
         }
-
         public function estadoMatricula()
         {
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Estado de matrícula"], ['name' => "Cruces"]];
                 return view('/content/cruces/estadodematricula', ['breadcrumbs' => $breadcrumbs]);
         }
-
         public function indexConsolidado()
         {
 
@@ -270,7 +268,6 @@ class CrucesController extends Controller
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Consolidado"], ['name' => "Cruces"]];
                 return view('/content/cruces/consolidadoIndex', ['breadcrumbs' => $breadcrumbs]);
         }
-
         public function consolidado(Request $request)
         {
                 $array = [];
@@ -948,7 +945,6 @@ class CrucesController extends Controller
                 return view('/content/cruces/consolidado', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'dias' => $dias]);
         
         }
-
         public function updateConsolidado(Request $request)
         {
                 $id = Auth::user()->id;
@@ -1138,7 +1134,6 @@ class CrucesController extends Controller
                         return response()->json(['success' => true]);
                 }
         }
-
         public function updateConsolidadoespecial(Request $request)
         {
                 $id = Auth::user()->id;
@@ -1329,8 +1324,6 @@ class CrucesController extends Controller
                         return response()->json(['success' => true]);
                 }
         }
-
-
         public function indexCertificaciones()
         {
 
