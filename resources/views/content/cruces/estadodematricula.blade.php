@@ -232,10 +232,19 @@
                    
                     <td class="uneditable">
                     
-                      <a  class="dropdown-item" id="edit-customer" data-bs-toggle="modal" data-bs-target="#modals-slide-in" data-id="{{ $datos->N }}">
-                        <i data-feather="edit-2" class="me-50"></i>
-                        <span>Detalle</span> 
+                      
+                      <button type="button" class="btn btn-outline-primary" id="edit-customer" data-bs-toggle="modal" data-bs-target="#modals-slide-in" data-id="{{ $datos->N }}">
+                        Detalle
+                      </button>
+                      @if($tipo == 'RI')
+                      <a type="button" class="btn btn-outline-primary" href="/ri/indexfiltrado/{{$datos->N}}" target="_blank">
+                        Atención
                       </a>
+                      @elseif($tipo == 'RPS')
+                      <a type="button" class="btn btn-outline-primary" href="/rps/indexfiltrado/{{$datos->N}}" target="_blank">
+                        Atención
+                      </a>
+                      @endif
                         
                         
                   
@@ -251,6 +260,7 @@
     </div>
   </div>
 </section>
+
 
 <!--/ Basic table -->
 <div class="modal modal-slide-in fade" id="modals-slide-in">

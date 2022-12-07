@@ -22,6 +22,13 @@ class RpsController extends Controller
     
     }
 
+    public function indexfiltrado($id)
+    {
+        $rps = Rps::find($id);
+        $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del RPS"], ['name' => "RPS"]];
+        return view('/content/rps/rps-filtrado', ['breadcrumbs' => $breadcrumbs, 'data' => $rps]);
+    }
+
     public function tablaRps()
     {
         $records = Rps::get();

@@ -21,6 +21,12 @@ class RiController extends Controller
         return view('/content/ri/ri', ['breadcrumbs' => $breadcrumbs, 'data' => $ri]);
     
     }
+    public function indexfiltrado($id)
+    {
+        $ri = Ri::find($id);
+        $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Datos del RI"], ['name' => "RI"]];
+        return view('/content/ri/ri-filtrado', ['breadcrumbs' => $breadcrumbs, 'data' => $ri]);
+    }
 
     public function tablaRps()
     {

@@ -266,6 +266,7 @@ Route::group(['prefix' => 'simat'], function () {
 Route::group(['prefix' => 'rps'], function () {
     Route::get('index', [RpsController::class, 'index'])->name('rps-index');
     Route::get('tabla', [RpsController::class, 'tablaRps'])->name('rps-tabla');
+    Route::get('indexfiltrado/{id}', [RpsController::class, 'indexfiltrado'])->name('indexfiltrado');
     Route::get('datos', [RpsController::class, 'datos'])->name('rps-datos');
     Route::get('vaciar', [RpsController::class, 'vaciar'])->name('rps-vaciar');
     Route::post('importar', [RpsController::class, 'importar'])->name('rps-importar');
@@ -273,6 +274,7 @@ Route::group(['prefix' => 'rps'], function () {
 
 Route::group(['prefix' => 'ri'], function () {
     Route::get('index', [RiController::class, 'index'])->name('ri-index');
+    Route::get('indexfiltrado/{id}', [RiController::class, 'indexfiltrado'])->name('indexfiltrado');
     Route::get('tabla', [RiController::class, 'tablaRi'])->name('ri-tabla');
     Route::get('datos', [RiController::class, 'datos'])->name('ri-datos');
     Route::get('vaciar', [RiController::class, 'vaciar'])->name('ri-vaciar');
