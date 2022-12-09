@@ -1375,7 +1375,7 @@ class CrucesController extends Controller
                         
                         }else if($tipoconsolidado == '2')
                         {
-                                
+                                $diasatencion = $request->diasatencion;
                                 $consolidadoRI = ConsolidadosEspeciales::where('codigo_dane_sede', $sede)
                                 ->where('jornada_tipo_racion', 'LIKE','%RI%')   
                                 ->get();
@@ -1394,7 +1394,8 @@ class CrucesController extends Controller
                                 $data['simat']['tipoconsolidado'] = 'especial';
                                 $data['simat']['dias'] = $diasRI;
                                 $data['sede'] = $sedec;
-                                array_push($array, $data);
+                                $data['diasatencion'] = $diasatencion;
+                                 array_push($array, $data);
                                                 
                         }
                 

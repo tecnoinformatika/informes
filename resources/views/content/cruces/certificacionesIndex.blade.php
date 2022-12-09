@@ -88,6 +88,21 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-6" id="diastencion1" style="visibility: hidden">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Total días de atención</h4>
+                </div>
+                <div class="card-body">
+                  <!-- Basic Select -->
+                  <div class="mb-1">
+                    <label class="form-label" for="diasatencion">Dias de atención</label>
+                    <input class="form-control" id="diasatencion" name="diasatencion" required>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
             
             
           </div>
@@ -120,6 +135,14 @@
   
   <script src="{{ asset(mix('js/scripts/forms/form-wizard.js')) }}"></script>
   <script>
+    $('#tipoconsolidado').on('change', function() {
+      if ($('#tipoconsolidado').val() == '2')
+      {
+        $('#diastencion1').css("visibility", "visible");
+      }else{
+        $('#diastencion1').css("visibility", "hidden");
+      }
+    });
     $(document).ready(function() {
         // Select2 Multiple
         $('.select2-multiple').select2({

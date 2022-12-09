@@ -169,7 +169,15 @@
                   @foreach($data as $datos) 
                   {{$datos['sede']->nombre}}, 
                   @endforeach perteneciente a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega de los complementos  
-                  alimentarios que contempló un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
+                  alimentarios que contempló un periodo de cobertura de 
+                  @if($data[0]['simat']['tipoconsolidado'] == 'especial')
+                  {{$data[0]['diasatencion']}}
+                  @else
+                  {{$ajustes->totaldiasatencion}} 
+                  @endif
+
+                  
+                  días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
                   al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
                 </p>
 
