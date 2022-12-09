@@ -181,6 +181,7 @@
               $totalnovedades = 0;
               $suma = 0;
               $suma2 = 0;
+              $suma3 = 0;
               @endphp
               
               @foreach ($data as $key => $datos)
