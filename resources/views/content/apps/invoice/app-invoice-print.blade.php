@@ -620,34 +620,32 @@
                                 <td class="tg-0lax">{{$datos['sede']->nombre}}</td>
                                 <td class="tg-0lax">
                                         RI: 0
-                                        
-                                        
-                                        
+                                        <br>
                                         Rps: 0
                                 
                                 </td>
                                 <td class="tg-0lax">
-                                @foreach ($datos['simat']['consolidadoRI'] as $dato5)
-                                {{$dato5->jornada_tipo_racion}}: {{$dato5->total_raciones}}<br>
-                                @php  $totalracionesentregadasri += $dato5->total_raciones @endphp
-                                @endforeach
+                                        @foreach ($datos['simat']['consolidadoRI'] as $dato5)
+                                        {{$dato5->jornada_tipo_racion}}: {{$dato5->total_raciones}}<br>
+                                        @php  $totalracionesentregadasri += $dato5->total_raciones @endphp
+                                        @endforeach
 
                                 
                                 </td>
                                 <td class="tg-0lax">
-                                @if($datos['simat']['consolidadoRPS'])
-                                @foreach ($datos['simat']['consolidadoRPS'] as $dato4)
-                                {{$dato4->jornada_tipo_racion}}: {{$dato4->total_raciones}}<br>
-                                @php  $totalracionesentregadasrps += $dato4->total_raciones @endphp
-                                @endforeach
-                                
-                                @endif
+                                        @if($datos['simat']['consolidadoRPS'])
+                                        @foreach ($datos['simat']['consolidadoRPS'] as $dato4)
+                                        {{$dato4->jornada_tipo_racion}}: {{$dato4->total_raciones}}<br>
+                                        @php  $totalracionesentregadasrps += $dato4->total_raciones @endphp
+                                        @endforeach
+                                        
+                                        @endif
                                 </td>
                                 <td class="tg-0lax">
-                               0
+                                 0
                                 </td>
                                 <td class="tg-0lax">
-                                0
+                                 0
                                 </td>
                                 
                         </tr>
