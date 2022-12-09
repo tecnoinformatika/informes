@@ -126,11 +126,16 @@
             <div class="row invoice-spacing">
               <div class="col-xl-12 p-0">
                 <p style="text-align: justify">
-                  La Institución Educativa: {{$data[0]['simat']->institucion}} y sus sedes: 
+                  La Institución Educativa: {{$data[0]['simat']->institucion}} 
+                  @if(isset($data[1]))
+                  y sus sedes: 
+                  @else
+                  y su sede: 
+                  @endif
                   @foreach($data as $datos) 
                   {{$datos['simat']->sede}}, 
-                  @endforeach pertenecientes a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega de los complementos  
-                  alimentario que contempló un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
+                  @endforeach perteneciente a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega de los complementos  
+                  alimentarios que contempló un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
                   al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
                 </p>
 
@@ -173,6 +178,8 @@
               $totalracionesentregadasrps = 0;
               $totaldevoluciones = 0;
               $totalnovedades = 0;
+              $suma = 0;
+              $suma2 = 0;
               @endphp
               
               @foreach ($data as $key => $datos)
