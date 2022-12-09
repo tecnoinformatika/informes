@@ -1027,7 +1027,8 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($data as $datos)                    
+                @foreach($data as $datos) 
+                               
                   @if($datos['tipo'] == 'RPI')
                     <tr>                       
                         <td class="uneditable tg-lboi" rowspan="2">{{$datos['sede']->nombre}}</td>
