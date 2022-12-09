@@ -133,7 +133,7 @@
                   y su sede: 
                   @endif
                   @foreach($data as $datos) 
-                  {{$datos['simat']->sede}}, 
+                  {{$datos['sede']->nombre}}, 
                   @endforeach perteneciente a la zona {{$data[0]['simat']->zona_sede}} realizó la entrega de los complementos  
                   alimentarios que contempló un periodo de cobertura de {{$ajustes->totaldiasatencion}} días calendario escolar desde el {{fechaCastellano($ajustes->incio)}} 
                   al {{fechaCastellano($ajustes->fin)}}. <b id="datossumatorias">a</b>
@@ -157,7 +157,7 @@
           <!-- Invoice Description starts -->
           
           
-          <table class="table table-responsive table-bordered table-sm">
+          <table class="table table-responsive table-bordered table-sm" id="editable">
             <thead>
               <tr style="border-width: 1px 0; border-color: black !important;">
                 <th class="tg-cly1">INSTITUCIÓN</th>
@@ -471,37 +471,37 @@
                                                         ->first();   
                                                                                 
                                                 $suma3 = 0;                    
-                                                $suma3 += $sede1->dia_1 != 'Z' ? $dia1->dia_1intercambio ==  $dia1->dia_1observacion ? 0 : $dia1->dia_1 + $dia1->dia_1observacion : 0;
-                                                $suma3 += $sede1->dia_2 != 'Z' ? $dia2->dia_2intercambio ==  $dia2->dia_2observacion ? 0 : $dia2->dia_2 + $dia2->dia_2observacion : 0;
-                                                $suma3 += $sede1->dia_3 != 'Z' ? $dia3->dia_3intercambio ==  $dia3->dia_3observacion ? 0 : $dia3->dia_3 + $dia3->dia_3observacion : 0;
-                                                $suma3 += $sede1->dia_4 != 'Z' ? $dia4->dia_4intercambio ==  $dia4->dia_4observacion ? 0 : $dia4->dia_4 + $dia4->dia_4observacion : 0;
-                                                $suma3 += $sede1->dia_5 != 'Z' ? $dia5->dia_5intercambio ==  $dia5->dia_5observacion ? 0 : $dia5->dia_5 + $dia5->dia_5observacion : 0;
-                                                $suma3 += $sede1->dia_6 != 'Z' ? $dia6->dia_6intercambio ==  $dia6->dia_6observacion ? 0 : $dia6->dia_6 + $dia6->dia_6observacion : 0;
-                                                $suma3 += $sede1->dia_7 != 'Z' ? $dia7->dia_7intercambio ==  $dia7->dia_7observacion ? 0 : $dia7->dia_7 + $dia7->dia_7observacion : 0;
-                                                $suma3 += $sede1->dia_8 != 'Z' ? $dia8->dia_8intercambio ==  $dia8->dia_8observacion ? 0 : $dia8->dia_8 + $dia8->dia_8observacion : 0;
-                                                $suma3 += $sede1->dia_9 != 'Z' ? $dia9->dia_9intercambio ==  $dia9->dia_9observacion ? 0 : $dia9->dia_9 + $dia9->dia_9observacion : 0;
-                                                $suma3 += $sede1->dia_10 != 'Z' ? $dia10->dia_10intercambio ==  $dia10->dia_10observacion ? 0 : $dia10->dia_10 + $dia10->dia_10observacion : 0;
-                                                $suma3 += $sede1->dia_11 != 'Z' ? $dia11->dia_11intercambio ==  $dia11->dia_11observacion ? 0 : $dia11->dia_11 + $dia11->dia_11observacion : 0;
-                                                $suma3 += $sede1->dia_12 != 'Z' ? $dia12->dia_12intercambio ==  $dia12->dia_12observacion ? 0 : $dia12->dia_12 + $dia12->dia_12observacion : 0;
-                                                $suma3 += $sede1->dia_13 != 'Z' ? $dia13->dia_13intercambio ==  $dia13->dia_13observacion ? 0 : $dia13->dia_13 + $dia13->dia_13observacion : 0;
-                                                $suma3 += $sede1->dia_14 != 'Z' ? $dia14->dia_14intercambio ==  $dia14->dia_14observacion ? 0 : $dia14->dia_14 + $dia14->dia_14observacion : 0;
-                                                $suma3 += $sede1->dia_15 != 'Z' ? $dia15->dia_15intercambio ==  $dia15->dia_15observacion ? 0 : $dia15->dia_15 + $dia15->dia_15observacion : 0;
-                                                $suma3 += $sede1->dia_16 != 'Z' ? $dia16->dia_16intercambio ==  $dia16->dia_16observacion ? 0 : $dia16->dia_16 + $dia16->dia_16observacion : 0;
-                                                $suma3 += $sede1->dia_17 != 'Z' ? $dia17->dia_17intercambio ==  $dia17->dia_17observacion ? 0 : $dia17->dia_17 + $dia17->dia_17observacion : 0;
-                                                $suma3 += $sede1->dia_18 != 'Z' ? $dia18->dia_18intercambio ==  $dia18->dia_18observacion ? 0 : $dia18->dia_18 + $dia18->dia_18observacion : 0;
-                                                $suma3 += $sede1->dia_19 != 'Z' ? $dia19->dia_19intercambio ==  $dia19->dia_19observacion ? 0 : $dia19->dia_19 + $dia19->dia_19observacion : 0;
-                                                $suma3 += $sede1->dia_20 != 'Z' ? $dia20->dia_20intercambio ==  $dia20->dia_20observacion ? 0 : $dia20->dia_20 + $dia20->dia_20observacion : 0;
-                                                $suma3 += $sede1->dia_21 != 'Z' ? $dia21->dia_21intercambio ==  $dia21->dia_21observacion ? 0 : $dia21->dia_21 + $dia21->dia_21observacion : 0;
-                                                $suma3 += $sede1->dia_22 != 'Z' ? $dia22->dia_22intercambio ==  $dia22->dia_22observacion ? 0 : $dia22->dia_22 + $dia22->dia_22observacion : 0;
-                                                $suma3 += $sede1->dia_23 != 'Z' ? $dia23->dia_23intercambio ==  $dia23->dia_23observacion ? 0 : $dia23->dia_23 + $dia23->dia_23observacion : 0;
-                                                $suma3 += $sede1->dia_24 != 'Z' ? $dia24->dia_24intercambio ==  $dia24->dia_24observacion ? 0 : $dia24->dia_24 + $dia24->dia_24observacion : 0;
-                                                $suma3 += $sede1->dia_25 != 'Z' ? $dia25->dia_25intercambio ==  $dia25->dia_25observacion ? 0 : $dia25->dia_25 + $dia25->dia_25observacion : 0;
-                                                $suma3 += $sede1->dia_26 != 'Z' ? $dia26->dia_26intercambio ==  $dia26->dia_26observacion ? 0 : $dia26->dia_26 + $dia26->dia_26observacion : 0;
-                                                $suma3 += $sede1->dia_27 != 'Z' ? $dia27->dia_27intercambio ==  $dia27->dia_27observacion ? 0 : $dia27->dia_27 + $dia27->dia_27observacion : 0;
-                                                $suma3 += $sede1->dia_28 != 'Z' ? $dia28->dia_28intercambio ==  $dia28->dia_28observacion ? 0 : $dia28->dia_28 + $dia28->dia_28observacion : 0;
-                                                $suma3 += $sede1->dia_29 != 'Z' ? $dia29->dia_29intercambio ==  $dia29->dia_29observacion ? 0 : $dia29->dia_29 + $dia29->dia_29observacion : 0;
-                                                $suma3 += $sede1->dia_30 != 'Z' ? $dia30->dia_30intercambio ==  $dia30->dia_30observacion ? 0 : $dia30->dia_30 + $dia30->dia_30observacion : 0;
-                                                $suma3 += $sede1->dia_31 != 'Z' ? $dia31->dia_31intercambio ==  $dia31->dia_31observacion ? 0 : $dia31->dia_31 + $dia31->dia_31observacion : 0;
+                                                $suma3 += $sede1->dia_1 != 'Z' ?  $dia1->dia_1 + $dia1->dia_1observacion : 0;
+                                                $suma3 += $sede1->dia_2 != 'Z' ?  $dia2->dia_2 + $dia2->dia_2observacion : 0;
+                                                $suma3 += $sede1->dia_3 != 'Z' ?  $dia3->dia_3 + $dia3->dia_3observacion : 0;
+                                                $suma3 += $sede1->dia_4 != 'Z' ?  $dia4->dia_4 + $dia4->dia_4observacion : 0;
+                                                $suma3 += $sede1->dia_5 != 'Z' ?  $dia5->dia_5 + $dia5->dia_5observacion : 0;
+                                                $suma3 += $sede1->dia_6 != 'Z' ?  $dia6->dia_6 + $dia6->dia_6observacion : 0;
+                                                $suma3 += $sede1->dia_7 != 'Z' ?  $dia7->dia_7 + $dia7->dia_7observacion : 0;
+                                                $suma3 += $sede1->dia_8 != 'Z' ?  $dia8->dia_8 + $dia8->dia_8observacion : 0;
+                                                $suma3 += $sede1->dia_9 != 'Z' ?  $dia9->dia_9 + $dia9->dia_9observacion : 0;
+                                                $suma3 += $sede1->dia_10 != 'Z' ?  $dia10->dia_10 + $dia10->dia_10observacion : 0;
+                                                $suma3 += $sede1->dia_11 != 'Z' ?  $dia11->dia_11 + $dia11->dia_11observacion : 0;
+                                                $suma3 += $sede1->dia_12 != 'Z' ?  $dia12->dia_12 + $dia12->dia_12observacion : 0;
+                                                $suma3 += $sede1->dia_13 != 'Z' ?  $dia13->dia_13 + $dia13->dia_13observacion : 0;
+                                                $suma3 += $sede1->dia_14 != 'Z' ?  $dia14->dia_14 + $dia14->dia_14observacion : 0;
+                                                $suma3 += $sede1->dia_15 != 'Z' ?  $dia15->dia_15 + $dia15->dia_15observacion : 0;
+                                                $suma3 += $sede1->dia_16 != 'Z' ?  $dia16->dia_16 + $dia16->dia_16observacion : 0;
+                                                $suma3 += $sede1->dia_17 != 'Z' ?  $dia17->dia_17 + $dia17->dia_17observacion : 0;
+                                                $suma3 += $sede1->dia_18 != 'Z' ?  $dia18->dia_18 + $dia18->dia_18observacion : 0;
+                                                $suma3 += $sede1->dia_19 != 'Z' ?  $dia19->dia_19 + $dia19->dia_19observacion : 0;
+                                                $suma3 += $sede1->dia_20 != 'Z' ?  $dia20->dia_20 + $dia20->dia_20observacion : 0;
+                                                $suma3 += $sede1->dia_21 != 'Z' ?  $dia21->dia_21 + $dia21->dia_21observacion : 0;
+                                                $suma3 += $sede1->dia_22 != 'Z' ?  $dia22->dia_22 + $dia22->dia_22observacion : 0;
+                                                $suma3 += $sede1->dia_23 != 'Z' ?  $dia23->dia_23 + $dia23->dia_23observacion : 0;
+                                                $suma3 += $sede1->dia_24 != 'Z' ?  $dia24->dia_24 + $dia24->dia_24observacion : 0;
+                                                $suma3 += $sede1->dia_25 != 'Z' ?  $dia25->dia_25 + $dia25->dia_25observacion : 0;
+                                                $suma3 += $sede1->dia_26 != 'Z' ?  $dia26->dia_26 + $dia26->dia_26observacion : 0;
+                                                $suma3 += $sede1->dia_27 != 'Z' ?  $dia27->dia_27 + $dia27->dia_27observacion : 0;
+                                                $suma3 += $sede1->dia_28 != 'Z' ?  $dia28->dia_28 + $dia28->dia_28observacion : 0;
+                                                $suma3 += $sede1->dia_29 != 'Z' ?  $dia29->dia_29 + $dia29->dia_29observacion : 0;
+                                                $suma3 += $sede1->dia_30 != 'Z' ?  $dia30->dia_30 + $dia30->dia_30observacion : 0;
+                                                $suma3 += $sede1->dia_31 != 'Z' ?  $dia31->dia_31 + $dia31->dia_31observacion : 0;
                                         } 
                                 
 
@@ -509,6 +509,7 @@
                                 @endphp
                                                 
                                 {{$suma3}}
+                                        
                                 @php
                                 
                                         $totalracionesrps += $suma3;
@@ -702,7 +703,12 @@
 @section('page-script')
 <script src="{{asset('js/scripts/pages/app-invoice-print.js')}}"></script>
 <script src="{{asset('js/scripts/NumeroALetras.js')}}"></script>
+<script src="{{ asset(mix('js/scripts/mindmup-editabletable.js')) }}"></script>
 <script>
+    $('#editable').editableTableWidget();
+    $('#editable td.uneditable').on('change', function(evt, newValue) {
+            return false;
+    });
    $(document).ready(function(){
       var totalri = parseInt($('#totalracionesentregadasri').html());
       var totalrps = parseInt($('#totalracionesentregadasrps').html());
