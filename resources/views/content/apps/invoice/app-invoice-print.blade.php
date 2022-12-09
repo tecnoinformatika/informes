@@ -356,14 +356,14 @@
                                                         
                                         
                                         @endphp
-                                {{$suma2}}
+                                        {{$suma2}}
                                         
                                         @php
                                         $totalraciones += $suma2;
                                 
                                 
-                                        @endphp
-                                <br>
+                                @endphp
+                                        <br>
                                 
                                 
                                 Rps:
@@ -510,8 +510,9 @@
                                                 
                                 {{$suma3}}
                                 @php
-                                $suma3 = 0;
+                                
                                         $totalracionesrps += $suma3;
+                                        $suma3 = 0;
                                 @endphp
                                 </td>
                                 <td class="tg-0lax">
@@ -623,7 +624,7 @@
             @endif
             <tr style="border-width: 1px 0; border-color: black !important;">
               <td colspan="2">TOTAL</td>
-              <td>{{$totalraciones}}</td>
+              <td>{{$totalraciones + $totalracionesrps}}</td>
               <td><b id="totalracionesentregadasri">{{$totalracionesentregadasri}}</b></td>
               <td><b id="totalracionesentregadasrps">{{$totalracionesentregadasrps}}</b></td>
               <td>{{$totaldevoluciones}}</td>
