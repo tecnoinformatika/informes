@@ -12,6 +12,7 @@ use Auth;
 use App\Models\consolidado;
 use App\Models\Ajustes;
 use App\Models\Corte;
+use App\Models\Sedes;
 use App\Models\ConsolidadosEspeciales;
 
 class CrucesController extends Controller
@@ -273,7 +274,10 @@ class CrucesController extends Controller
                 $array = [];
                 foreach($request->sedes as $sede)
                 {
-                        $simat = Simat::where('consecutivo', $sede)->first();
+                        
+                        $sedec = Sedes::where('consecutivo',$sede)->first();
+                        $simat = Simat::where('dane', $sedec->codigo_dane_institucion)->first();
+                 
                         $tipo = $request->tipo;
                         $tipoconsolidado = $request->tipoconsolidado;
                         //dd($tipoconsolidado);

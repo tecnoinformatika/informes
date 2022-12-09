@@ -35,8 +35,7 @@
               @elseif($data[0]['tipoconsolidado'] == 'especial')
               CONSOLIDADO ENTREGAS ESPECIALES
               @endif
-            </h2>
-           
+         
             <h4 class="card-title"> {{$data[0]['simat']->institucion}}</h4>  
           </div>
             @php 
