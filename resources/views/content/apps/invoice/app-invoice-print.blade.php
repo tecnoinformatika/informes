@@ -15,6 +15,37 @@
       font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     .tg .tg-cly1{text-align:left;vertical-align:middle}
     .tg .tg-0lax{text-align:left;vertical-align:top}
+    .mostrar30{
+      display:none;
+    }
+    .mostrar29{
+      display:none;
+    }
+    .mostrar28{
+      display:none;
+    }
+    .mostrar27{
+      display:none;
+    }
+    .mostrar26{
+      display:none;
+    }
+    .mostrar25{
+      display:none;
+    }
+    .mostrar24{
+      display:none;
+    }
+    .mostrar23{
+      display:none;
+    }
+    .mostrar22{
+      display:none;
+    }
+    .mostrar21{
+      display:none;
+    }
+
     .mostrar20{
       display:none;
     }
@@ -37,6 +68,9 @@
       display:none;
     }
     .mostrar13{
+      display:none;
+    }
+    .mostrar12{
       display:none;
     }
     .mostrar11{
