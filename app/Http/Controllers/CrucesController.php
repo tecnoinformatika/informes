@@ -1340,10 +1340,12 @@ class CrucesController extends Controller
         }
         public function certificacion(Request $request)
         {
+                //dd($request);
                 $array = [];
                 foreach($request->sedes as $sede)
                 {
-                        $simat = Simat::where('consecutivo', $sede)->first();
+                        $sedec = Sedes::where('consecutivo',$sede)->first();
+                        $simat = Simat::where('dane', $sedec->codigo_dane_institucion)->first();
                       
                         $tipoconsolidado = $request->tipoconsolidado;
                         //dd($tipoconsolidado);
@@ -1366,6 +1368,7 @@ class CrucesController extends Controller
                                 $data['simat']['consolidadoRPS'] = $consolidadoRPS;
                                 $data['simat']['tipoconsolidado'] = 'normal';
                                 $data['simat']['dias'] = $diasRI;
+                                $data['sede'] = $sedec;
                                 array_push($array, $data);
                         
                         }else if($tipoconsolidado == '2')
@@ -1531,6 +1534,7 @@ class CrucesController extends Controller
                                         $data['simat']['dia31'] = $dia31;
                                         $data['tipo'] = 'RPI';
                                         $data['tipoconsolidado'] = 'especial';
+                                        $data['sede'] = $sedec;
                                         array_push($array, $data);
                                     
                         }

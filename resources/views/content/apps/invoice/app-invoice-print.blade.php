@@ -119,7 +119,7 @@
           </div>
 
           <hr class="invoice-spacing" />
-
+          
           <!-- Address and Contact starts -->
           <div class="card-body invoice-padding pt-0">
             <h3 style="text-align: center">CONSTANCIA DE VERIFICACION PLANILLAS NIÑO A NIÑO Y SOPORTE MAGNETICO PAE 2022</h3>
@@ -185,12 +185,12 @@
               @foreach ($data as $key => $datos)
               <tr>
                 <td class="tg-cly1 mostrar{{$key+1}}" rowspan="{{$i}}">{{$datos['simat']->institucion}}</td>
-                <td class="tg-0lax">{{$datos['simat']->sede}}</td>
+                <td class="tg-0lax">{{$datos['sede']->nombre}}</td>
                 <td class="tg-0lax">
                   RI: 
                     @php
                 
-                                          $sede = DB::table('ris')->where('codigo_dane_sede',$datos['simat']->consecutivo)->first();
+                                          $sede = DB::table('ris')->where('codigo_dane_sede',$datos['sede']->consecutivo)->first();
                                           if(!$sede){
                                                 $suma2 += 0;
                                           }else{
