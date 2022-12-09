@@ -360,7 +360,7 @@
                                         
                                         @php
                                         $totalraciones += $suma2;
-                                
+                                        $suma2 = 0;              
                                 
                                 @endphp
                                         <br>
