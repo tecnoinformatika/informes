@@ -444,6 +444,7 @@ class CrucesController extends Controller
                                         $data['simat']['dia31'] = $dia31;
                                         $data['tipo'] = 'RPI';
                                         $data['tipoconsolidado'] = 'normal';
+                                        $data['sede'] = $sedec;
                                         array_push($array, $data);
                                 }
                                 if($tipo == "RPS"){
@@ -607,6 +608,7 @@ class CrucesController extends Controller
                                         $data['simat']['dia31'] = $dia31;
                                         $data['tipo'] = 'RPS';
                                         $data['tipoconsolidado'] = 'normal';
+                                        $data['sede'] = $sedec;
                                         array_push($array, $data);
                                 }
                                 
