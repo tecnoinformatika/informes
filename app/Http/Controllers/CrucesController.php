@@ -972,7 +972,7 @@ class CrucesController extends Controller
                         {
                                 $sedeadmin = DB::table('consolidados')
                                 ->get();                        
-                                $tipoconsolidado ='especial';                                
+                                $tipoconsolidado ='normal';                                
                         }else if($tipoconsolidado == '2')
                         {
                                 $sedeadmin = DB::table('consolidados_especiales')
