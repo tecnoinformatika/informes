@@ -12,6 +12,7 @@ use Auth;
 use App\Models\consolidado;
 use App\Models\Ajustes;
 use App\Models\Corte;
+use App\Models\User;
 use App\Models\Sedes;
 use App\Models\ConsolidadosEspeciales;
 
@@ -952,6 +953,13 @@ class CrucesController extends Controller
                 $breadcrumbs = [['link' => "/", 'name' => "Inicio"], ['link' => "javascript:void(0)", 'name' => "Consolidado"], ['name' => "Cruces"]];
                 return view('/content/cruces/consolidado', ['breadcrumbs' => $breadcrumbs, 'data' => $array, 'dias' => $dias]);
         
+        }
+        public function tablausuarios()
+        {
+                $rps = User::where('cargo','asesor')
+                        ->get(); 
+                
+                return \Response::json($rps);
         }
         public function consolidadoadmin(Request $request)
         {

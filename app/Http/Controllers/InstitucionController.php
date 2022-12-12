@@ -36,11 +36,11 @@ class InstitucionController extends Controller
         
         return \Response::json($rps);
     }
-    public function tablaInstitucion3()
+    public function tablaInstitucion3($id)
     {
         $rps = Sedes::join('institucions','sedes.codigo_dane_institucion','=','institucions.codigo_dane')
                       ->select('institucions.nombre as institucion', 'sedes.nombre as sede','sedes.consecutivo as consecutivo')
-                     
+                      ->where('sedes.user_id', $id)
                       ->groupByRaw('institucion, sede,consecutivo')
                       ->get(); 
         

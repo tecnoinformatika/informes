@@ -41,6 +41,7 @@
         @if(Auth::user()->cargo == 'asesor')
         <form action="{{ route("consolidado") }}" method="POST">
           @csrf
+          
           <div class="row">
             <div class="card">
               <div class="card-header">
@@ -66,7 +67,7 @@
                   
                 </div>
               </div>
-            </div>
+          </div>
           
           <div class="row">
             <div class="col-md-6">
@@ -126,6 +127,32 @@
                 <div class="row">
                   <div class="col-12">
                     <p class="card-text">
+                      Seleccione el asesor.
+                    </p>
+                  </div>
+                  
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="default-select-multi">Listado de asesores</label>
+                    <div class="mb-1">
+                      <select class="select2 form-select" multiple="multiple" id="listadoAsesores"  required>
+                        
+                      </select>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+          <div class="row" id="rowsedes" style="visibility: hidden">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Porfavor escoja las sedes que desea consolidar</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <p class="card-text">
                       Seleccione las que desee, puede incluso digitar el nombre de la sede para que sea mas precisa la búsqueda.
                     </p>
                   </div>
@@ -142,7 +169,7 @@
                   
                 </div>
               </div>
-            </div>
+          </div>
           
           <div class="row">
             <div class="col-md-6">
@@ -240,7 +267,33 @@
           }
         });
         $.ajax({
-          url: '/institucion/tabla3',
+          url: '/cruces/tablausuarios/',
+          type: 'get',
+          dataType: 'json',
+          success:function(response){
+          
+          var len = response.length;
+          
+          $("#listadoAsesores").empty();
+          for( var i = 0; i<len; i++){
+            var id = response[i]['id'];
+            var name = response[i]['name'];
+            
+            $("#listadoAsesores").append("<option value='"+id+"'>"+name+"</option>");
+            
+            }
+          }
+        });
+        $('#listadoAsesores').on('change', function() {
+          var id = $('#listadoAsesores').val();
+          if ($('#listadoAsesores').val() >= '1')
+          {
+            $('#rowsedes').css("visibility", "visible");
+          }else{
+            $('#rowsedes').css("visibility", "hidden");
+          }
+          $.ajax({
+          url: '/institucion/tabla3/'+id,
           type: 'get',
           dataType: 'json',
           success:function(response){
@@ -257,6 +310,9 @@
             }
           }
         });
+
+        });
+        
        
            
     });
