@@ -118,78 +118,9 @@
         <br><br>
         <form action="{{ route("consolidadoadmin") }}" method="POST">
           @csrf
-          <div class="row">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Porfavor escoja las sedes que desea consolidar</h4>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-12">
-                    <p class="card-text">
-                      Seleccione el asesor.
-                    </p>
-                  </div>
-                  
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="default-select-multi">Listado de asesores</label>
-                    <div class="mb-1">
-                      <select class="select2 form-select" multiple="multiple" id="listadoAsesores"  required>
-                        
-                      </select>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-          </div>
-          <div class="row" id="rowsedes" style="visibility: hidden">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Porfavor escoja las sedes que desea consolidar</h4>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-12">
-                    <p class="card-text">
-                      Seleccione las que desee, puede incluso digitar el nombre de la sede para que sea mas precisa la búsqueda.
-                    </p>
-                  </div>
-                  
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="default-select-multi">Listado de sedes</label>
-                    <div class="mb-1">
-                      <select class="select2 form-select" multiple="multiple" id="listadoSedesadmin" name="sedes[]" required>
-                        
-                      </select>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-          </div>
+         
           
           <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Tipo de complemento</h4>
-                </div>
-                <div class="card-body">
-                  <!-- Basic Select -->
-                  <div class="mb-1">
-                    <label class="form-label" for="tipo">Tipo de complemento</label>
-                    <select class="form-select" id="tipo" name="tipo" required>
-                      <option >- Seleccione -</option>
-                      <option value="RPS">RPS</option>
-                      <option value="RI">RI</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">

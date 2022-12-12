@@ -980,234 +980,234 @@
               </table>
               
             @elseif($data[0]['tipoconsolidado'] == 'especial')
-            <table id="editable1" class="table table-responsive dt-complex-header table-bordered  table-sm">
-              <thead>
-                <tr>
-                  <th rowspan="2">SEDE</th>
-                  <th rowspan="2">JORNADA - TIPO DE RACION</th>
-                  <th colspan="{{$diashabiles}}">DIAS PROGRAMADOS</th>
-                  <th rowspan="2">N° DIAS ATENDIDOS</th>
-                  <th rowspan="2">TOTAL RACIONES</th>
-                  <th rowspan="2">NOVEDADES EN LAS ENTREGAS</th>
-                  <th rowspan="2">DEVOLUCIONES</th>
-                  <th rowspan="2">Action</th>
-                </tr>
-                <tr>
-                  <th style="display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};">1</th>
-                  <th style="display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};">2</th>
-                  <th style="display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};">3</th>
-                  <th style="display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};">4</th>
-                  <th style="display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};">5</th>
-                  <th style="display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};">6</th>
-                  <th style="display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};">7</th>
-                  <th style="display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};">8</th>
-                  <th style="display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};">9</th>
-                  <th style="display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};">10</th>
-                  <th style="display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};">11</th>
-                  <th style="display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};">12</th>
-                  <th style="display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};">13</th>
-                  <th style="display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};">14</th>
-                  <th style="display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};">15</th>
-                  <th style="display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};">16</th>
-                  <th style="display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};">17</th>
-                  <th style="display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};">18</th>
-                  <th style="display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};">19</th>
-                  <th style="display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};">20</th>
-                  <th style="display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};">21</th>
-                  <th style="display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};">22</th>
-                  <th style="display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};">23</th>
-                  <th style="display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};">24</th>
-                  <th style="display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};">25</th>
-                  <th style="display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};">26</th>
-                  <th style="display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};">27</th>
-                  <th style="display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};">28</th>
-                  <th style="display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};">29</th>
-                  <th style="display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};">30</th>
-                  <th style="display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};">31</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($data as $datos) 
-                               
-                  @if($datos['tipo'] == 'RPI')
-                    <tr>                       
-                        <td class="uneditable tg-lboi" rowspan="2">{{$datos['sede']->nombre}}</td>
-                        <td class="uneditable">JM-RI</td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia1" style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="JM-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JM-RI-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JM-RI"></td>
-                        <td class=""><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
-                        data-id="{{$datos['sede']->consecutivo}}"
-                        data-tipo="JM-RI" id="bt-{{$datos['sede']->consecutivo}}-JM-RI"                        
-                          ><span>+ Guardar</span></button></td>
-                    </tr>
-                    <tr>
-                        <td class="uneditable ">JT-RI</td>
-                        @if(isset($datos['simat']['dia1'][1]))                        
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia1"  style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="JT-RI"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-JT-RI-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JT-RI"></td>
-                        <td class=""><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
-                          data-id="{{$datos['sede']->consecutivo}}"
-                          data-tipo="JT-RI" id="bt-{{$datos['sede']->consecutivo}}-JT-RI"                        
-                            ><span>+ Guardar</span></button></td>
-                        @else
-                        <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};'></td>
-                        <td class="tg-0pky1"></td>
-                        <td class="tg-0pky2"></td>
-                        <td class="tg-0pky3"></td>
-                        <td class="tg-0pky4"></td>
-                        <td class=" uneditable"></td>
-                        @endif
-                        
-                    </tr>
-                  @endif
-                  @if($datos['tipo'] == 'RPS')
-            
-                    
-                    <tr>                       
-                        <td class="uneditable tg-lboi" rowspan="1">{{$datos['sede']->nombre}}</td>
-                        <td class="uneditable ">RPS</td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia1" style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="RPS"></td>
-                        <td id="{{$datos['sede']->consecutivo}}-RPS-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="RPS"></td>
-                        <td class=" uneditable"><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
-                        data-id="{{$datos['sede']->consecutivo}}"
-                        data-tipo="RPS" id="bt-{{$datos['sede']->consecutivo}}-RPS"                        
-                          ><span>+ Guardar</span></button></td>
-                    </tr>
-                    
-                  @endif
-                @endforeach
+              <table id="editable1" class="table table-responsive dt-complex-header table-bordered  table-sm">
+                <thead>
+                  <tr>
+                    <th rowspan="2">SEDE</th>
+                    <th rowspan="2">JORNADA - TIPO DE RACION</th>
+                    <th colspan="{{$diashabiles}}">DIAS PROGRAMADOS</th>
+                    <th rowspan="2">N° DIAS ATENDIDOS</th>
+                    <th rowspan="2">TOTAL RACIONES</th>
+                    <th rowspan="2">NOVEDADES EN LAS ENTREGAS</th>
+                    <th rowspan="2">DEVOLUCIONES</th>
+                    <th rowspan="2">Action</th>
+                  </tr>
+                  <tr>
+                    <th style="display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};">1</th>
+                    <th style="display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};">2</th>
+                    <th style="display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};">3</th>
+                    <th style="display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};">4</th>
+                    <th style="display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};">5</th>
+                    <th style="display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};">6</th>
+                    <th style="display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};">7</th>
+                    <th style="display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};">8</th>
+                    <th style="display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};">9</th>
+                    <th style="display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};">10</th>
+                    <th style="display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};">11</th>
+                    <th style="display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};">12</th>
+                    <th style="display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};">13</th>
+                    <th style="display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};">14</th>
+                    <th style="display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};">15</th>
+                    <th style="display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};">16</th>
+                    <th style="display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};">17</th>
+                    <th style="display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};">18</th>
+                    <th style="display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};">19</th>
+                    <th style="display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};">20</th>
+                    <th style="display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};">21</th>
+                    <th style="display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};">22</th>
+                    <th style="display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};">23</th>
+                    <th style="display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};">24</th>
+                    <th style="display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};">25</th>
+                    <th style="display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};">26</th>
+                    <th style="display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};">27</th>
+                    <th style="display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};">28</th>
+                    <th style="display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};">29</th>
+                    <th style="display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};">30</th>
+                    <th style="display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};">31</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach($data as $datos) 
+                                  
+                      @if($datos['tipo'] == 'RPI')
+                        <tr>                       
+                            <td class="uneditable tg-lboi" rowspan="2">{{$datos['sede']->nombre}}</td>
+                            <td class="uneditable">JM-RI</td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia1" style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="JM-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JM-RI-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JM-RI"></td>
+                            <td class=""><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
+                            data-id="{{$datos['sede']->consecutivo}}"
+                            data-tipo="JM-RI" id="bt-{{$datos['sede']->consecutivo}}-JM-RI"                        
+                              ><span>+ Guardar</span></button></td>
+                        </tr>
+                        <tr>
+                            <td class="uneditable ">JT-RI</td>
+                            @if(isset($datos['simat']['dia1'][1]))                        
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia1"  style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'  data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="JT-RI"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-JT-RI-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="JT-RI"></td>
+                            <td class=""><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
+                              data-id="{{$datos['sede']->consecutivo}}"
+                              data-tipo="JT-RI" id="bt-{{$datos['sede']->consecutivo}}-JT-RI"                        
+                                ><span>+ Guardar</span></button></td>
+                            @else
+                            <td style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};'></td>
+                            <td class="tg-0pky1"></td>
+                            <td class="tg-0pky2"></td>
+                            <td class="tg-0pky3"></td>
+                            <td class="tg-0pky4"></td>
+                            <td class=" uneditable"></td>
+                            @endif
+                            
+                        </tr>
+                      @endif
+                      @if($datos['tipo'] == 'RPS')
                 
-            </tbody>
-            </table>
+                        
+                        <tr>                       
+                            <td class="uneditable tg-lboi" rowspan="1">{{$datos['sede']->nombre}}</td>
+                            <td class="uneditable ">RPS</td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia1" style='display: {{ $dias->dia_1 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia1" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia2" style='display: {{ $dias->dia_2 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia2" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia3" style='display: {{ $dias->dia_3 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia3" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia4" style='display: {{ $dias->dia_4 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia4" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia5" style='display: {{ $dias->dia_5 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia5" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia6" style='display: {{ $dias->dia_6 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia6" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia7" style='display: {{ $dias->dia_7 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia7" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia8" style='display: {{ $dias->dia_8 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia8" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia9" style='display: {{ $dias->dia_9 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia9" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia10" style='display: {{ $dias->dia_10 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia10" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia11" style='display: {{ $dias->dia_11 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia11" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia12" style='display: {{ $dias->dia_12 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia12" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia13" style='display: {{ $dias->dia_13 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia13" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia14" style='display: {{ $dias->dia_14 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia14" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia15" style='display: {{ $dias->dia_15 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia15" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia16" style='display: {{ $dias->dia_16 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia16" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia17" style='display: {{ $dias->dia_17 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia17" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia18" style='display: {{ $dias->dia_18 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia18" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia19" style='display: {{ $dias->dia_19 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia19" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia20" style='display: {{ $dias->dia_20 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia20" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia21" style='display: {{ $dias->dia_21 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia21" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia22" style='display: {{ $dias->dia_22 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia22" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia23" style='display: {{ $dias->dia_23 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia23" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia24" style='display: {{ $dias->dia_24 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia24" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia25" style='display: {{ $dias->dia_25 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia25" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia26" style='display: {{ $dias->dia_26 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia26" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia27" style='display: {{ $dias->dia_27 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia27" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia28" style='display: {{ $dias->dia_28 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia28" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia29" style='display: {{ $dias->dia_29 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia29" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia30" style='display: {{ $dias->dia_30 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia30" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dia31" style='display: {{ $dias->dia_31 != 'Z' ? 'table-cell' : 'none' }};' data-id="{{$datos['sede']->consecutivo}}" data-dia="dia31" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-dias" class="tg-0pky1" data-id="{{$datos['sede']->consecutivo}}" data-dias="diasAtendidos" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-totalRaciones" class="tg-0pky2" data-id="{{$datos['sede']->consecutivo}}" data-totalraciones="totalRaciones" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-novedades" class="tg-0pky3" data-id="{{$datos['sede']->consecutivo}}" data-novedades="novedades" data-modalidad="RPS"></td>
+                            <td id="{{$datos['sede']->consecutivo}}-RPS-devoluciones" class="tg-0pky4" data-id="{{$datos['sede']->consecutivo}}" data-devoluciones="devoluciones" data-modalidad="RPS"></td>
+                            <td class=" uneditable"><button class="dt-button create-new btn btn-primary guardarbt1" tabindex="0"  type="button" 
+                            data-id="{{$datos['sede']->consecutivo}}"
+                            data-tipo="RPS" id="bt-{{$datos['sede']->consecutivo}}-RPS"                        
+                              ><span>+ Guardar</span></button></td>
+                        </tr>
+                        
+                      @endif
+                    @endforeach
+                    
+                </tbody>
+              </table>
             @endif
           </div>
         </div>
