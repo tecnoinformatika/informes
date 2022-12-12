@@ -1372,11 +1372,13 @@ class CrucesController extends Controller
         }
         public function certificacion(Request $request)
         {
-                //dd($request);
+                
                 $array = [];
                 foreach($request->sedes as $sede)
                 {
+                       
                         $sedec = Sedes::where('consecutivo',$sede)->first();
+                        
                         $simat = Simat::where('dane', $sedec->codigo_dane_institucion)->first();
                       
                         $tipoconsolidado = $request->tipoconsolidado;
@@ -1406,13 +1408,13 @@ class CrucesController extends Controller
                         }else if($tipoconsolidado == '2')
                         {
                                 $diasatencion = $request->diasatencion;
-                                $consolidadoRI = ConsolidadosEspeciales::where('codigo_dane_sede', $sede->consecutivo)
+                                $consolidadoRI = ConsolidadosEspeciales::where('codigo_dane_sede', $sede)
                                 ->where('jornada_tipo_racion', 'LIKE','%RI%')   
                                 ->get();
 
                                 $diasRI = Ri::first();                                                                                              
 
-                                $consolidadoRPS = ConsolidadosEspeciales::where('codigo_dane_sede', $sede->consecutivo)
+                                $consolidadoRPS = ConsolidadosEspeciales::where('codigo_dane_sede', $sede)
                                                 ->where('jornada_tipo_racion', 'RPS')
                                                 ->get();
                                 
