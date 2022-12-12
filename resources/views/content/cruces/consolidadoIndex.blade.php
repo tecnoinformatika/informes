@@ -267,7 +267,7 @@
           }
         });
         $.ajax({
-          url: '/cruces/tablausuarios/',
+          url: '/cruces/tablausuarios',
           type: 'get',
           dataType: 'json',
           success:function(response){
