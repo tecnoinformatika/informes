@@ -1305,7 +1305,7 @@
     });
     
     $(document).ready(function(){
-      
+
         $.ajax({
           url: '/institucion/tabla2',
           type: 'get',
@@ -1325,7 +1325,7 @@
           }
         });
        
-        $('#example').DataTable( {
+        $('#editable').DataTable( {
             dom: 'Bfrtip',
             buttons: [
                 'copyHtml5',

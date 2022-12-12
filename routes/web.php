@@ -285,6 +285,7 @@ Route::group(['prefix' => 'institucion'], function () {
     Route::get('index', [InstitucionController::class, 'index'])->name('institucion-index');
     Route::get('tabla', [InstitucionController::class, 'tablainstitucion'])->name('institucion-tabla');
     Route::get('tabla2', [InstitucionController::class, 'tablainstitucion2'])->name('institucion-tabla2');
+    Route::get('tabla3', [InstitucionController::class, 'tablainstitucion3'])->name('institucion-tabla3');
     Route::get('datos', [InstitucionController::class, 'datos'])->name('institucion-datos');
     Route::get('vaciar', [InstitucionController::class, 'vaciar'])->name('institucion-vaciar');
     Route::post('importar', [InstitucionController::class, 'importar'])->name('institucion-importar');
@@ -304,6 +305,7 @@ Route::group(['prefix' => 'cruces'], function () {
     Route::get('registro/{registro}/{tipo}', [CrucesController::class, 'registro'])->name('registro');
     Route::get('registrosimat/{registro}/{tipo}', [CrucesController::class, 'registrosimat'])->name('registrosimat');
     Route::post('consolidado', [CrucesController::class, 'consolidado'])->name('consolidado');
+    Route::post('consolidadoadmin', [CrucesController::class, 'consolidadoadmin'])->name('consolidadoadmin');
     Route::get('index-consolidado', [CrucesController::class, 'indexConsolidado'])->name('index-consolidado');
     Route::get('updateConsolidado', [CrucesController::class, 'updateConsolidado'])->name('updateConsolidado');
     Route::get('updateConsolidado1', [CrucesController::class, 'updateConsolidado1'])->name('updateConsolidado1');

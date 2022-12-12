@@ -38,6 +38,7 @@
         <div class="content-header">
           
         </div>
+        @if(Auth::user()->cargo == 'asesor')
         <form action="{{ route("consolidado") }}" method="POST">
           @csrf
           <div class="row">
@@ -55,7 +56,7 @@
                   
                   </div>
                   <div class="col-12">
-                    <label class="form-label" for="default-select-multi">Default</label>
+                    <label class="form-label" for="default-select-multi">Listado de sedes</label>
                     <div class="mb-1">
                       <select class="select2 form-select" multiple="multiple" id="listadoSedes" name="sedes[]" required>
                         
@@ -66,7 +67,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          
           <div class="row">
             <div class="col-md-6">
               <div class="card">
@@ -112,7 +113,83 @@
             <i data-feather="arrow-right" class="align-middle ms-sm-25 ms-0"></i>
           </button>
         </form>
-       
+        @elseif(Auth::user()->cargo == 'administrador')
+        <br><br>
+        <form action="{{ route("consolidadoadmin") }}" method="POST">
+          @csrf
+          <div class="row">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Porfavor escoja las sedes que desea consolidar</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <p class="card-text">
+                      Seleccione las que desee, puede incluso digitar el nombre de la sede para que sea mas precisa la búsqueda.
+                    </p>
+                  </div>
+                  
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="default-select-multi">Listado de sedes</label>
+                    <div class="mb-1">
+                      <select class="select2 form-select" multiple="multiple" id="listadoSedesadmin" name="sedes[]" required>
+                        
+                      </select>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Tipo de complemento</h4>
+                </div>
+                <div class="card-body">
+                  <!-- Basic Select -->
+                  <div class="mb-1">
+                    <label class="form-label" for="tipo">Tipo de complemento</label>
+                    <select class="form-select" id="tipo" name="tipo" required>
+                      <option >- Seleccione -</option>
+                      <option value="RPS">RPS</option>
+                      <option value="RI">RI</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Tipo de consolidado</h4>
+                </div>
+                <div class="card-body">
+                  <!-- Basic Select -->
+                  <div class="mb-1">
+                    <label class="form-label" for="tipoconsolidado">Tipo de consolidado</label>
+                    <select class="form-select" id="tipoconsolidado" name="tipoconsolidado" required>
+                      <option >- Seleccione -</option>
+                      <option value="1">Consolidado normal</option>
+                      <option value="2">Consolidado entregas especiales</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <button class="btn btn-primary btn-next">
+            <span class="align-middle d-sm-inline-block d-none">Consolidar TODO</span>
+            <i data-feather="arrow-right" class="align-middle ms-sm-25 ms-0"></i>
+          </button>
+        </form>
+        @endif
       </div>
      
     </div>
@@ -158,6 +235,24 @@
             var name = response[i]['institucion'] + " - " + response[i]['sede'];
             
             $("#listadoSedes").append("<option value='"+id+"'>"+name+"</option>");
+            
+            }
+          }
+        });
+        $.ajax({
+          url: '/institucion/tabla3',
+          type: 'get',
+          dataType: 'json',
+          success:function(response){
+          
+          var len = response.length;
+          
+          $("#listadoSedesadmin").empty();
+          for( var i = 0; i<len; i++){
+            var id = response[i]['consecutivo'];
+            var name = response[i]['institucion'] + " - " + response[i]['sede'];
+            
+            $("#listadoSedesadmin").append("<option value='"+id+"'>"+name+"</option>");
             
             }
           }
