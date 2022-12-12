@@ -30,11 +30,8 @@
           <div class="card-header border-bottom">
             <h2>
            
-              @if($tipoconsolidado = 'normal')
-              CONSOLIDADO NORMAL
-              @elseif($tipoconsolidado = 'especial')
-              CONSOLIDADO ENTREGAS ESPECIALES
-              @endif
+              
+             <b style="text-transform: Uppercase"> CONSOLIDADO {{$tipoconsolidado}}</b>
           </div>
           
          
