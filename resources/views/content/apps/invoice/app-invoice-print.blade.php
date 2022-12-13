@@ -683,11 +683,12 @@
                   <span class="fw-bold"></span> <span class="ms-75">
                     <textarea
                       type="text"
-                      class="form-control" style="border-color: #40465600;"
+                      class="form-control" style="border-color: #40465600; text-align: justify"
                       id="observaciones"
                       name="observaciones"
                       placeholder="Observaciones"
                       aria-label="Observaciones"
+                      rows="4"
                     ></textarea>
                   </span>
                   
