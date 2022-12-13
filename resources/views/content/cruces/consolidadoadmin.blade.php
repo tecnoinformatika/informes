@@ -82,9 +82,10 @@
                 </thead>
                 
                 <tbody>
+                  
                       @foreach($data as $datos)    
                       @php
-                        $se = DB::table('sedes')->where('consecutivo',$datos->codigo_dane_sede)->select('nombre')->first();
+                        $se = DB::table('sedes')->where('consecutivo',$datos->codigo_dane_sede)->first();
                       @endphp
                       <tr>
                         <td>{{$se->nombre}}</td>

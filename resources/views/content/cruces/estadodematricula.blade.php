@@ -21,7 +21,7 @@
 </div>
 <!-- Basic table -->
 <section class="bootstrap-select">
-  <form action="/cruces/estado-matriculaJson/" method="GET">
+  <form action="/cruces/estado-matriculaJson" method="GET">
   <div class="row">
     
    
