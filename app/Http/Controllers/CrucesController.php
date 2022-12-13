@@ -322,7 +322,7 @@ class CrucesController extends Controller
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_9 is null then 1 else 0 end) as dia_9, sum(case when dia_9 is not null then 1 else 0 end) as dia_9observacion, Tipo_de_complemento'))
                                                 ->get();
-                                        $dia10 = Ri::where('codigo_dane_sede', $sede->consecutivo)
+                                        $dia10 = Ri::where('codigo_dane_sede', $sede)
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_10 is null then 1 else 0 end) as dia_10, sum(case when dia_10 is not null then 1 else 0 end) as dia_10observacion, Tipo_de_complemento'))
                                                 ->get();
@@ -346,7 +346,7 @@ class CrucesController extends Controller
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_15 is null then 1 else 0 end) as dia_15, sum(case when dia_15 is not null then 1 else 0 end) as dia_15observacion, Tipo_de_complemento'))
                                                 ->get();
-                                        $dia16 = Ri::where('codigo_dane_sede', $sede->consecutivo)
+                                        $dia16 = Ri::where('codigo_dane_sede', $sede)
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_16 is null then 1 else 0 end) as dia_16, sum(case when dia_16 is not null then 1 else 0 end) as dia_16observacion, Tipo_de_complemento'))
                                                 ->get();
@@ -358,7 +358,7 @@ class CrucesController extends Controller
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_18 is null then 1 else 0 end) as dia_18, sum(case when dia_18 is not null then 1 else 0 end) as dia_18observacion, Tipo_de_complemento'))
                                                 ->get();
-                                        $dia19 = Ri::where('codigo_dane_sede', $sede->consecutivo)
+                                        $dia19 = Ri::where('codigo_dane_sede', $sede)
                                                 ->groupByRaw('Tipo_de_complemento')
                                                 ->select(DB::raw('sum(case when dia_19 is null then 1 else 0 end) as dia_19, sum(case when dia_19 is not null then 1 else 0 end) as dia_19observacion, Tipo_de_complemento'))
                                                 ->get();
@@ -989,12 +989,14 @@ class CrucesController extends Controller
                 
                 $dia = $request->dia;
 
-               $corte = Ajuste::
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                 
-                if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
+                if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first())
                 {
                         if(isset($request->diasAtendidos)){
-                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1005,7 +1007,7 @@ class CrucesController extends Controller
                                      
                         }else if(isset($request->totalRaciones))
                         {
-                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1015,7 +1017,7 @@ class CrucesController extends Controller
                                 ]);     
                         }else if (isset($request->novedades))
                         {
-                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1025,7 +1027,7 @@ class CrucesController extends Controller
                                 ]);    
                         }else if (isset($request->devoluciones))
                         {
-                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1034,7 +1036,7 @@ class CrucesController extends Controller
                                         'devoluciones' =>$request->devoluciones
                                 ]);     
                         }else{
-                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1058,7 +1060,8 @@ class CrucesController extends Controller
                                          'N_dias_atendidos' => $request->diasAtendidos,
                                         'total_raciones' => $request->totalRaciones,
                                         'novedades' => $request->novedades,
-                                        'devoluciones' =>$request->devoluciones
+                                        'devoluciones' =>$request->devoluciones,
+                                        'corte' => $mes
                                     ]); 
                         }else{
                                 Consolidado::insert([
@@ -1068,7 +1071,8 @@ class CrucesController extends Controller
                                         'N_dias_atendidos' => $request->diasAtendidos,
                                         'total_raciones' => $request->totalRaciones,
                                         'novedades' => $request->novedades,
-                                        'devoluciones' =>$request->devoluciones
+                                        'devoluciones' =>$request->devoluciones,
+                                        'corte' => $mes
                                     ]); 
                         }
                         
@@ -1078,13 +1082,16 @@ class CrucesController extends Controller
                 
         }
         public function updateConsolidado1(Request $request)
-        {
+        {       
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                 //dd($request);
                 $id = Auth::user()->id; 
                 
-                if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
+                if(Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first())
                 {
-                        Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                        Consolidado::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                         ->update([
                                 'user_id' => $id,
                                 'codigo_dane_sede' => $request->sede_id,
@@ -1167,7 +1174,8 @@ class CrucesController extends Controller
                                 'total_raciones' => $request->totalRaciones,
                                 'novedades' => $request->novedades,
                                 'devoluciones' =>$request->devoluciones,
-                                'consolidado' => $request->consolidado
+                                'consolidado' => $request->consolidado,
+                                'corte' => $mes
                         ]); 
                         return response()->json(['success' => true]);
                 }
@@ -1177,13 +1185,15 @@ class CrucesController extends Controller
                 $id = Auth::user()->id;
                 
                 $dia = $request->dia;
-
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                
                 
-                if(ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
+                if(ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first())
                 {
                         if(isset($request->diasAtendidos)){
-                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1194,7 +1204,7 @@ class CrucesController extends Controller
                                      
                         }else if(isset($request->totalRaciones))
                         {
-                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1204,7 +1214,7 @@ class CrucesController extends Controller
                                 ]);     
                         }else if (isset($request->novedades))
                         {
-                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1214,7 +1224,7 @@ class CrucesController extends Controller
                                 ]);    
                         }else if (isset($request->devoluciones))
                         {
-                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1223,7 +1233,7 @@ class CrucesController extends Controller
                                         'devoluciones' =>$request->devoluciones
                                 ]);     
                         }else{
-                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                                ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                                 ->update([
                                         'user_id' => $id,
                                         'codigo_dane_sede' => $request->sede_id,
@@ -1247,7 +1257,8 @@ class CrucesController extends Controller
                                          'N_dias_atendidos' => $request->diasAtendidos,
                                         'total_raciones' => $request->totalRaciones,
                                         'novedades' => $request->novedades,
-                                        'devoluciones' =>$request->devoluciones
+                                        'devoluciones' =>$request->devoluciones,
+                                        'corte' => $mes
                                     ]); 
                         }else{
                                 ConsolidadosEspeciales::insert([
@@ -1257,7 +1268,8 @@ class CrucesController extends Controller
                                         'N_dias_atendidos' => $request->diasAtendidos,
                                         'total_raciones' => $request->totalRaciones,
                                         'novedades' => $request->novedades,
-                                        'devoluciones' =>$request->devoluciones
+                                        'devoluciones' =>$request->devoluciones,
+                                        'corte' => $mes
                                     ]); 
                         }
                         
@@ -1268,13 +1280,15 @@ class CrucesController extends Controller
         }
         public function updateConsolidadoespecial1(Request $request)
         {
-                dd($request);
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                 $id = Auth::user()->id; 
 
-                if(ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first())
+                if(ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first())
                 {
                         
-                        ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->first()
+                        ConsolidadosEspeciales::where('codigo_dane_sede',$request->sede_id)->where('jornada_tipo_racion', $request->modalidad)->where('corte',$mes)->first()
                         ->update([
                                 'user_id' => $id,
                                 'codigo_dane_sede' => $request->sede_id,
@@ -1357,7 +1371,8 @@ class CrucesController extends Controller
                                 'total_raciones' => $request->totalRaciones,
                                 'novedades' => $request->novedades,
                                 'devoluciones' => $request->devoluciones,
-                                'consolidado' => $request->consolidado
+                                'consolidado' => $request->consolidado,
+                                'corte' => $mes
                         ]); 
                         return response()->json(['success' => true]);
                 }
