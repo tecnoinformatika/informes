@@ -167,6 +167,8 @@
               
                     @elseif($datos->estado == "GRADUADO")
                     <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
+                    @elseif($datos->estado == "REPROBADO")
+                    <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$datos->estado}}</span></td>
                     
                     @elseif ($datos->estado == null)
                     <td class="uneditable"><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
