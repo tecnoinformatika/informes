@@ -188,7 +188,10 @@
                   
                         @elseif ($consultanombre->estado == "GRADUADO") 
                           <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$consultanombre->estado}}</span></td>
-                        @endif
+                        
+                        @elseif ($consultanombre->estado == "REPROBADO") 
+                          <td class="uneditable"><span class="badge rounded-pill badge-light-warning me-1">{{$consultanombre->estado}}</span></td>
+                          @endif
                       @else
                       <td class="uneditable"><span class="badge rounded-pill badge-light-secondary me-1"> No coincide</span></td>
                       @endif
@@ -208,6 +211,10 @@
                         @elseif($datos->estado == "GRADUADO")
                       
                         data-crucedocumento="GRADUADO" 
+                        @elseif($datos->estado == "REPROBADO")
+                      
+                        data-crucedocumento="REPROBADO" 
+                        
                         @elseif ($datos->estado == null)
                         data-crucedocumento="no coincide" 
                     
