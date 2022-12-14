@@ -64,7 +64,8 @@ class CrucesController extends Controller
                         ->leftjoin('simats','ris.documento','=','simats.documento')
                         ->join('sedes', 'sedes.consecutivo','=','ris.codigo_dane_sede')
                         ->where('sedes.user_id','=', Auth::user()->id)
-                        ->where('simats.estado','!=','MATRICULADO')  
+                        ->where('simats.estado','!=','MATRICULADO')
+                        ->orwhere('simats.estado','!=','REPROBADO')  
                         ->select('ris.id as N',
                                 'ris.TIPO_DE_DOCUMENTO as tipodoc',
                                 'ris.NUMERO_DE_DOCUMENTO_DE_IDENTIDAD as numdoc',
