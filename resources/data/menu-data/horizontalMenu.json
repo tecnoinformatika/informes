@@ -5,34 +5,7 @@
       "icon": "home",
       "slug": "dashboard-ecommerce",
       "url": "dashboard/ecommerce"      
-    },
-    {
-      "name": "Cruces",
-      "icon": "package",
-      "dropdown": "1",
-      "slug": "",
-      "submenu": [
-        
-        {
-          "url": "cruces/estado-matricula",
-          "name": "Estado matrícula",
-          "icon": "check-square",
-          "slug": "cruce-estado-matricula"
-        },
-        {
-          "url": "cruces/index-consolidado",
-          "name": "Consolidado",
-          "icon": "calendar",
-          "slug": "cruces-consolidado"
-        },
-        {
-          "url": "cruces/index-certificaciones",
-          "name": "Certificaciones",
-          "icon": "file-plus",
-          "slug": "cruces-certificaciones"
-        }
-      ]
-    },
+    },    
     {
       "name": "Data",
       "icon": "database",
@@ -41,114 +14,25 @@
       "submenu": [
         {
           
-          "name": "Simat",
+          "name": "Instituciones Oficiales",
           "dropdown": "1",
           "icon": "file-text",
           "slug": "",
           "submenu": [
             {
-              "url": "simat/index",
+              "url": "institucionesOficiales/index",
               "name": "Datos cargados",
               "icon": "users",
-              "slug": "simat-index"
+              "slug": "institucionesOficiales-index"
             },
             {
-              "url": "simat/datos",
+              "url": "institucionesOficiales/datos",
               "name": "Administrar datos",
               "icon": "user-plus",
-              "slug": "simat-datos"
+              "slug": "institucionesOficiales-datos"
             }
-          ]
-          
-        },
-        {
-          
-          "name": "RPS",
-          "dropdown": "1",
-          "icon": "file-text",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "rps/index",
-              "name": "Datos cargados",
-              "icon": "users",
-              "slug": "rps-index"
-            },
-            {
-              "url": "rps/datos",
-              "name": "Administrar datos",
-              "icon": "user-plus",
-              "slug": "rps-datos"
-            }
-          ]
-          
-        },
-        {
-          
-          "name": "RI",
-          "dropdown": "1",
-          "icon": "file-text",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "ri/index",
-              "name": "Datos cargados",
-              "icon": "users",
-              "slug": "ri-index"
-            },
-            {
-              "url": "ri/datos",
-              "name": "Administrar datos",
-              "icon": "user-plus",
-              "slug": "ri-datos"
-            }
-          ]
-          
-        },
-        {
-          
-          "name": "Instituciones",
-          "dropdown": "1",
-          "icon": "file-text",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "institucion/index",
-              "name": "Datos cargados",
-              "icon": "folder-minus",
-              "slug": "institucion-index"
-            },
-            {
-              "url": "institucion/datos",
-              "name": "Administrar datos",
-              "icon": "user-plus",
-              "slug": "institucion-datos"
-            }
-          ]
-          
-        },
-        {
-          
-          "name": "Sedes",
-          "dropdown": "1",
-          "icon": "file-text",
-          "slug": "",
-          "submenu": [
-            {
-              "url": "sedes/index",
-              "name": "Datos cargados",
-              "icon": "folder-minus",
-              "slug": "sede-index"
-            },
-            {
-              "url": "sedes/datos",
-              "name": "Administrar datos",
-              "icon": "user-plus",
-              "slug": "sede-datos"
-            }
-          ]
-          
-        }
+          ]          
+        }     
         
       ]
     },

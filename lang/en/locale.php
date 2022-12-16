@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "Instituciones Oficiales" => "Instituciones Oficiales",
     "Consolidado" => "Consolidado",
     "Corte" => "Corte",
     "Certificaciones" => "Certificaciones",
