@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InstitucionesOficialesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +17,3 @@ use App\Http\Controllers\InstitucionesOficialesController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/instituciones', [InstitucionesOficialesController::class, 'instituciones'])->name('instituciones');

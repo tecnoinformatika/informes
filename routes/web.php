@@ -21,7 +21,7 @@ use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\SedesController;
 use App\Http\Controllers\RiController;
 use App\Http\Controllers\CrucesController;
-use App\Http\Controllers\InstitucionesOficialesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -262,14 +262,6 @@ Route::group(['prefix' => 'simat'], function () {
     Route::get('vaciar', [SimatController::class, 'vaciar'])->name('simat-vaciar');
     Route::post('importar', [SimatController::class, 'importar'])->name('simat-importar');
 });
-Route::group(['prefix' => 'institucionesOficiales'], function () {
-    Route::get('index', [InstitucionesOficialesController::class, 'index'])->name('institucionesOficiales-index');
-    Route::get('tabla', [InstitucionesOficialesController::class, 'tablaInstitucionesOficiales'])->name('institucionesOficiales-tabla');
-    Route::get('datos', [InstitucionesOficialesController::class, 'datos'])->name('institucionesOficiales-datos');
-    Route::get('vaciar', [InstitucionesOficialesController::class, 'vaciar'])->name('institucionesOficiales-vaciar');
-    Route::post('importar', [InstitucionesOficialesController::class, 'importar'])->name('institucionesOficiales-importar');
-});
-
 
 Route::group(['prefix' => 'rps'], function () {
     Route::get('index', [RpsController::class, 'index'])->name('rps-index');

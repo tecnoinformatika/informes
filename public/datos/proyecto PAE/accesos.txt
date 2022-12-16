@@ -1,0 +1,16 @@
+mysql database pass: 9rumXJHgIpoKIoqK 
+
+___________________________
+base de datos pae: pae
+usuario: pae
+contraseña: FlXGKEtpQFU9GgU
+_____________________
+
+_________________
+usuario webmin: jesus
+contraseña webmin: 123456789..
+usuario webmin: root
+contraseña webmin: 123456789..
+
+http://34.125.61.66:10000/
+_______________________
