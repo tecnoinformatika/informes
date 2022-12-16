@@ -1387,9 +1387,7 @@ class CrucesController extends Controller
         }
         public function certificacion(Request $request)
         {
-                $mescorte = DB::table('ajustes')->first();
-                $mes = date('m', strtotime($mescorte->incio));
-                $mes = intval($mes);
+                
                 $array = [];
                 foreach($request->sedes as $sede)
                 {
@@ -1403,15 +1401,13 @@ class CrucesController extends Controller
                         if($tipoconsolidado == '1')
                         {
                                 $consolidadoRI = Consolidado::where('consolidados.codigo_dane_sede', $sede)
-                                                ->where('consolidados.jornada_tipo_racion', 'LIKE','%RI%')
-                                                ->where('corte',$mes)   
+                                                ->where('consolidados.jornada_tipo_racion', 'LIKE','%RI%')   
                                                 ->get();
 
                                 $diasRI = Ri::first();                                                                                              
 
                                 $consolidadoRPS = Consolidado::where('consolidados.codigo_dane_sede', $sede)
                                                 ->where('consolidados.jornada_tipo_racion', 'RPS')
-                                                ->where('corte',$mes)   
                                                 ->get();
                                 
 
@@ -1429,14 +1425,12 @@ class CrucesController extends Controller
                                 $diasatencion = $request->diasatencion;
                                 $consolidadoRI = ConsolidadosEspeciales::where('codigo_dane_sede', $sede)
                                 ->where('jornada_tipo_racion', 'LIKE','%RI%')   
-                                ->where('corte',$mes)   
                                 ->get();
 
                                 $diasRI = Ri::first();                                                                                              
 
                                 $consolidadoRPS = ConsolidadosEspeciales::where('codigo_dane_sede', $sede)
                                                 ->where('jornada_tipo_racion', 'RPS')
-                                                ->where('corte',$mes)   
                                                 ->get();
                                 
 
