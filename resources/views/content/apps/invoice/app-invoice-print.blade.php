@@ -205,7 +205,7 @@
                 <th class="tg-cly1">INSTITUCIÓN</th>
                 <th class="tg-cly1">SEDE</th>
                 <th class="tg-cly1">RACIONES ADJUDICADAS</th>
-                <th class="tg-cly1">RACIONES ENTEGADAS <br>MODALIDAD RI<br>(RACIÓN INDUSTRIALIZADA)</th>
+                <th class="tg-cly1">RACIONES ENTREGADAS <br>MODALIDAD RI<br>(RACIÓN INDUSTRIALIZADA)</th>
                 <th class="tg-cly1">RACIONES ENTREGADAS<br> MODALIDAD rps<br>( RACIÓN PREPARADA EN SITIO)</th>
                 <th class="tg-cly1">DEVOLUCIONES</th>
                 <th class="tg-cly1">NOVEDADES</th>
