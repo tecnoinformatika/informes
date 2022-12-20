@@ -963,6 +963,9 @@ class CrucesController extends Controller
         }
         public function consolidadoadmin(Request $request)
         {
+                $mescorte = DB::table('ajustes')->first();
+                $mes = date('m', strtotime($mescorte->incio));
+                $mes = intval($mes);
                
                                 //return json_encode($sedeadmin);
                         //return json_encode($simat);
@@ -971,11 +974,13 @@ class CrucesController extends Controller
                         if($tipoconsolidado == '1')
                         {
                                 $sedeadmin = DB::table('consolidados')
+                                ->where('corte',$mes)
                                 ->get();                        
                                 $tipoconsolidado ='normal';                                
                         }else if($tipoconsolidado == '2')
                         {
                                 $sedeadmin = DB::table('consolidados_especiales')
+                                ->where('corte',$mes)
                                 ->get();                          
                                 $tipoconsolidado ='especial';
                         }

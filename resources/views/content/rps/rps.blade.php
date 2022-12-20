@@ -62,7 +62,7 @@
                   <th>GRADO EDUCATIVO</th>
                   <?php 
                   $dia=0; 
-                  
+                
                   while($dia < 31)
                   {
                     $dia += 1;

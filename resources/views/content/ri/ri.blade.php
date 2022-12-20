@@ -37,7 +37,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header border-bottom">
-        <h4 class="card-title">Registros RPS</h4>
+        <h4 class="card-title">Registros RI</h4>
       </div>
       <div class="card-datatable">
    
@@ -58,7 +58,7 @@
                 <th>GRADO EDUCATIVO</th>
                 <?php 
                 $dia=0; 
-                
+               
                 while($dia < 31)
                 {
                   $dia += 1;
