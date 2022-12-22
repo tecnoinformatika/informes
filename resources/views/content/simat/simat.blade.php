@@ -53,21 +53,20 @@
                 <label class="form-label" for="institucion">Segundo Apellido</label>
                 <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" value="">
               </div>
-              
               <div class="mb-1 col-md-3">
                 <label class="form-label" for="tipo">Tipo de documento</label>
                 <select class="form-select" id="tipoDocumento" name="tipoDocumento" required>
                   <option value="">- Seleccione -</option>
-                  <option value="&A2&">TI</option>
-                  <option value="&A2&">RC</option>
-                  <option value="&A2&">NES</option>
-                  <option value="&A2&">PPT</option>
-                  <option value="&A2&">PEP</option>
-                  <option value="&A2&">TMF</option>
-                  <option value="&A2&">CC</option>
-                  <option value="&A2&">CE</option>
-                  <option value="&A2&">VISA</option>
-                  <option value="&A2&">NUIP</option>
+                  <option value="TI">TI</option>
+                  <option value="RC">RC</option>
+                  <option value="NES">NES</option>
+                  <option value="PPT">PPT</option>
+                  <option value="PEP">PEP</option>
+                  <option value="TMF">TMF</option>
+                  <option value="CC">CC</option>
+                  <option value="CE">CE</option>
+                  <option value="VISA">VISA</option>
+                  <option value="NUIP">NUIP</option>
 
                 </select>
               </div>
@@ -171,7 +170,7 @@
     var primerNombre = $('#primerNombre').val();
     var segundoNombre = $('#segundoNombre').val();
     var primerApellido = $('#primerApellido').val();
-    var SegundoApellido = $('#SegundoApellido').val();
+    var SegundoApellido = $('#segundoApellido').val();
     var tipoDocumento = $('#tipoDocumento').val();
     var documento = $('#documento').val();
     if(typeof primerNombre == 'undefined'){
@@ -183,8 +182,8 @@
     if(typeof primerApellido == 'undefined'){
       primerApellido = '';
     }
-    if(typeof segundoApellido == 'undefined'){
-      segundoApellido = '';
+    if(typeof SegundoApellido == 'undefined'){
+      SegundoApellido = '';
     }
     if(typeof tipoDocumento == 'undefined'){
       tipoDocumento = '';

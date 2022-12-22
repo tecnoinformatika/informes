@@ -23,14 +23,21 @@ class SimatController extends Controller
 
     public function tablaSimat(Request $request)
     {
-        $simat = Simat::orWhere('doc','LIKE', '%' .$request->documento. '%')
-                ->Where('nombre2', 'LIKE', '%' .$request->segundoNombre. '%')
-                ->Where('apellido1', 'LIKE', '%' .$request->primerApellido. '%')
-                ->Where('apellido2','LIKE', '%' .$request->segundoApellido. '%')
-                ->Where('tioodoc','LIKE', '%' .$request->tipoDocumento. '%')
-                ->Where('nombre1','LIKE', '%' .$request->primerNombre. '%')
+        if($request->documento != '')
+        {
+            $simat = Simat::Where('doc', 'LIKE', '%' .$request->documento. '%')
                 ->get();  
+        }else{
+            $simat = Simat::Where('nombre2', 'LIKE', '%' .$request->segundoNombre. '%')
+        ->Where('apellido1', 'LIKE', '%' .$request->primerApellido. '%')
+        ->Where('apellido2','LIKE', '%' .$request->SegundoApellido. '%')
+        ->Where('tioodoc','LIKE', '%' .$request->tipoDocumento. '%')
+        ->Where('nombre1','LIKE', '%' .$request->primerNombre. '%')
+                ->get();  
+        }
+
         
+        //dd($simat);
         return json_decode($simat);
     }
     public function Datos()
