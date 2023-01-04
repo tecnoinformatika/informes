@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\InstitucionImport;
 use Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class InstitucionController extends Controller
 {
