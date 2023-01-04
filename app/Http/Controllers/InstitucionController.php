@@ -17,6 +17,15 @@ class InstitucionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function colegios()
+    {
+        $instituciones = Institucion::get();
+        return response::json($instituciones);
+    } 
+
+
     public function index()
     {
         $rps = Institucion::get();  
