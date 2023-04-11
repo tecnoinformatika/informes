@@ -31,7 +31,7 @@ class AppsController extends Controller
 
     public function usuario($id)
     {
-   
+
         $usuario = User::where('users.id',$id)
                     ->join('firmas', 'users.id','=','firmas.user_id')
                     ->select('users.id as id','users.name as name','users.contrato as contrato', 'users.email as email','users.documento as documento','users.cargo as cargo','firmas.nombre')
@@ -65,7 +65,7 @@ class AppsController extends Controller
             {
                 $data = Firmas::where('user_id', $usuario->id)->first()
                 ->update([
-                    'nombre' => $image_path, 
+                    'nombre' => $image_path,
                     'formato' => $formato,
                     'user_id' => $usuario->id,
                     'created_at' => date("Y-m-d H:i:s"),
@@ -74,14 +74,14 @@ class AppsController extends Controller
 
             }else{
                 $data = Firmas::create([
-                    'nombre' => $image_path, 
+                    'nombre' => $image_path,
                     'formato' => $formato,
                     'user_id' => $usuario->id,
                     'created_at' => date("Y-m-d H:i:s"),
                     'updated_at' => date("Y-m-d H:i:s"),
                 ]);
             }
-            
+
 
         $users  = User::get();
 
@@ -91,7 +91,7 @@ class AppsController extends Controller
 
     public function crearUsuario(Request $request)
     {
-        
+
         $usuario = new User();
 
         $usuario->name = $request->name;
@@ -113,7 +113,7 @@ class AppsController extends Controller
             $formato = request()->file('firma')->getClientOriginalExtension();
 
             $data = Firmas::create([
-                'nombre' => $image_path, 
+                'nombre' => $image_path,
 				'formato' => $formato,
 				'user_id' => $usuario->id,
 				'created_at' => date("Y-m-d H:i:s"),
@@ -140,19 +140,19 @@ class AppsController extends Controller
         {
             $data = Ajustes::where($request->id)->first();
             $data->totaldiasatencion = $request->totaldiasatencion;
-            $data->incio = $request->incio; 
+            $data->incio = $request->incio;
             $data->fin = $request->fin;
-            $data->cortesimat = $request->cortesimat; 
+            $data->cortesimat = $request->cortesimat;
             $data->programa = $request->programa;
             $data->created_at =  date("Y-m-d H:i:s");
             $data->save();
         }else{
-            
+
             $data = new Ajustes();
             $data->totaldiasatencion = $request->totaldiasatencion;
-            $data->incio = $request->incio; 
+            $data->incio = $request->incio;
             $data->fin = $request->fin;
-            $data->cortesimat = $request->cortesimat; 
+            $data->cortesimat = $request->cortesimat;
             $data->programa = $request->programa;
             $data->created_at =  date("Y-m-d H:i:s");
             $data->save();
@@ -168,7 +168,7 @@ class AppsController extends Controller
     public function datos(){
             $data = Ajustes::first();
 
-            return \Response::json($data);
+            return \\Response::json($data);
     }
 
     // invoice list App
@@ -212,7 +212,7 @@ class AppsController extends Controller
     }
 
     // User List Page
-   
+
 
 
 

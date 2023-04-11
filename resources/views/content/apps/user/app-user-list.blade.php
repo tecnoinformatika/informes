@@ -19,7 +19,7 @@
 @section('content')
 <!-- users list start -->
 <section class="app-user-list">
-  
+
   <!-- list and filter start -->
   <div class="card">
     <div class="card-body border-bottom">
@@ -30,7 +30,7 @@
         <div class="col-md-4 user_status"></div>
       </div>
     </div>
-  
+
     <div class="card-datatable table-responsive pt-0">
       <table id="tablausuarios" class="user-list-table table">
         <thead class="table-light">
@@ -55,12 +55,12 @@
               <td>{{$datos->email}}</td>
               <td>
                 <div class="btn-group">
-                  
+
                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modals-slide-in2" id="edit-customer1" data-id="{{ $datos->id }}">Editar</a>
                     <a href="javascript:;" class="dropdown-item delete-record">Eliminar</a>
-                 
+
                 </div>
-              
+
               </td>
             </tr>
           @endforeach
@@ -71,7 +71,7 @@
     <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
       <div class="modal-dialog">
         <form class="add-new-user modal-content pt-0" method="POST" action="{{ route('crearUsuario') }}" role="form" enctype="multipart/form-data">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
           <div class="modal-header mb-1">
             <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
@@ -107,7 +107,7 @@
                 name="contrato"
               />
             </div>
-            
+
             <div class="mb-1">
               <label class="form-label" for="cargo">Cargo</label>
               <select id="cargo" name="cargo" class="select2 form-select">
@@ -139,7 +139,7 @@
               <label for="customFile1" class="form-label">Firma digital</label>
               <input class="form-control" type="file" id="firma" required="require" name="firma">
             </div>
-            
+
             <button type="submit" class="btn btn-primary me-1 data-submit">Submit</button>
             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
           </div>
@@ -188,7 +188,7 @@
                 name="contrato1"
               />
             </div>
-            
+
             <div class="mb-1">
               <label class="form-label" for="cargo">Cargo</label>
               <select id="cargo1" name="cargo1" class="select2 form-select">
@@ -221,7 +221,7 @@
               <label for="customFile1" class="form-label">Firma digital</label>
               <input class="form-control" type="file" id="firma1" required="require" name="firma">
             </div>
-            
+
             <button type="submit" class="btn btn-primary me-1 data-submit">Submit</button>
             <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
           </div>
@@ -258,8 +258,8 @@
   {{-- Page js files --}}
   <script>
     $(document).ready(function(){
-     
-       
+
+
         $('#tablausuarios').DataTable( {
             dom: 'Bfrtip',
             buttons: [
@@ -319,21 +319,21 @@
                 }
               }
             ]
-        } );     
+        } );
     });/* Edit customer */
 
     $('body').on('click', '#edit-customer1', function () {
       var customer_id = $(this).data('id');
-      
+
       $.get('/usuarios/usuario/'+customer_id, function (data) {
-       
+
       $('#btn-update').val("Update");
       $('#modals-slide-in1').modal('show');
       $('#id1').val(data.id);
       $('#name1').val(data.name);
       $('#documento1').val(data.documento);
       $('#contrato1').val(data.contrato);
-      
+
       $('#firma2').attr("src","/storage/"+ data.nombre);;
       $('#email1').val(data.email);
       });
